@@ -228,12 +228,13 @@ body {
 /* ===== MINI HERO ===== */
 .mini-hero {
   height: 48vh;
-  min-height: 320px;
+  min-height: 350px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding-top: 130px;
 }
 .mini-hero::after {
   content: '';
@@ -250,8 +251,6 @@ body {
 
 /* ===== FLOATING BUTTONS ===== */
 .floating-btn {
-  position: fixed;
-  z-index: 999;
   width: 54px;
   height: 54px;
   border-radius: 50%;

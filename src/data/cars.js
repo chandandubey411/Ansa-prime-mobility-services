@@ -10,7 +10,7 @@ export const cars = [
     rateNum: 15,
     color: 'from-slate-800 to-slate-950',
     tagColor: 'from-zinc-900/60 to-zinc-950/60 border-zinc-700/40 text-zinc-300',
-    image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/f2/0d/7f/f20d7fe875f96071e151608e040d8ecc.jpg',
     description: 'The Maruti Suzuki Dzire is India\'s most popular compact sedan. It offers a smooth and reliable city ride with exceptional fuel efficiency. Perfect for solo travelers, business professionals, or small families seeking an budget-friendly trip or swift airport transfers.'
   },
   {
@@ -24,7 +24,7 @@ export const cars = [
     rateNum: 18,
     color: 'from-zinc-800 to-zinc-950',
     tagColor: 'from-amber-900/60 to-amber-950/60 border-amber-700/40 text-amber-300',
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/48/d8/50/48d85079ed003f3f3765492e217c60ce.jpg',
     description: 'An upgraded variant of our compact sedan fleet featuring premium leather seating, enhanced air conditioning controls, and additional legroom. Designed for travelers who require executive level comfort at an affordable daily rate.'
   },
   {
@@ -38,7 +38,7 @@ export const cars = [
     rateNum: 15,
     color: 'from-slate-800 to-slate-950',
     tagColor: 'from-zinc-900/60 to-zinc-950/60 border-zinc-700/40 text-zinc-300',
-    image: 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf0a3?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/90/85/18/908518f885790e4ee23b2111a8a475f8.jpg',
     description: 'The Hyundai Aura CNG provides eco-friendly transportation without compromising style or interior amenities. Ideal for short business travels and clean-energy city commutes, offering standard air conditioning and passenger safety features.'
   },
   {
@@ -52,7 +52,7 @@ export const cars = [
     rateNum: 17,
     color: 'from-blue-900 to-blue-950',
     tagColor: 'from-blue-900/60 to-blue-950/60 border-blue-700/40 text-blue-300',
-    image: 'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/4a/83/80/4a8380026577d4c2b65a958057c00262.jpg',
     description: 'The iconic Honda City is the gold standard for mid-size executive sedans. It features spacious rear legroom, plush interiors, a massive boot space for luggage, and a powerful petrol engine that makes long-distance highway runs exceptionally smooth.'
   },
   {
@@ -66,7 +66,7 @@ export const cars = [
     rateNum: 19,
     color: 'from-emerald-900 to-emerald-950',
     tagColor: 'from-emerald-900/60 to-emerald-950/60 border-emerald-700/40 text-emerald-300',
-    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/4e/00/61/4e0061b6e055a89148c05dccf0e83b25.jpg',
     description: 'The Maruti Suzuki Ertiga is a versatile 7-seater MPV powered by environment-friendly CNG. It is highly valued by families and tourist groups looking for cost-effective transportation, combining robust luggage space with flexible folding seat modules.'
   },
   {
@@ -80,7 +80,7 @@ export const cars = [
     rateNum: 20,
     color: 'from-purple-900 to-purple-950',
     tagColor: 'from-purple-900/60 to-purple-950/60 border-purple-700/40 text-purple-300',
-    image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/1f/2e/da/1f2eda73d5388fba3205c0c91c6f5c3e.jpg',
     description: 'The Kia Carens premium MPV features an upscale 3-row layout with modern tech, reading lights, and advanced safety. Offers a refined, quiet diesel engine with dynamic suspension for long distance group comfort.'
   },
   {
@@ -94,7 +94,7 @@ export const cars = [
     rateNum: 20,
     color: 'from-emerald-900 to-emerald-950',
     tagColor: 'from-emerald-900/60 to-emerald-950/60 border-emerald-700/40 text-emerald-300',
-    image: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/00/0d/47/000d473c4ca0202770cf8cf66d047994.jpg',
     description: 'The Mahindra Marazzo is a rugged and dependable 8-seater MPV with an exceptionally spacious cabin and robust suspension. Perfect for large families or corporate teams traveling together with multiple heavy luggage bags.'
   },
   {
@@ -108,7 +108,7 @@ export const cars = [
     rateNum: 22,
     color: 'from-neutral-800 to-neutral-950',
     tagColor: 'from-purple-900/60 to-purple-950/60 border-purple-700/40 text-purple-300',
-    image: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/b7/ad/a9/b7ada98b80c40a46060d68d51bd355b3.jpg',
     description: 'The undisputed benchmark for premium MPVs in India. The Toyota Innova Crysta features plush captain seats, a silent highway cabin, dual-zone air conditioning, and top-tier safety. The standard choice for executive travel and long-distance comfort.'
   },
   {
@@ -122,7 +122,7 @@ export const cars = [
     rateNum: 33,
     color: 'from-teal-900 to-teal-950',
     tagColor: 'from-teal-900/60 to-teal-950/60 border-teal-700/40 text-teal-300',
-    image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/2c/13/a5/2c13a501ef798f3b36fba596e23a8250.jpg',
     description: 'The Toyota Innova Hycross Hybrid combines self-charging hybrid power with a luxurious cabin experience. Equipped with a panoramic glass roof, ventilated seats, and premium ambient lighting for a quiet, eco-friendly luxury travel.'
   },
   {
@@ -136,7 +136,7 @@ export const cars = [
     rateNum: 48,
     color: 'from-stone-800 to-stone-950',
     tagColor: 'from-orange-900/60 to-orange-950/60 border-orange-700/40 text-orange-300',
-    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/6c/18/bb/6c18bbffeee8638988cd41c88ed0db7c.jpg',
     description: 'Make a powerful statement with the Toyota Fortuner SUV. Dominate both city streets and long highways with its muscular styling, high seating position, and ultimate safety. A premium SUV designed for VIP delegations and high-profile security commutes.'
   },
   {
@@ -150,7 +150,7 @@ export const cars = [
     rateNum: 53,
     color: 'from-zinc-800 to-zinc-950',
     tagColor: 'from-sky-900/60 to-sky-950/60 border-sky-700/40 text-sky-300',
-    image: 'https://images.unsplash.com/photo-1621007947382-cfe903c62512?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/10/39/75/103975fc93f1e60de40c8a0fdd44b3ea.jpg',
     description: 'Indulge in absolute corporate luxury. The Toyota Camry Hybrid features electronic reclining rear seats, rear console controls, a super-silent cabin atmosphere, and standard-setting comfort. Optimized for chief executives and VIP airport pickups.'
   },
   {
@@ -164,7 +164,7 @@ export const cars = [
     rateNum: 88,
     color: 'from-slate-800 to-slate-950',
     tagColor: 'from-yellow-900/60 to-yellow-950/60 border-yellow-700/40 text-yellow-300',
-    image: 'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&q=80&w=600',
+    image: 'https://i.pinimg.com/736x/7f/f5/8f/7ff58fa900f6172d69fa16cb34024da9.jpg',
     description: 'Experience pure European refinement in the Mercedes Benz C-Class. Outfitted with premium ambient lighting, a top-tier sound system, and top-of-the-line comfort features, it represents the absolute pinnacle of luxury, comfort, and style.'
   }
 ]
