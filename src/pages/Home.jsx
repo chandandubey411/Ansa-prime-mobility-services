@@ -1,100 +1,584 @@
 import HeroSection from '../components/Hero/HeroSection'
-import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs'
-import FeaturedCars from '../components/FeaturedCars/FeaturedCars'
 import Testimonials from '../components/Testimonials/Testimonials'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FaPlane, FaBriefcase, FaTaxi, FaRoad } from 'react-icons/fa'
-import { HiArrowRight } from 'react-icons/hi'
+import {
+  FaCarSide, FaUserTie, FaMoneyBillWave, FaClock,
+  FaPhoneAlt, FaWhatsapp, FaCheckCircle, FaMapMarkedAlt,
+  FaArrowRight, FaStar
+} from 'react-icons/fa'
+import { HiLocationMarker } from 'react-icons/hi'
 
-const services = [
-  { icon: FaPlane,     title: 'Airport Transfer',  desc: '24/7 airport cab with flight tracking and meet & greet service.' },
-  { icon: FaBriefcase, title: 'Corporate Travel',  desc: 'Executive fleet with monthly billing and dedicated account manager.' },
-  { icon: FaTaxi,      title: 'Local Taxi',         desc: 'Comfortable local cabs for shopping, errands and daily commutes.' },
-  { icon: FaRoad,      title: 'Outstation Trips',   desc: 'Long-distance travel to Agra, Jaipur, Chandigarh & all India.' },
+/* ── DATA ── */
+const features = [
+  {
+    num: '01',
+    icon: FaCarSide,
+    title: 'Comfortable Seating',
+    desc: 'Our cabs are equipped with comfortable push-back seats to ensure a relaxed and smooth journey every time.',
+    color: '#3B82F6',
+  },
+  {
+    num: '02',
+    icon: FaUserTie,
+    title: 'Experienced Drivers',
+    desc: 'Our cabs are operated by experienced, police-verified drivers for a reliable and hassle-free ride.',
+    color: '#D4A73C',
+  },
+  {
+    num: '03',
+    icon: FaMoneyBillWave,
+    title: 'Affordable Rates',
+    desc: 'Our affordable and transparent rates ensure you get the best value for every journey with no hidden charges.',
+    color: '#10B981',
+  },
+  {
+    num: '04',
+    icon: FaClock,
+    title: '24/7 Service',
+    desc: 'Our 24/7 service ensures a premium cab is always available whenever and wherever you need it.',
+    color: '#EC4899',
+  },
 ]
 
-const stats = [
-  { value: '5,000+', label: 'Happy Clients',    sub: 'Across Delhi NCR' },
-  { value: '100+',   label: 'Expert Drivers',   sub: 'Background Verified' },
-  { value: '12+',    label: 'Luxury Vehicles',  sub: 'Premium Fleet' },
-  { value: '8+',     label: 'Years Experience', sub: 'Trusted Since 2016' },
+const fleetVehicles = [
+  {
+    name: 'Maruti Dzire',
+    seating: '4+1D',
+    rate: '₹15',
+    type: 'Sedan',
+    startingPrice: '₹4,000',
+    image: 'https://i.pinimg.com/736x/9a/28/2a/9a282a1accb239d50522ccc812899d9d.jpg'
+  },
+  {
+    name: 'Honda City',
+    seating: '4+1D',
+    rate: '₹17',
+    type: 'Sedan',
+    startingPrice: '₹4,500',
+    image: 'https://i.pinimg.com/736x/4a/83/80/4a8380026577d4c2b65a958057c00262.jpg'
+  },
+  {
+    name: 'Hyundai Aura',
+    seating: '4+1D',
+    rate: '₹15',
+    type: 'Sedan',
+    startingPrice: '₹4,000',
+    image: 'https://i.pinimg.com/736x/a9/79/49/a97949e1229fae0b28beb9dca167b1b0.jpg'
+  },
+  {
+    name: 'Premium Dzire',
+    seating: '4+1D',
+    rate: '₹18',
+    type: 'Premium Sedan',
+    startingPrice: '₹4,800',
+    image: 'https://i.pinimg.com/736x/f2/0d/7f/f20d7fe875f96071e151608e040d8ecc.jpg'
+  },
+  {
+    name: 'Maruti Ertiga',
+    seating: '6+1D',
+    rate: '₹19',
+    type: 'MPV',
+    startingPrice: '₹5,000',
+    image: 'https://i.pinimg.com/736x/83/c2/98/83c298c77de26dc6355885f0307e7d10.jpg'
+  },
+  {
+    name: 'Kia Carens',
+    seating: '6+1D',
+    rate: '₹20',
+    type: 'MPV',
+    startingPrice: '₹5,500',
+    image: 'https://i.pinimg.com/736x/3a/8f/49/3a8f4965003a43180ba20603616f983d.jpg'
+  },
+  {
+    name: 'Mahindra Marazzo',
+    seating: '7+1D',
+    rate: '₹20',
+    type: 'MPV',
+    startingPrice: '₹5,500',
+    image: 'https://i.pinimg.com/736x/93/fc/98/93fc98106ac707d4f4bd3a4b02bb3fac.jpg'
+  },
+  {
+    name: 'Toyota Hycross',
+    seating: '7+1D',
+    rate: '₹33',
+    type: 'Premium MPV',
+    startingPrice: '₹8,500',
+    image: 'https://i.pinimg.com/736x/f1/ce/c7/f1cec755fadd16928cb75010da5e8d70.jpg'
+  },
+  {
+    name: 'Innova Crysta',
+    seating: '7+1D',
+    rate: '₹22',
+    type: 'Premium SUV',
+    startingPrice: '₹6,000',
+    image: 'https://i.pinimg.com/736x/b3/0e/8f/b30e8ffd409781768e031bcb7e79f165.jpg'
+  },
+  {
+    name: 'Toyota Fortuner',
+    seating: '7+1D',
+    rate: '₹48',
+    type: 'Luxury SUV',
+    startingPrice: '₹12,000',
+    image: 'https://i.pinimg.com/736x/14/f1/cb/14f1cbe0edfb3620de8bd8bd53ebc411.jpg'
+  },
+  {
+    name: 'Toyota Camry Hybrid',
+    seating: '4+1D',
+    rate: '₹53',
+    type: 'Luxury Sedan',
+    startingPrice: '₹13,000',
+    image: 'https://i.pinimg.com/736x/10/39/75/103975fc93f1e60de40c8a0fdd44b3ea.jpg'
+  },
+  {
+    name: 'Mercedes Benz',
+    seating: '4+1D',
+    rate: '₹88',
+    type: 'Ultra Luxury',
+    startingPrice: '₹20,000',
+    image: 'https://i.pinimg.com/736x/7f/f5/8f/7ff58fa900f6172d69fa16cb34024da9.jpg'
+  },
 ]
 
+const tourPackages = [
+  {
+    from: 'Delhi', to: 'Agra',
+    desc: 'Visit the iconic Taj Mahal, Agra Fort and enjoy a comfortable same-day return trip.',
+    highlights: ['Taj Mahal', 'Agra Fort', 'Fatehpur Sikri', 'Same Day Return'],
+    dist: '~230 km', time: '3–4 hrs',
+    color: 'rgba(212,167,60,0.1)',
+  },
+  {
+    from: 'Delhi', to: 'Jaipur',
+    desc: 'Explore forts, palaces, and vibrant culture with a smooth and well-planned Jaipur tour.',
+    highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
+    dist: '~270 km', time: '4–5 hrs',
+    color: 'rgba(59,130,246,0.1)',
+  },
+  {
+    from: 'Delhi', to: 'Rishikesh',
+    desc: 'Enjoy a peaceful journey to Rishikesh with scenic views, river ghats, and spiritual attractions.',
+    highlights: ['Laxman Jhula', 'River Rafting', 'Ganga Ghat', 'Triveni Ghat'],
+    dist: '~240 km', time: '4–5 hrs',
+    color: 'rgba(16,185,129,0.1)',
+  },
+  {
+    from: 'Delhi', to: 'Haridwar',
+    desc: 'Experience a peaceful journey with holy ghats, Ganga Aarti, and spiritual landmarks.',
+    highlights: ['Har ki Pauri', 'Ganga Aarti', 'Mansa Devi', 'Chandi Devi'],
+    dist: '~215 km', time: '3–4 hrs',
+    color: 'rgba(139,92,246,0.1)',
+  },
+  {
+    from: 'Delhi', to: 'Mathura',
+    desc: 'Visit the sacred city of Lord Krishna with a smooth ride covering Mathura and Vrindavan temples.',
+    highlights: ['Krishna Janmabhoomi', 'Vrindavan', 'Banke Bihari', 'ISKCON Temple'],
+    dist: '~165 km', time: '2.5–3 hrs',
+    color: 'rgba(245,158,11,0.1)',
+  },
+  {
+    from: 'Delhi', to: 'Manali',
+    desc: 'Experience snow-capped mountains, adventure activities, and a comfortable long-distance journey.',
+    highlights: ['Rohtang Pass', 'Solang Valley', 'Hadimba Temple', 'Mall Road'],
+    dist: '~540 km', time: '10–12 hrs',
+    color: 'rgba(236,72,153,0.1)',
+  },
+  {
+    from: 'Delhi', to: 'Mussoorie',
+    desc: 'Enjoy a scenic hill station journey with pleasant weather, mountain views, and a relaxing trip.',
+    highlights: ['Mall Road', 'Kempty Falls', 'Lal Tibba', 'Camel Back Road'],
+    dist: '~300 km', time: '5–6 hrs',
+    color: 'rgba(6,182,212,0.1)',
+  },
+  {
+    from: 'Delhi', to: 'Khatu Shyam',
+    desc: 'Plan a comfortable religious trip to Khatu Shyam Ji for a peaceful and hassle-free darshan.',
+    highlights: ['Khatu Shyam Temple', 'Salasar Balaji', 'Lohargal', 'Night Darshan'],
+    dist: '~320 km', time: '5–6 hrs',
+    color: 'rgba(34,197,94,0.1)',
+  },
+]
+
+const popularRoutes = [
+  'Delhi to Jaipur Cab', 'Delhi to Dehradun Cab', 'Haridwar Taxi',
+  'Delhi to Mathura Cab', 'Delhi to Rishikesh Cab', 'Delhi to Agra Cab',
+  'Cab Service in Delhi', 'Delhi Outstation Taxi', 'Delhi to Manali Cab',
+  'Delhi to Shimla Taxi', 'Delhi to Chandigarh Cab', 'Delhi to Nainital Taxi',
+  'Innova Hire in Delhi', 'Delhi to Amritsar Taxi', 'Delhi to Mussoorie Taxi',
+  'One Way Taxi Delhi', 'Delhi Airport Taxi', 'Delhi to Ambala Cab',
+  'Tempo Traveller on Rent', 'Delhi to Vrindavan Cab', 'Delhi to Khatu Shyam Cab',
+  'Corporate Cab Delhi', 'Wedding Car Rental Delhi', 'Luxury Cab Delhi',
+]
+
+/* ── COMPONENT ── */
 export default function Home() {
   return (
     <main>
       <HeroSection />
 
-      {/* STATS BAND */}
-      <section className="py-0 relative z-10" style={{ background: '#0a0a0a' }}>
-        <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.4), transparent)' }} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {stats.map((s, i) => (
+      {/* ═══════════════ FEATURE CARDS ═══════════════ */}
+      <section style={{ background: '#0d0d0d' }} className="py-16 relative">
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((f, i) => (
               <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20 }}
+                key={f.num}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="counter-card rounded-lg px-6 py-5"
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="rounded-xl p-7 group relative overflow-hidden"
+                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}
               >
-                <p className="font-heading text-3xl md:text-4xl font-black gold-text mb-1">{s.value}</p>
-                <p className="font-body text-sm font-semibold text-white/80">{s.label}</p>
-                <p className="font-body text-[11px] text-white/35 tracking-wider">{s.sub}</p>
+                {/* Number badge */}
+                <span className="absolute top-4 right-5 font-heading text-4xl font-black opacity-[0.06] text-white select-none">{f.num}</span>
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-xl mb-5 flex items-center justify-center transition-all duration-300"
+                  style={{ background: `${f.color}22`, border: `1px solid ${f.color}44` }}>
+                  <f.icon style={{ color: f.color }} className="text-xl group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="font-heading text-base font-bold text-white mb-2 group-hover:text-gold transition-colors">{f.title}</h3>
+                <p className="font-body text-sm text-white/40 leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
-        <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.4), transparent)' }} />
       </section>
 
-      <WhyChooseUs />
-      <FeaturedCars />
-
-      {/* SERVICES PREVIEW */}
-      <section className="py-28 relative overflow-hidden" style={{ background: '#111' }}>
-        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.35), transparent)' }} />
+      {/* ═══════════════ FLEET / BEST CAB SERVICE ═══════════════ */}
+      <section className="py-24 relative" style={{ background: '#111' }}>
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
+          {/* Header */}
+          <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="section-label mb-3">What We Offer</motion.p>
+              className="section-label mb-3">Our Fleet</motion.p>
             <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="section-title text-4xl md:text-5xl mb-4">
-              Our <span>Services</span>
+              Best Cab Service <span>In Delhi</span>
             </motion.h2>
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+              className="font-body text-sm text-white/40 mt-5 max-w-2xl mx-auto leading-relaxed">
+              We provide the best taxi service in Delhi with well-maintained cabs, reliable drivers, and budget-friendly rates for every journey.
+            </motion.p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-            {services.map((s, i) => (
+
+          {/* Vehicle Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {fleetVehicles.slice(0, 3).map((v, i) => (
               <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 40 }}
+                key={v.name}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="luxury-card rounded-xl p-7 group text-center"
+                transition={{ delay: (i % 4) * 0.1 }}
+                whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(212,167,60,0.18)' }}
+                className="rounded-xl overflow-hidden group"
+                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}
               >
-                <div className="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center transition-all duration-300"
-                  style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
-                  <s.icon className="text-gold text-2xl group-hover:scale-110 transition-transform" />
+                {/* Vehicle Image */}
+                <div className="h-44 relative overflow-hidden">
+                  <img
+                    src={v.image}
+                    alt={v.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  {/* Type badge */}
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-sm text-[10px] font-bold tracking-wider uppercase"
+                    style={{ background: 'rgba(212,167,60,0.9)', color: '#0a0a0a' }}>
+                    {v.type}
+                  </span>
                 </div>
-                <h3 className="font-heading text-base font-bold text-white mb-2 group-hover:text-gold transition-colors">{s.title}</h3>
-                <p className="font-body text-sm text-white/40 leading-relaxed">{s.desc}</p>
+
+                <div className="p-5">
+                  <h3 className="font-heading text-base font-bold text-white mb-3 group-hover:text-gold transition-colors">{v.name}</h3>
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="text-center">
+                      <p className="font-heading text-lg font-black gold-text">{v.seating}</p>
+                      <p className="font-body text-[10px] text-white/35 tracking-wider uppercase">Seats</p>
+                    </div>
+                    <div className="w-px h-8" style={{ background: 'rgba(212,167,60,0.2)' }} />
+                    <div className="text-center">
+                      <p className="font-heading text-lg font-black gold-text">{v.rate}/km</p>
+                      <p className="font-body text-[10px] text-white/35 tracking-wider uppercase">Rate</p>
+                    </div>
+                    <div className="w-px h-8" style={{ background: 'rgba(212,167,60,0.2)' }} />
+                    <div className="text-center">
+                      <p className="font-heading text-sm font-black gold-text">{v.startingPrice}</p>
+                      <p className="font-body text-[10px] text-white/35 tracking-wider uppercase">Start</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Link to={`/book?car=${encodeURIComponent(v.name)}`}
+                      className="flex-1 btn-gold py-2 text-[10px] rounded-sm gap-1.5 justify-center">
+                      Book Now
+                    </Link>
+                    <a href="tel:+919643199064"
+                      className="flex-1 btn-outline py-2 text-[10px] rounded-sm gap-1.5 justify-center">
+                      <FaPhoneAlt className="text-[9px]" /> Call
+                    </a>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          <div className="text-center mb-10">
+            <Link to="/fleet" className="btn-outline px-10 py-3.5 text-[11px] rounded-sm gap-2">
+              View Full Fleet <FaArrowRight />
+            </Link>
+          </div>
+
+          {/* Pricing Table */}
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+            className="rounded-xl overflow-hidden" style={{ border: '1px solid rgba(212,167,60,0.2)' }}>
+            <div className="px-6 py-4" style={{ background: 'rgba(212,167,60,0.12)' }}>
+              <h3 className="font-heading text-lg font-bold text-white">Taxi Fare Chart — Starting Rates</h3>
+              <p className="font-body text-xs text-white/40">One-way / same-day trip starting prices (Delhi NCR)</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" style={{ background: '#171717' }}>
+              {[
+                { cab: 'Maruti Dzire', price: '₹4,000' },
+                { cab: 'Honda City', price: '₹4,500' },
+                { cab: 'Hyundai Aura', price: '₹4,000' },
+                { cab: 'Premium Dzire', price: '₹4,800' },
+                { cab: 'Maruti Ertiga', price: '₹5,000' },
+                { cab: 'Kia Carens', price: '₹5,500' },
+                { cab: 'Mahindra Marazzo', price: '₹5,500' },
+                { cab: 'Toyota Hycross', price: '₹8,500' },
+                { cab: 'Innova Crysta', price: '₹6,000' },
+                { cab: 'Toyota Fortuner', price: '₹12,000' },
+                { cab: 'Toyota Camry Hybrid', price: '₹13,000' },
+                { cab: 'Mercedes Benz', price: '₹20,000' },
+              ].map((row, i) => (
+                <div key={row.cab} className={`flex flex-col items-center py-4 px-3 ${
+                  i % 2 === 0 ? '' : ''
+                } border-r border-b border-white/5 last:border-r-0`}>
+                  <p className="font-heading text-lg font-black gold-text">{row.price}</p>
+                  <p className="font-body text-[11px] text-white/40 tracking-wider text-center">{row.cab}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════ TOUR PACKAGES ═══════════════ */}
+      <section className="py-24 relative" style={{ background: '#0a0a0a' }}>
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          {/* Header */}
+          <div className="text-center mb-14">
+            <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="section-label mb-3">Outstation Taxi</motion.p>
+            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              className="section-title text-4xl md:text-5xl mb-4">
+              Popular <span>Tour Packages</span>
+            </motion.h2>
+            <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+              className="gold-divider" />
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+              className="font-body text-sm text-white/40 mt-5 max-w-2xl mx-auto leading-relaxed">
+              Discover India's most loved tourist destinations with our premium outstation taxi services. Comfortable rides, fixed pricing, and professional drivers for a stress-free journey.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+            {tourPackages.map((pkg, i) => (
+              <motion.div
+                key={`${pkg.from}-${pkg.to}`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i % 4) * 0.1 }}
+                whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(212,167,60,0.15)' }}
+                className="rounded-xl overflow-hidden group cursor-default"
+                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}
+              >
+                {/* Color band */}
+                <div className="h-2 w-full" style={{ background: 'linear-gradient(90deg, #D4A73C, #F0D060)' }} />
+
+                <div className="p-6">
+                  {/* Route */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <HiLocationMarker className="text-gold text-base shrink-0" />
+                    <div>
+                      <span className="font-body text-[10px] text-white/35 tracking-widest uppercase">{pkg.from}</span>
+                      <p className="font-heading text-lg font-bold text-white group-hover:text-gold transition-colors">
+                        To {pkg.to}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="font-body text-xs text-white/40 leading-relaxed mb-4">{pkg.desc}</p>
+
+                  {/* Highlights */}
+                  <ul className="space-y-1.5 mb-5">
+                    {pkg.highlights.map(h => (
+                      <li key={h} className="flex items-center gap-2 font-body text-[11px] text-white/50">
+                        <FaCheckCircle className="text-gold/60 text-xs shrink-0" /> {h}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Meta */}
+                  <div className="flex gap-3 mb-5">
+                    <span className="gold-badge">{pkg.dist}</span>
+                    <span className="gold-badge">{pkg.time}</span>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex gap-2">
+                    <Link to="/contact" className="flex-1 btn-gold py-2 text-[10px] rounded-sm justify-center">
+                      Book Now
+                    </Link>
+                    <a href="tel:+919643199064"
+                      className="flex-1 btn-outline py-2 text-[10px] rounded-sm gap-1 justify-center">
+                      <FaPhoneAlt className="text-[9px]" /> Call
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
           <div className="text-center">
-            <Link to="/services" className="btn-outline px-10 py-3.5 text-[11px] rounded-sm gap-2">
-              All Services <HiArrowRight />
+            <Link to="/pricing" className="btn-outline px-10 py-3.5 text-[11px] rounded-sm gap-2">
+              View All Packages <FaArrowRight />
             </Link>
           </div>
         </div>
       </section>
 
+      {/* ═══════════════ CTA BANNER ═══════════════ */}
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
+        <div className="absolute inset-0 opacity-[0.06]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+        <div className="max-w-4xl mx-auto px-4 text-center relative">
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="section-label mb-3">Ready to Ride?</motion.p>
+          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+            className="font-heading text-4xl md:text-5xl font-black text-white mb-4">
+            Book Your <span className="gold-text">Cab Now!</span>
+          </motion.h2>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+            className="font-body text-sm text-white/50 mb-8 max-w-xl mx-auto leading-relaxed">
+            Call us or WhatsApp for instant booking. Available 24/7 across Delhi NCR — Airport, Outstation, Corporate, Wedding & Local.
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
+              target="_blank" rel="noreferrer"
+              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
+              <FaWhatsapp className="text-base" /> WhatsApp Us
+            </a>
+            <a href="tel:+919643199064" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+              <FaPhoneAlt /> Call Now: +91 96431 99064
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════ ABOUT TEXT SECTION ═══════════════ */}
+      <section className="py-24 relative" style={{ background: '#111' }}>
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            {/* Left text */}
+            <div>
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="section-label mb-3">About ANSA Prime</motion.p>
+              <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                className="section-title text-4xl md:text-5xl mb-5">
+                Book <span>Taxi in Delhi</span>
+              </motion.h2>
+              <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+                className="gold-divider-left mb-7" />
+
+              <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 }}
+                className="font-body text-sm text-white/50 leading-relaxed mb-4">
+                We are providing the best way to explore India, one road trip at a time. Every turn brings a new story, a new sight, and a new experience. That love for road travel inspires us to create journeys that are as enjoyable as they are unforgettable.
+              </motion.p>
+              <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+                className="font-body text-sm text-white/50 leading-relaxed mb-4">
+                Travelling by cab lets you experience the journey as much as the destination. Connect with cultures, enjoy local food — because it's these moments that make travel truly meaningful.
+              </motion.p>
+              <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.45 }}
+                className="font-body text-sm text-white/50 leading-relaxed mb-8">
+                To make planning easier, you can book a cab on our website or call us on <strong className="text-gold">+91 96431 99064</strong> to discuss your itinerary. From booking to safe return, we ensure a memorable journey.
+              </motion.p>
+
+              {/* Checklist */}
+              <motion.ul initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
+                className="space-y-3 mb-8">
+                {['Multiple Vehicle Options Available', 'Affordable & Transparent Pricing', 'Experienced Drivers & 24/7 Support', 'Safe, Comfortable & Reliable Travel'].map(item => (
+                  <li key={item} className="flex items-center gap-3 font-body text-sm text-white/60">
+                    <FaCheckCircle className="text-gold text-sm shrink-0" /> {item}
+                  </li>
+                ))}
+              </motion.ul>
+
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.55 }}
+                className="flex flex-wrap gap-4">
+                <Link to="/about" className="btn-gold px-8 py-3.5 text-[11px] rounded-sm gap-2">
+                  Learn More <FaArrowRight />
+                </Link>
+                <Link to="/contact" className="btn-outline px-8 py-3.5 text-[11px] rounded-sm">
+                  Get In Touch
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right stats grid */}
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.8 }}
+              className="grid grid-cols-2 gap-5">
+              {[
+                { value: '5,000+', label: 'Happy Clients',    sub: 'Across Delhi NCR' },
+                { value: '100+',   label: 'Expert Drivers',   sub: 'Police Verified' },
+                { value: '15+',    label: 'Premium Vehicles', sub: 'Well Maintained' },
+                { value: '8+',     label: 'Years Experience', sub: 'Trusted Since 2016' },
+              ].map((s, i) => (
+                <motion.div key={s.label}
+                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  className="rounded-xl p-6 text-center"
+                  style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.15)' }}>
+                  <p className="font-heading text-3xl font-black gold-text mb-1">{s.value}</p>
+                  <p className="font-body text-sm font-semibold text-white/80">{s.label}</p>
+                  <p className="font-body text-[11px] text-white/30 tracking-wider mt-1">{s.sub}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ TESTIMONIALS ═══════════════ */}
       <Testimonials />
+
+      {/* ═══════════════ POPULAR ROUTES ═══════════════ */}
+      <section className="py-16 relative" style={{ background: '#0a0a0a' }}>
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.25),transparent)' }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.h3 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="section-label text-center mb-8">Popular Cab Routes</motion.h3>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {popularRoutes.map(route => (
+              <a
+                key={route}
+                href={`https://wa.me/919643199064?text=Hello%20I%20need%20${encodeURIComponent(route)}%20service.%20Please%20share%20details.`}
+                target="_blank" rel="noreferrer"
+                className="font-body text-xs text-white/50 hover:text-gold border border-white/10 hover:border-gold/40 px-4 py-2 rounded-full transition-all duration-300 hover:bg-gold/5"
+              >
+                {route}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   )
 }

@@ -1,183 +1,234 @@
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import CountUp from 'react-countup'
-import { useInView } from 'framer-motion'
-import { FaBullseye, FaEye, FaHeart, FaPhoneAlt } from 'react-icons/fa'
-import { HiArrowRight } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import MiniHero from '../components/MiniHero/MiniHero'
+import {
+  FaCheckCircle, FaPhoneAlt, FaWhatsapp, FaAward,
+  FaShieldAlt, FaHandshake, FaCarSide, FaArrowRight
+} from 'react-icons/fa'
+import { HiLocationMarker, HiMail, HiPhone } from 'react-icons/hi'
 
-const stats = [
-  { value: 5000, suffix: '+', label: 'Happy Customers', sub: 'Across Delhi NCR' },
-  { value: 100,  suffix: '+', label: 'Verified Drivers', sub: 'Background Checked' },
-  { value: 8,    suffix: '+', label: 'Years Experience', sub: 'Since 2016' },
-  { value: 12,   suffix: '+', label: 'Luxury Vehicles', sub: 'Premium Fleet' },
-]
-
-const mvv = [
+const whyChooseUs = [
   {
-    icon: FaBullseye,
-    title: 'Our Mission',
-    text: 'To provide safe, comfortable and premium cab services that make every journey a luxury experience — whether a short local trip or a long outstation ride across India.',
+    icon: FaShieldAlt,
+    title: 'Safety First',
+    desc: 'All our drivers are police-verified and background-checked. GPS-tracked vehicles for your complete peace of mind.',
   },
   {
-    icon: FaEye,
-    title: 'Our Vision',
-    text: "To become Delhi NCR's most trusted luxury mobility brand, setting new benchmarks in transportation quality, driver professionalism and customer satisfaction.",
+    icon: FaAward,
+    title: 'Premium Quality',
+    desc: 'Well-maintained, fully air-conditioned fleet of luxury sedans, SUVs, and Tempo Travellers serviced regularly.',
   },
   {
-    icon: FaHeart,
-    title: 'Our Values',
-    text: 'Integrity, Punctuality, Safety and Excellence. We treat every customer as our most important guest and every vehicle as a mobile sanctuary of comfort.',
+    icon: FaHandshake,
+    title: 'Transparent Pricing',
+    desc: 'No hidden charges. Fixed competitive rates with GST invoices available for corporate clients.',
+  },
+  {
+    icon: FaCarSide,
+    title: 'Wide Fleet',
+    desc: 'From compact sedans to 26-seater Tempo Travellers and luxury Urbania vans — we have a vehicle for every need.',
   },
 ]
 
-const team = [
-  { name: 'Ansar Ahmed',   role: 'Founder & CEO',      emoji: '👨‍💼' },
-  { name: 'Rahul Sharma',  role: 'Operations Manager',  emoji: '👷' },
-  { name: 'Priyanka Singh','role': 'Customer Relations', emoji: '👩‍💼' },
+const milestones = [
+  { year: '2016', title: 'Company Founded', desc: 'Started operations in New Delhi with a small fleet of 3 premium vehicles.' },
+  { year: '2018', title: 'Fleet Expansion', desc: 'Expanded to 25+ vehicles including Tempo Travellers and luxury SUVs.' },
+  { year: '2020', title: 'Corporate Clients', desc: 'Onboarded major corporate clients with dedicated account management.' },
+  { year: '2023', title: 'Pan-India Coverage', desc: 'Extended outstation services to cover major tourist destinations across India.' },
+  { year: '2026', title: '5,000+ Happy Clients', desc: 'Serving over 5,000 satisfied clients with 100+ verified expert drivers.' },
 ]
 
-function StatCard({ value, suffix, label, sub }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-  return (
-    <div ref={ref} className="counter-card rounded-xl p-8 text-center luxury-card">
-      <div className="font-heading text-5xl font-black gold-text mb-1">
-        {isInView ? <CountUp end={value} duration={2.5} /> : '0'}{suffix}
-      </div>
-      <p className="font-body text-sm font-semibold text-white/80 mb-0.5">{label}</p>
-      <p className="font-body text-[11px] text-white/35 tracking-wider">{sub}</p>
-    </div>
-  )
-}
+const teamValues = [
+  'Punctuality is our promise — always on time',
+  'Comfort and cleanliness in every vehicle',
+  'Professional, courteous, and uniformed drivers',
+  '24/7 customer support for all your queries',
+  'Transparent billing with no hidden charges',
+  'GPS-enabled fleet for real-time tracking',
+]
 
 export default function About() {
   return (
     <main>
       <MiniHero
         title="ABOUT US"
-        subtitle="Premium cab booking & luxury mobility across Delhi NCR since 2016"
+        subtitle="Learn more about ANSA Prime Mobility Services — New Delhi's trusted premium cab service"
         breadcrumb={['About Us']}
       />
 
-      {/* WELCOME */}
-      <section className="py-28" style={{ background: '#0a0a0a' }}>
+      {/* ═══════════════ WHO WE ARE ═══════════════ */}
+      <section className="py-24" style={{ background: '#0a0a0a' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            {/* Left */}
+            <div>
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="section-label mb-3">Who We Are</motion.p>
+              <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                className="section-title text-4xl md:text-5xl mb-5">
+                Your Trusted <span>Mobility Partner</span>
+              </motion.h2>
+              <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+                className="gold-divider-left mb-7" />
 
-            {/* Left: Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
-                <img src="/about-img.jpg" alt="ANSA PRIME Chauffeur Service" className="w-full h-full object-cover" />
-                <div className="absolute inset-0"
-                  style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(10,10,10,0.7))' }} />
-              </div>
-              {/* Gold border corners */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 pointer-events-none"
-                style={{ borderBottom: '2px solid rgba(212,167,60,0.5)', borderRight: '2px solid rgba(212,167,60,0.5)', borderRadius: '0 0 12px 0' }} />
-              <div className="absolute -top-4 -left-4 w-24 h-24 pointer-events-none"
-                style={{ borderTop: '2px solid rgba(212,167,60,0.5)', borderLeft: '2px solid rgba(212,167,60,0.5)', borderRadius: '12px 0 0 0' }} />
-              {/* Experience badge */}
-              <div className="absolute bottom-6 left-6 glass-dark rounded-xl px-5 py-4">
-                <p className="font-heading text-3xl font-black gold-text">8+</p>
-                <p className="font-body text-xs text-white/60 tracking-wider">Years of Excellence</p>
-              </div>
-            </motion.div>
+              {[
+                'ANSA Prime Mobility Services is a leading premium cab and taxi service provider based in New Delhi, India. Since 2016, we have been delivering reliable, comfortable, and affordable transportation solutions across Delhi NCR and beyond.',
+                'We believe the best way to discover India is by road. Every turn brings a new story, a new sight, and a new experience. That love for road travel inspires us to create journeys that are as enjoyable as they are unforgettable.',
+                'Whether it\'s a quick airport transfer, a corporate commute, an outstation trip, or a grand wedding — ANSA Prime delivers an unmatched travel experience with professionally trained chauffeurs and well-maintained, luxury vehicles.',
+              ].map((para, i) => (
+                <motion.p key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 + i * 0.1 }}
+                  className="font-body text-sm text-white/50 leading-relaxed mb-4">
+                  {para}
+                </motion.p>
+              ))}
 
-            {/* Right: Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <p className="section-label mb-3">Who We Are</p>
-              <h2 className="section-title text-4xl md:text-5xl mb-2">ANSA PRIME</h2>
-              <h3 className="font-heading text-xl text-white/50 mb-6">MOBILITY SERVICES</h3>
-              <div className="gold-divider-left mb-7" />
-
-              <p className="font-body text-sm text-white/55 leading-relaxed mb-4">
-                Ansa Prime Mobility Services is a premium cab rental and transportation provider dedicated to delivering smooth, safe and luxurious travel experiences across Delhi NCR and beyond.
-              </p>
-              <p className="font-body text-sm text-white/55 leading-relaxed mb-8">
-                Founded on the principles of luxury, punctuality and professionalism, we serve corporate clients, frequent flyers, wedding parties and leisure travellers with equal dedication. Our fleet of premium vehicles and trained chauffeurs ensure every ride is unforgettable.
-              </p>
-
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {['Airport Transfers', 'Corporate Travel', 'Local Cabs', 'Outstation Trips', 'Wedding Transport', '24×7 Availability'].map(f => (
-                  <div key={f} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                    <span className="font-body text-sm text-white/55">{f}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <a href="tel:+919643199064" className="btn-gold px-8 py-4 text-[11px] rounded-sm gap-2">
-                  <FaPhoneAlt /> Call Us Today
-                </a>
-                <Link to="/contact" className="btn-outline px-8 py-4 text-[11px] rounded-sm gap-2">
-                  Book a Ride <HiArrowRight />
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}
+                className="flex flex-wrap gap-4 mt-6">
+                <Link to="/contact" className="btn-gold px-8 py-3.5 text-[11px] rounded-sm gap-2">
+                  Book a Cab <FaArrowRight />
                 </Link>
-              </div>
+                <a href="tel:+919643199064" className="btn-outline px-8 py-3.5 text-[11px] rounded-sm gap-2">
+                  <FaPhoneAlt /> Call Us Now
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Right — Stats */}
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.8 }}
+              className="grid grid-cols-2 gap-5">
+              {[
+                { value: '5,000+', label: 'Happy Clients',    sub: 'Across Delhi NCR' },
+                { value: '100+',   label: 'Expert Drivers',   sub: 'Police Verified' },
+                { value: '15+',    label: 'Luxury Vehicles',  sub: 'Premium Fleet' },
+                { value: '8+',     label: 'Years Experience', sub: 'Since 2016' },
+              ].map((s, i) => (
+                <motion.div key={s.label}
+                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  className="rounded-xl p-6 text-center"
+                  style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.15)' }}>
+                  <p className="font-heading text-3xl font-black gold-text mb-1">{s.value}</p>
+                  <p className="font-body text-sm font-semibold text-white/80">{s.label}</p>
+                  <p className="font-body text-[11px] text-white/30 tracking-wider mt-1">{s.sub}</p>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* MISSION VISION VALUES */}
-      <section className="py-28 relative" style={{ background: '#0d0d0d' }}>
-        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.35), transparent)' }} />
+      {/* ═══════════════ WHY CHOOSE US ═══════════════ */}
+      <section className="py-24 relative" style={{ background: '#111' }}>
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <p className="section-label mb-3">Our Foundation</p>
-            <h2 className="section-title text-4xl md:text-5xl mb-4">
-              Mission, Vision &amp; <span>Values</span>
-            </h2>
-            <div className="gold-divider" />
+          <div className="text-center mb-14">
+            <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="section-label mb-3">Why ANSA Prime</motion.p>
+            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              className="section-title text-4xl md:text-5xl mb-4">
+              Why <span>Choose Us?</span>
+            </motion.h2>
+            <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+              className="gold-divider" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {mvv.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.6 }}
-                className="luxury-card rounded-xl p-8 text-center group relative overflow-hidden"
-              >
-                <div className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500"
-                  style={{ background: 'linear-gradient(90deg, #D4A73C, #F0D060)' }} />
-                <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                  style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.25)' }}>
-                  <item.icon className="text-gold text-xl" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyChooseUs.map((item, i) => (
+              <motion.div key={item.title}
+                initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
+                whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(212,167,60,0.15)' }}
+                className="rounded-xl p-7 group text-center"
+                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}>
+                <div className="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center transition-all duration-300"
+                  style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
+                  <item.icon className="text-gold text-2xl group-hover:scale-110 transition-transform" />
                 </div>
-                <h3 className="font-heading text-xl font-bold text-white mb-3 group-hover:text-gold transition-colors">{item.title}</h3>
-                <p className="font-body text-sm text-white/45 leading-relaxed">{item.text}</p>
+                <h3 className="font-heading text-base font-bold text-white mb-3 group-hover:text-gold transition-colors">{item.title}</h3>
+                <p className="font-body text-sm text-white/40 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* STATS */}
+      {/* ═══════════════ OUR VALUES ═══════════════ */}
       <section className="py-24" style={{ background: '#0a0a0a' }}>
-        <div className="h-px w-full absolute" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.35), transparent)' }} />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <p className="section-label mb-3">By The Numbers</p>
-            <h2 className="section-title text-4xl">Trusted by <span>Thousands</span></h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            {/* Left — Values list */}
+            <div>
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="section-label mb-3">Our Values</motion.p>
+              <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                className="section-title text-4xl md:text-5xl mb-5">
+                What We <span>Stand For</span>
+              </motion.h2>
+              <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+                className="gold-divider-left mb-8" />
+              <ul className="space-y-4">
+                {teamValues.map((val, i) => (
+                  <motion.li key={val}
+                    initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                    className="flex items-center gap-3 font-body text-sm text-white/60">
+                    <FaCheckCircle className="text-gold text-base shrink-0" /> {val}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right — Timeline */}
+            <div className="relative pl-8">
+              <div className="absolute left-2 top-0 bottom-0 w-0.5" style={{ background: 'linear-gradient(180deg, #D4A73C, rgba(212,167,60,0.1))' }} />
+              {milestones.map((m, i) => (
+                <motion.div key={m.year}
+                  initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  className="relative mb-8 last:mb-0">
+                  {/* Dot */}
+                  <div className="absolute -left-[30px] top-1 w-4 h-4 rounded-full border-2 border-gold bg-dark" />
+                  <span className="font-body text-xs text-gold font-bold tracking-widest">{m.year}</span>
+                  <h4 className="font-heading text-base font-bold text-white mt-1 mb-1">{m.title}</h4>
+                  <p className="font-body text-sm text-white/40 leading-relaxed">{m.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {stats.map(s => <StatCard key={s.label} {...s} />)}
+        </div>
+      </section>
+
+      {/* ═══════════════ CONTACT INFO STRIP ═══════════════ */}
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
+        <div className="absolute inset-0 opacity-[0.06]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+        <div className="max-w-5xl mx-auto px-4 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {[
+              { icon: HiLocationMarker, label: 'Our Location', value: '94, Block B, Zamrudpur, Greater Kailash, New Delhi – 110048' },
+              { icon: HiPhone,          label: 'Call Us',       value: '+91 96431 99064' },
+              { icon: HiMail,           label: 'Email Us',      value: 'info@ansaprime.com' },
+            ].map((c, i) => (
+              <motion.div key={c.label}
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
+                  style={{ background: 'rgba(212,167,60,0.15)', border: '1px solid rgba(212,167,60,0.35)' }}>
+                  <c.icon className="text-gold text-xl" />
+                </div>
+                <p className="font-body text-xs text-gold tracking-widest uppercase mb-1">{c.label}</p>
+                <p className="font-body text-sm text-white/60">{c.value}</p>
+              </motion.div>
+            ))}
           </div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
+              target="_blank" rel="noreferrer"
+              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
+              <FaWhatsapp className="text-base" /> WhatsApp Us
+            </a>
+            <Link to="/contact" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+              Contact Us <FaArrowRight />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </main>

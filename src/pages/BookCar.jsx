@@ -10,8 +10,11 @@ export default function BookCar() {
   const [searchParams] = useSearchParams()
   const carName = searchParams.get('car')
 
-  // Find the selected car or default to the first one (Dzire)
-  const selectedCar = cars.find(c => c.name.toLowerCase() === carName?.toLowerCase()) || cars[0]
+  const selectedCar = cars.find(c => {
+    const query = carName?.toLowerCase() || ''
+    const nameLower = c.name.toLowerCase()
+    return query.includes(nameLower) || nameLower.includes(query)
+  }) || cars[0]
 
   const [form, setForm] = useState({
     name: '',
@@ -36,6 +39,15 @@ export default function BookCar() {
 
   const handleSubmit = e => {
     e.preventDefault()
+    const msg = `Hello! I want to book a ride.%0A%0A` +
+      `👤 Name: ${form.name || 'Not provided'}%0A` +
+      `📞 Mobile: ${form.mobile || 'Not provided'}%0A` +
+      `🚗 Car: ${form.car || 'Not selected'}%0A` +
+      `📍 Pickup Location: ${form.pickup || 'Not provided'}%0A` +
+      `🏁 Drop Location: ${form.drop || 'Not provided'}%0A` +
+      `📅 Journey Date: ${form.date || 'Not selected'}%0A` +
+      `🕐 Pickup Time: ${form.time || 'Not selected'}%0A%0AThanks`
+    window.open(`https://wa.me/919643199064?text=${msg}`, '_blank')
     setSent(true)
     setTimeout(() => {
       setSent(false)
@@ -47,7 +59,7 @@ export default function BookCar() {
         pickup: '',
         drop: ''
       }))
-    }, 5000)
+    }, 4000)
   }
 
   const tagStyle = {

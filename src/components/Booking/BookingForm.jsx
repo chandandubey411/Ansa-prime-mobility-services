@@ -1,25 +1,53 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { FaCarAlt } from 'react-icons/fa'
+import { FaCarAlt, FaWhatsapp } from 'react-icons/fa'
 import { HiArrowRight } from 'react-icons/hi'
 
-import { cars } from '../../data/cars'
-
-const CARS = cars.map(c => c.name)
+const VEHICLES = [
+  'Maruti Dzire',
+  'Honda City',
+  'Hyundai Aura',
+  'Premium Dzire',
+  'Maruti Ertiga',
+  'Kia Carens',
+  'Mahindra Marazzo',
+  'Toyota Hycross',
+  'Innova Crysta',
+  'Toyota Fortuner',
+  'Toyota Camry Hybrid',
+  'Mercedes Benz',
+]
 
 export default function BookingForm() {
-  const [form, setForm] = useState({ name: '', mobile: '', car: '', pickup: '', drop: '', date: '', time: '' })
+  const [form, setForm] = useState({
+    name: '',
+    mobile: '',
+    car: '',
+    pickup: '',
+    drop: '',
+    date: '',
+    time: '',
+  })
   const [sent, setSent] = useState(false)
-  const [active, setActive] = useState(null)
 
   const handle = e => setForm({ ...form, [e.target.name]: e.target.value })
+
   const submit = e => {
     e.preventDefault()
+    const msg = `Hello! I want to book a ride.%0A%0A` +
+      `👤 Name: ${form.name || 'Not provided'}%0A` +
+      `📞 Mobile: ${form.mobile || 'Not provided'}%0A` +
+      `🚗 Car: ${form.car || 'Not selected'}%0A` +
+      `📍 Pickup Location: ${form.pickup || 'Not provided'}%0A` +
+      `🏁 Drop Location: ${form.drop || 'Not provided'}%0A` +
+      `📅 Journey Date: ${form.date || 'Not selected'}%0A` +
+      `🕐 Pickup Time: ${form.time || 'Not selected'}%0A%0AThanks`
+    window.open(`https://wa.me/919643199064?text=${msg}`, '_blank')
     setSent(true)
     setTimeout(() => setSent(false), 4000)
   }
-  const inp = `luxury-input w-full rounded-sm px-4 py-3 text-sm font-body ${active === 'active' ? 'border-gold' : ''}`
+
+  const inputCls = "luxury-input w-full rounded-sm px-4 py-3 text-sm font-body"
 
   return (
     <div className="relative">
@@ -36,7 +64,7 @@ export default function BookingForm() {
         {/* Header */}
         <div className="flex items-center gap-2 mb-1">
           <FaCarAlt className="text-gold text-sm" />
-          <span className="section-label text-[10px]">Instant Booking</span>
+          <span className="section-label text-[10px]">Quick Booking</span>
         </div>
         <h3 className="font-heading text-2xl font-bold text-white mb-5">
           Book Your <span className="gold-text">Ride</span>
@@ -54,60 +82,93 @@ export default function BookingForm() {
                 <span className="text-gold text-4xl">✓</span>
               </div>
             </div>
-            <p className="font-heading text-xl text-white mb-1">Request Sent!</p>
-            <p className="font-body text-sm text-white/40">We'll call you within minutes.</p>
+            <p className="font-heading text-xl text-white mb-1">Redirecting to WhatsApp!</p>
+            <p className="font-body text-sm text-white/40">We'll confirm your booking shortly.</p>
           </motion.div>
         ) : (
           <form onSubmit={submit} className="space-y-3">
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Full Name</label>
-                <input name="name" value={form.name} onChange={handle}
-                  placeholder="Your name" required className={inp} />
-              </div>
-              <div>
-                <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Mobile No.</label>
-                <input name="mobile" value={form.mobile} onChange={handle}
-                  placeholder="+91 XXXXX" required className={inp} />
-              </div>
+            {/* Name */}
+            <div>
+              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Name</label>
+              <input
+                name="name"
+                type="text"
+                value={form.name}
+                onChange={handle}
+                required
+                placeholder="Enter Full Name"
+                className={inputCls}
+              />
             </div>
 
+            {/* Mobile number */}
             <div>
-              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Select Vehicle</label>
-              <select name="car" value={form.car} onChange={handle} required className={inp}>
-                <option value="">Choose your car</option>
-                {CARS.map(c => <option key={c} value={c}>{c}</option>)}
+              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Mobile Number</label>
+              <input
+                name="mobile"
+                type="tel"
+                value={form.mobile}
+                onChange={handle}
+                required
+                placeholder="Enter Mobile Number"
+                className={inputCls}
+              />
+            </div>
+
+            {/* Select Car */}
+            <div>
+              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Select Car</label>
+              <select name="car" value={form.car} onChange={handle} required className={inputCls}>
+                <option value="">— Choose Car —</option>
+                {VEHICLES.map(v => <option key={v} value={v}>{v}</option>)}
               </select>
             </div>
 
+            {/* Pickup Location */}
             <div>
               <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Pickup Location</label>
-              <input name="pickup" value={form.pickup} onChange={handle}
-                placeholder="Enter pickup point" required className={inp} />
+              <input
+                name="pickup"
+                type="text"
+                value={form.pickup}
+                onChange={handle}
+                required
+                placeholder="Enter Pickup Location"
+                className={inputCls}
+              />
             </div>
 
+            {/* Drop Location */}
             <div>
               <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Drop Location</label>
-              <input name="drop" value={form.drop} onChange={handle}
-                placeholder="Enter destination" required className={inp} />
+              <input
+                name="drop"
+                type="text"
+                value={form.drop}
+                onChange={handle}
+                required
+                placeholder="Enter Drop Location"
+                className={inputCls}
+              />
             </div>
 
+            {/* Journey Date + Pickup Time */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Date</label>
-                <input name="date" type="date" value={form.date} onChange={handle} required className={inp} />
+                <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Journey Date</label>
+                <input name="date" type="date" value={form.date} onChange={handle} required className={inputCls} />
               </div>
               <div>
-                <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Time</label>
-                <input name="time" type="time" value={form.time} onChange={handle} required className={inp} />
+                <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Pickup Time</label>
+                <input name="time" type="time" value={form.time} onChange={handle} required className={inputCls} />
               </div>
             </div>
 
             <button
               type="submit"
-              className="btn-gold w-full py-4 text-[11px] rounded-sm mt-1 gap-2"
+              className="btn-gold w-full py-4 text-[11px] rounded-sm mt-2 gap-2"
             >
-              Book Your Ride <HiArrowRight className="text-sm" />
+              <FaWhatsapp className="text-base" /> Book Now via WhatsApp <HiArrowRight className="text-sm" />
             </button>
 
             <p className="font-body text-[11px] text-white/25 text-center">

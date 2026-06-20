@@ -1,172 +1,300 @@
 import { motion } from 'framer-motion'
-import { FaRupeeSign, FaCheckCircle, FaPlane, FaMoon, FaUser, FaRoad } from 'react-icons/fa'
-import { HiArrowRight } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import MiniHero from '../components/MiniHero/MiniHero'
-import { cars } from '../data/cars'
+import { FaCheckCircle, FaPhoneAlt, FaWhatsapp, FaArrowRight, FaMapMarkerAlt, FaClock, FaRoad } from 'react-icons/fa'
+import { HiLocationMarker } from 'react-icons/hi'
 
-const pricing = cars.map(c => ({
-  name: c.name,
-  rate: c.rateNum,
-  tag: c.tag,
-  image: c.image
-}))
-
-const extras = [
+const packages = [
   {
-    icon: FaPlane,
-    title: 'Airport Charges',
-    items: ['Pickup/drop surcharge: ₹200–₹500', 'Night airport charge (10PM–6AM): +₹300', 'Toll & parking at actuals'],
+    from: 'Delhi', to: 'Agra',
+    desc: 'Visit the iconic Taj Mahal, Agra Fort and enjoy a comfortable same-day or multi-day tour.',
+    highlights: ['Taj Mahal', 'Agra Fort', 'Fatehpur Sikri', 'Mehtab Bagh'],
+    dist: '~230 km', time: '3–4 hrs', duration: 'Same Day / 2 Days',
+    color: 'rgba(212,167,60,0.12)',
+    border: 'rgba(212,167,60,0.3)',
+    tag: 'Popular',
   },
   {
-    icon: FaMoon,
-    title: 'Night Charges',
-    items: ['Night surcharge (10PM–6AM): +₹150/trip', 'Applied on all vehicle categories', 'No charge on pre-booked packages'],
+    from: 'Delhi', to: 'Jaipur',
+    desc: 'Explore forts, palaces, and vibrant culture with a smooth and well-planned Jaipur tour.',
+    highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
+    dist: '~270 km', time: '4–5 hrs', duration: '1–2 Days',
+    color: 'rgba(59,130,246,0.08)',
+    border: 'rgba(59,130,246,0.25)',
+    tag: 'Most Booked',
   },
   {
-    icon: FaUser,
-    title: 'Driver Allowance',
-    items: ['Outstation: ₹300/day per driver', 'Minimum 12-hour booking required', 'Return trips: allowance included'],
+    from: 'Delhi', to: 'Rishikesh',
+    desc: 'Enjoy a peaceful journey to Rishikesh with scenic views, river ghats, and spiritual attractions.',
+    highlights: ['Laxman Jhula', 'River Rafting', 'Ganga Ghat', 'Triveni Ghat'],
+    dist: '~240 km', time: '4–5 hrs', duration: '1–2 Days',
+    color: 'rgba(16,185,129,0.08)',
+    border: 'rgba(16,185,129,0.25)',
+    tag: 'Adventure',
   },
   {
-    icon: FaRoad,
-    title: 'Outstation Terms',
-    items: ['Minimum 250km billing per day', 'Fuel & tolls included per-km', 'AC usage included in all fares'],
+    from: 'Delhi', to: 'Haridwar',
+    desc: 'Experience a peaceful journey with holy ghats, Ganga Aarti, and spiritual landmarks.',
+    highlights: ['Har ki Pauri', 'Ganga Aarti', 'Mansa Devi Temple', 'Chandi Devi'],
+    dist: '~215 km', time: '3–4 hrs', duration: '1–2 Days',
+    color: 'rgba(245,158,11,0.08)',
+    border: 'rgba(245,158,11,0.25)',
+    tag: 'Spiritual',
+  },
+  {
+    from: 'Delhi', to: 'Mathura & Vrindavan',
+    desc: 'Visit the sacred city of Lord Krishna with Mathura and Vrindavan temples on same day.',
+    highlights: ['Krishna Janmabhoomi', 'Vrindavan ISKCON', 'Banke Bihari', 'Prem Mandir'],
+    dist: '~165 km', time: '2.5–3 hrs', duration: 'Same Day / 1 Day',
+    color: 'rgba(139,92,246,0.08)',
+    border: 'rgba(139,92,246,0.25)',
+    tag: 'Spiritual',
+  },
+  {
+    from: 'Delhi', to: 'Manali',
+    desc: 'Experience snow-capped mountains, adventure activities, and a comfortable long-distance journey.',
+    highlights: ['Rohtang Pass', 'Solang Valley', 'Hadimba Temple', 'Mall Road'],
+    dist: '~540 km', time: '10–12 hrs', duration: '3–4 Days',
+    color: 'rgba(236,72,153,0.08)',
+    border: 'rgba(236,72,153,0.25)',
+    tag: 'Hill Station',
+  },
+  {
+    from: 'Delhi', to: 'Mussoorie',
+    desc: 'Enjoy a scenic hill station journey with pleasant weather, mountain views, and a relaxing trip.',
+    highlights: ['Mall Road', 'Kempty Falls', 'Lal Tibba', 'Camel Back Road'],
+    dist: '~300 km', time: '5–6 hrs', duration: '1–2 Days',
+    color: 'rgba(6,182,212,0.08)',
+    border: 'rgba(6,182,212,0.25)',
+    tag: 'Hill Station',
+  },
+  {
+    from: 'Delhi', to: 'Khatu Shyam',
+    desc: 'Plan a comfortable religious trip to Khatu Shyam Ji for a peaceful and hassle-free darshan.',
+    highlights: ['Khatu Shyam Temple', 'Salasar Balaji', 'Lohargal Kund', 'Night Darshan'],
+    dist: '~320 km', time: '5–6 hrs', duration: '1–2 Days',
+    color: 'rgba(34,197,94,0.08)',
+    border: 'rgba(34,197,94,0.25)',
+    tag: 'Pilgrimage',
+  },
+  {
+    from: 'Delhi', to: 'Dehradun',
+    desc: 'A refreshing trip to Uttarakhand\'s capital with forest parks, waterfalls and pleasant climate.',
+    highlights: ['Robber\'s Cave', 'Sahastradhara', 'Forest Research Institute', 'Tapkeshwar Temple'],
+    dist: '~295 km', time: '5–6 hrs', duration: '1–2 Days',
+    color: 'rgba(251,191,36,0.08)',
+    border: 'rgba(251,191,36,0.25)',
+    tag: 'Nature',
+  },
+  {
+    from: 'Delhi', to: 'Chandigarh',
+    desc: 'Visit the beautifully planned city of Chandigarh — Rock Garden, Rose Garden and more.',
+    highlights: ['Rock Garden', 'Rose Garden', 'Sukhna Lake', 'Elante Mall'],
+    dist: '~250 km', time: '4–5 hrs', duration: '1–2 Days',
+    color: 'rgba(168,85,247,0.08)',
+    border: 'rgba(168,85,247,0.25)',
+    tag: 'City Tour',
+  },
+  {
+    from: 'Delhi', to: 'Shimla',
+    desc: 'Drive to the queen of hill stations for a perfect getaway with scenic mountain landscapes.',
+    highlights: ['Mall Road', 'Christ Church', 'Jakhoo Temple', 'Kufri'],
+    dist: '~345 km', time: '6–7 hrs', duration: '2–3 Days',
+    color: 'rgba(20,184,166,0.08)',
+    border: 'rgba(20,184,166,0.25)',
+    tag: 'Hill Station',
+  },
+  {
+    from: 'Delhi', to: 'Amritsar',
+    desc: 'A spiritual and cultural journey to the Golden Temple and Wagah Border in Punjab.',
+    highlights: ['Golden Temple', 'Wagah Border', 'Jallianwala Bagh', 'Durgiana Temple'],
+    dist: '~450 km', time: '7–8 hrs', duration: '1–2 Days',
+    color: 'rgba(245,101,57,0.08)',
+    border: 'rgba(245,101,57,0.25)',
+    tag: 'Spiritual',
   },
 ]
-
-const tagStyle = {
-  'Economy':     'text-zinc-400',
-  'Premium':     'text-amber-400',
-  'Sedan':       'text-blue-400',
-  'MPV':         'text-emerald-400',
-  'Premium MPV': 'text-purple-400',
-  'Hybrid MPV':  'text-teal-400',
-  'Premium SUV': 'text-orange-400',
-  'Executive':   'text-sky-400',
-  'Ultra Luxury':'text-yellow-400',
-}
 
 export default function Pricing() {
   return (
     <main>
       <MiniHero
-        title="OUR PRICING"
-        subtitle="Transparent per-kilometre rates — no hidden charges, no surprises"
-        breadcrumb={['Pricing']}
+        title="TOUR PACKAGES"
+        subtitle="Discover India's most loved destinations — comfortable rides, fixed pricing, professional drivers"
+        breadcrumb={['Packages']}
       />
 
-      {/* Rate Table */}
-      <section className="py-28" style={{ background: '#0a0a0a' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      {/* ═══════════════ PACKAGES GRID ═══════════════ */}
+      <section className="py-24" style={{ background: '#0a0a0a' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="section-label mb-3">Rate Card</motion.p>
+              className="section-label mb-3">Outstation Taxi</motion.p>
             <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="section-title text-4xl md:text-5xl mb-4">
-              Simple, <span>Honest</span> Rates
+              Popular Tour <span>Packages</span>
             </motion.h2>
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 }}
-              className="font-body text-sm text-white/40 mt-4 max-w-md mx-auto">
-              What you see is exactly what you pay. All prices are per kilometre, inclusive of AC and fuel.
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+              className="font-body text-sm text-white/40 mt-5 max-w-2xl mx-auto leading-relaxed">
+              Discover India's most loved tourist destinations with our premium outstation taxi services. Comfortable rides, fixed pricing, and professional drivers for a stress-free journey.
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
-            {pricing.map((p, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {packages.map((pkg, i) => (
               <motion.div
-                key={p.name}
-                initial={{ opacity: 0, y: 40 }}
+                key={`${pkg.from}-${pkg.to}`}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: (i % 3) * 0.08, duration: 0.5 }}
-                className="w-full flex"
+                transition={{ delay: (i % 3) * 0.1, duration: 0.6 }}
+                whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(212,167,60,0.15)' }}
+                className="rounded-xl overflow-hidden group cursor-default"
+                style={{ background: '#171717', border: `1px solid ${pkg.border}` }}
               >
-                <Link
-                  to={`/book?car=${encodeURIComponent(p.name)}`}
-                  className="luxury-card rounded-xl p-5 flex items-center gap-4 group hover:border-gold/50 cursor-pointer w-full transition-all duration-300 block"
-                >
-                  <div className="w-16 h-12 rounded overflow-hidden shrink-0 bg-zinc-900 relative">
-                    <img
-                      src={p.image}
-                      alt={p.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-heading text-sm font-bold text-white group-hover:text-gold transition-colors truncate mb-0.5">
-                      {p.name}
-                    </p>
-                    <p className={`font-body text-[10px] tracking-widest uppercase font-semibold ${tagStyle[p.tag] || 'text-gold'}`}>
-                      {p.tag}
-                    </p>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="flex items-baseline gap-0.5">
-                      <FaRupeeSign className="text-gold text-sm" />
-                      <span className="font-heading text-2xl font-black gold-text">{p.rate}</span>
+                {/* Top band */}
+                <div className="h-1.5 w-full" style={{ background: 'linear-gradient(90deg, #D4A73C, #F0D060)' }} />
+
+                <div className="p-7">
+                  {/* Tag */}
+                  <span className="gold-badge mb-4 inline-block">{pkg.tag}</span>
+
+                  {/* Route */}
+                  <div className="flex items-start gap-2 mb-4">
+                    <HiLocationMarker className="text-gold text-xl mt-0.5 shrink-0" />
+                    <div>
+                      <p className="font-body text-[10px] text-white/35 tracking-widest uppercase">{pkg.from}</p>
+                      <h3 className="font-heading text-2xl font-bold text-white group-hover:text-gold transition-colors">
+                        To {pkg.to}
+                      </h3>
                     </div>
-                    <p className="font-body text-[10px] text-white/30">per km</p>
                   </div>
-                </Link>
+
+                  <p className="font-body text-sm text-white/45 leading-relaxed mb-5">{pkg.desc}</p>
+
+                  {/* Meta chips */}
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    <span className="flex items-center gap-1 font-body text-[10px] text-white/50 px-3 py-1 rounded-full"
+                      style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
+                      <FaRoad className="text-gold/60 text-[9px]" /> {pkg.dist}
+                    </span>
+                    <span className="flex items-center gap-1 font-body text-[10px] text-white/50 px-3 py-1 rounded-full"
+                      style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
+                      <FaClock className="text-gold/60 text-[9px]" /> {pkg.time}
+                    </span>
+                    <span className="flex items-center gap-1 font-body text-[10px] text-white/50 px-3 py-1 rounded-full"
+                      style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
+                      <FaMapMarkerAlt className="text-gold/60 text-[9px]" /> {pkg.duration}
+                    </span>
+                  </div>
+
+                  {/* Highlights */}
+                  <ul className="space-y-2 mb-6">
+                    {pkg.highlights.map(h => (
+                      <li key={h} className="flex items-center gap-2.5 font-body text-xs text-white/45">
+                        <FaCheckCircle className="text-gold/60 text-xs shrink-0" /> {h}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Actions */}
+                  <div className="flex gap-2">
+                    <a href={`https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20${encodeURIComponent(`Delhi to ${pkg.to}`)}.%20Please%20share%20details.%20Thanks`}
+                      target="_blank" rel="noreferrer"
+                      className="flex-1 btn-gold py-2.5 text-[10px] rounded-sm justify-center gap-1.5">
+                      Book Now <FaArrowRight />
+                    </a>
+                    <a href="tel:+919643199064"
+                      className="flex-1 btn-outline py-2.5 text-[10px] rounded-sm gap-1.5 justify-center">
+                      <FaPhoneAlt className="text-[9px]" /> Call Now
+                    </a>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Extra Charges */}
-          <div className="text-center mb-10">
-            <p className="section-label mb-3">Additional Information</p>
-            <h3 className="section-title text-3xl mb-4">Charges &amp; <span>Terms</span></h3>
-            <div className="gold-divider" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
-            {extras.map((e, i) => (
-              <motion.div
-                key={e.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="luxury-card rounded-xl p-6 group"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="icon-box w-11 h-11">
-                    <e.icon className="text-gold text-base" />
-                  </div>
-                  <h4 className="font-heading text-base font-bold text-white group-hover:text-gold transition-colors">{e.title}</h4>
-                </div>
-                <ul className="space-y-2.5">
-                  {e.items.map(item => (
-                    <li key={item} className="flex items-start gap-2.5">
-                      <FaCheckCircle className="text-gold/60 text-xs mt-0.5 shrink-0" />
-                      <span className="font-body text-sm text-white/50">{item}</span>
+      {/* ═══════════════ BOOKING INFO ═══════════════ */}
+      <section className="py-16 relative" style={{ background: '#111' }}>
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'How to Book',
+                steps: [
+                  'Call or WhatsApp us your pickup location & destination',
+                  'Select your preferred vehicle from our fleet',
+                  "Confirm date & time — we'll send a confirmation",
+                  'Our driver arrives on time for a comfortable journey',
+                ],
+              },
+              {
+                title: "What's Included",
+                steps: [
+                  'Driver allowance & toll taxes',
+                  'State permits for outstation trips',
+                  'GST invoice on request',
+                  '24/7 customer support throughout your journey',
+                ],
+              },
+              {
+                title: 'Why Book With Us',
+                steps: [
+                  'Fixed pricing — no surge or hidden charges',
+                  'Police-verified, experienced drivers',
+                  'Well-maintained, GPS-tracked vehicles',
+                  'Flexible cancellation policy',
+                ],
+              },
+            ].map((section, i) => (
+              <motion.div key={section.title}
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
+                className="rounded-xl p-7"
+                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}>
+                <h3 className="font-heading text-lg font-bold text-white mb-5">{section.title}</h3>
+                <ul className="space-y-3">
+                  {section.steps.map((step, j) => (
+                    <li key={j} className="flex items-start gap-3 font-body text-sm text-white/50">
+                      <span className="font-heading text-gold font-bold text-xs mt-0.5 shrink-0">{String(j + 1).padStart(2, '0')}</span>
+                      {step}
                     </li>
                   ))}
                 </ul>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Disclaimer */}
-          <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
-            className="rounded-xl p-6 text-center mb-12"
-            style={{ background: 'rgba(212,167,60,0.05)', border: '1px solid rgba(212,167,60,0.2)' }}
-          >
-            <p className="font-body text-sm text-white/45">
-              <span className="text-gold font-semibold">Note: </span>
-              All rates are approximate and subject to change. Final fare confirmed at booking. GST applicable per government norms.
-            </p>
+      {/* ═══════════════ CTA ═══════════════ */}
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
+        <div className="absolute inset-0 opacity-[0.06]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+        <div className="max-w-3xl mx-auto px-4 text-center relative">
+          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="font-heading text-3xl md:text-4xl font-black text-white mb-3">
+            Book Your <span className="gold-text">Tour Now!</span>
+          </motion.h2>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+            className="font-body text-sm text-white/45 mb-8">
+            Call us or WhatsApp for custom tour packages, bulk bookings or any special travel requirements.
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20tour%20package.%20Thanks"
+              target="_blank" rel="noreferrer"
+              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
+              <FaWhatsapp className="text-base" /> WhatsApp Now
+            </a>
+            <a href="tel:+919643199064" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+              <FaPhoneAlt /> +91 96431 99064
+            </a>
           </motion.div>
-
-          <div className="text-center">
-            <Link to="/contact" className="btn-gold px-12 py-4 text-[11px] rounded-sm gap-2">
-              Get Custom Quote <HiArrowRight />
-            </Link>
-          </div>
         </div>
       </section>
     </main>

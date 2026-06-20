@@ -1,24 +1,33 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp, FaPhoneAlt } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaGoogle, FaWhatsapp, FaPhoneAlt } from 'react-icons/fa'
 import { HiLocationMarker, HiPhone, HiMail, HiArrowRight } from 'react-icons/hi'
 
 const quickLinks = [
-  { label: 'Home',     path: '/' },
-  { label: 'About Us', path: '/about' },
-  { label: 'Fleet',    path: '/fleet' },
-  { label: 'Pricing',  path: '/pricing' },
-  { label: 'Services', path: '/services' },
-  { label: 'Contact',  path: '/contact' },
+  { label: 'Home',                  path: '/' },
+  { label: 'About Us',              path: '/about' },
+  { label: 'Chardham Tour Packages',path: '/pricing' },
+  { label: 'Same Day Tour Packages',path: '/pricing' },
+  { label: 'Contact Us',            path: '/contact' },
 ]
 
-const services = [
-  'Airport Transfer',
-  'Corporate Travel',
-  'Local Taxi Service',
-  'Outstation Trips',
-  'Wedding Transport',
-  'Premium Chauffeur',
+const serviceLinks = [
+  { label: 'Car Rental Delhi',         path: '/services' },
+  { label: 'Outstation Taxi',          path: '/services' },
+  { label: 'Tempo Traveller Service',  path: '/fleet' },
+  { label: 'Oneway Cab Service',       path: '/services' },
+  { label: 'Airport Taxi',             path: '/services' },
+]
+
+const tourLinks = [
+  { label: 'Delhi to Agra Tour',         path: '/pricing' },
+  { label: 'Delhi to Jaipur Tour',       path: '/pricing' },
+  { label: 'Delhi to Rishikesh Tour',    path: '/pricing' },
+  { label: 'Delhi to Haridwar Tour',     path: '/pricing' },
+  { label: 'Delhi to Mathura Tour',      path: '/pricing' },
+  { label: 'Delhi to Manali Tour',       path: '/pricing' },
+  { label: 'Delhi to Mussoorie Tour',    path: '/pricing' },
+  { label: 'Delhi to Chandigarh Tour',   path: '/pricing' },
 ]
 
 export default function Footer() {
@@ -27,36 +36,12 @@ export default function Footer() {
       {/* Top border */}
       <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, #D4A73C, transparent)' }} />
 
-      {/* CTA Strip */}
-      <div className="py-14 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="section-label mb-3">Ready to Ride?</motion.p>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            className="font-heading text-3xl md:text-4xl font-black text-white mb-3">
-            Book Your <span className="gold-text">Premium Cab</span> Now
-          </motion.h2>
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="font-body text-sm text-white/45 mb-8 max-w-lg mx-auto">
-            Available 24/7 across Delhi NCR — Airport, Outstation, Corporate or Local.
-          </motion.p>
-          <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
-              Book Now <HiArrowRight />
-            </Link>
-            <a href="tel:+919643199064" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
-              <FaPhoneAlt /> +91 96431 99064
-            </a>
-          </motion.div>
-        </div>
-      </div>
+
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+
           {/* BRAND */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center mb-4">
@@ -66,18 +51,42 @@ export default function Footer() {
                 className="h-16 w-auto object-contain"
               />
             </Link>
-            <p className="font-body text-sm text-white/45 leading-relaxed mb-6">
-              Premium cab booking & luxury mobility in New Delhi. Ride in Comfort. Arrive in Style. Serving Delhi NCR since 2016.
+            <p className="font-body text-sm text-white/45 leading-relaxed mb-5">
+              ANSA Prime Mobility Services — New Delhi's trusted premium cab service. Ride in Comfort. Arrive in Style.
             </p>
+
+            {/* Address */}
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-start gap-2.5">
+                <HiLocationMarker className="text-gold text-lg mt-0.5 shrink-0" />
+                <span className="font-body text-xs text-white/40 leading-relaxed">
+                  <strong className="text-white/60 block">Head Office:</strong>
+                  94, Block B, Zamrudpur, Greater Kailash,<br />New Delhi – 110048
+                </span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <HiPhone className="text-gold text-base shrink-0" />
+                <a href="tel:+919643199064" className="font-body text-xs text-white/40 hover:text-gold transition-colors">
+                  +91 96431 99064
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <HiMail className="text-gold text-base shrink-0" />
+                <a href="mailto:info@ansaprime.com" className="font-body text-xs text-white/40 hover:text-gold transition-colors">
+                  info@ansaprime.com
+                </a>
+              </li>
+            </ul>
+
             {/* Social */}
             <div className="flex items-center gap-2.5">
               {[
-                { Icon: FaFacebookF, href: '#' },
-                { Icon: FaInstagram, href: '#' },
-                { Icon: FaYoutube,   href: '#' },
-                { Icon: FaWhatsapp,  href: 'https://wa.me/919643199064' },
-              ].map(({ Icon, href }, i) => (
-                <a key={i} href={href} target={href !== '#' ? '_blank' : undefined} rel="noreferrer"
+                { Icon: FaFacebookF,  href: 'https://www.facebook.com/',  label: 'Facebook' },
+                { Icon: FaInstagram,  href: 'https://www.instagram.com/', label: 'Instagram' },
+                { Icon: FaGoogle,     href: 'https://maps.google.com/',   label: 'Google' },
+                { Icon: FaWhatsapp,   href: 'https://wa.me/919643199064', label: 'WhatsApp' },
+              ].map(({ Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
                   className="w-9 h-9 rounded-full border border-gold/25 flex items-center justify-center text-gold/60
                     hover:bg-gold hover:text-dark-DEFAULT hover:border-gold transition-all duration-300 text-sm">
                   <Icon />
@@ -94,7 +103,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {quickLinks.map(l => (
-                <li key={l.path}>
+                <li key={l.label}>
                   <Link to={l.path}
                     className="font-body text-sm text-white/45 hover:text-gold transition-colors flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold/40 group-hover:bg-gold transition-colors shrink-0" />
@@ -112,46 +121,66 @@ export default function Footer() {
               <span className="absolute bottom-0 left-0 w-10 h-0.5" style={{ background: 'linear-gradient(90deg, #D4A73C, transparent)' }} />
             </h4>
             <ul className="space-y-3">
-              {services.map(s => (
-                <li key={s}>
-                  <Link to="/services"
+              {serviceLinks.map(s => (
+                <li key={s.label}>
+                  <Link to={s.path}
                     className="font-body text-sm text-white/45 hover:text-gold transition-colors flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold/40 group-hover:bg-gold transition-colors shrink-0" />
-                    {s}
+                    {s.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* CONTACT */}
+          {/* TOUR PACKAGES */}
           <div>
             <h4 className="font-heading text-base font-bold text-white mb-6 relative pb-3">
-              Contact Us
+              Tour Packages
               <span className="absolute bottom-0 left-0 w-10 h-0.5" style={{ background: 'linear-gradient(90deg, #D4A73C, transparent)' }} />
             </h4>
-            <ul className="space-y-5">
-              <li className="flex gap-3">
-                <HiLocationMarker className="text-gold text-xl mt-0.5 shrink-0" />
-                <p className="font-body text-sm text-white/45 leading-relaxed">
-                  94, Block B, Zamrudpur,<br />
-                  Greater Kailash, New Delhi,<br />
-                  Delhi – 110048
-                </p>
-              </li>
-              <li className="flex items-center gap-3">
-                <HiPhone className="text-gold text-lg shrink-0" />
-                <a href="tel:+919643199064" className="font-body text-sm text-white/45 hover:text-gold transition-colors">
-                  +91 96431 99064
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <HiMail className="text-gold text-lg shrink-0" />
-                <a href="mailto:info@ansaprime.com" className="font-body text-sm text-white/45 hover:text-gold transition-colors">
-                  info@ansaprime.com
-                </a>
-              </li>
+            <ul className="space-y-3">
+              {tourLinks.map(t => (
+                <li key={t.label}>
+                  <Link to={t.path}
+                    className="font-body text-sm text-white/45 hover:text-gold transition-colors flex items-center gap-2 group">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold/40 group-hover:bg-gold transition-colors shrink-0" />
+                    {t.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
+          </div>
+
+          {/* WORKING HOURS */}
+          <div>
+            <h4 className="font-heading text-base font-bold text-white mb-6 relative pb-3">
+              Working Hours
+              <span className="absolute bottom-0 left-0 w-10 h-0.5" style={{ background: 'linear-gradient(90deg, #D4A73C, transparent)' }} />
+            </h4>
+            <ul className="space-y-3">
+              {[
+                { day: 'Monday – Friday', time: '24 Hours' },
+                { day: 'Saturday',        time: '24 Hours' },
+                { day: 'Sunday',          time: '24 Hours' },
+                { day: 'Holidays',        time: '24 Hours' },
+              ].map(h => (
+                <li key={h.day} className="flex flex-col gap-0.5">
+                  <span className="font-body text-xs text-white/30 tracking-wider uppercase">{h.day}</span>
+                  <span className="font-heading text-sm font-bold gold-text">{h.time}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 p-4 rounded-xl" style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
+              <p className="font-body text-xs text-gold font-semibold tracking-wider uppercase mb-2">Book Instantly</p>
+              <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
+                target="_blank" rel="noreferrer"
+                className="flex items-center gap-2 font-body text-xs text-white/60 hover:text-gold transition-colors">
+                <FaWhatsapp className="text-base text-green-400" />
+                WhatsApp: +91 96431 99064
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -160,8 +189,13 @@ export default function Footer() {
       <div className="border-t border-white/5 py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="font-body text-xs text-white/25">
-            © 2026 ANSA PRIME MOBILITY SERVICES. All Rights Reserved.
+            © Copyright reserved to ANSA Prime Mobility Services 2026
           </p>
+          <div className="flex items-center gap-4">
+            <Link to="/about" className="font-body text-xs text-white/25 hover:text-gold transition-colors">Privacy Policy</Link>
+            <span className="w-px h-3 bg-white/10" />
+            <Link to="/about" className="font-body text-xs text-white/25 hover:text-gold transition-colors">Terms of Service</Link>
+          </div>
           <p className="font-body text-xs text-white/25">
             Designed with <span className="text-gold">♥</span> for Premium Travel
           </p>

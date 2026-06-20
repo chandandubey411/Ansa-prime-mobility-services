@@ -200,6 +200,7 @@ body {
   cursor: pointer;
   transition: all 0.35s ease;
   text-decoration: none;
+  z-index: 1;
 }
 .btn-outline::after {
   content: '';
@@ -208,8 +209,10 @@ body {
   background: linear-gradient(135deg, #D4A73C, #F0D060);
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: -1;
 }
-.btn-outline:hover { color: #0a0a0a; border-color: #F0D060; box-shadow: 0 0 30px rgba(212,167,60,0.45); transform: translateY(-3px); }
+.btn-outline:hover { color: #000000 !important; border-color: #F0D060; box-shadow: 0 0 30px rgba(212,167,60,0.45); transform: translateY(-3px); }
+.btn-outline:hover * { color: #000000 !important; }
 .btn-outline:hover::after { opacity: 1; }
 .btn-outline > * { position: relative; z-index: 1; }
 
@@ -234,7 +237,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-top: 130px;
+  padding-top: 145px;
 }
 .mini-hero::after {
   content: '';

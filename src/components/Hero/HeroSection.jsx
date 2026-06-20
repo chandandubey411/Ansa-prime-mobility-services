@@ -40,7 +40,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-dark" style={{ paddingTop: '90px' }}>
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-dark" style={{ paddingTop: '120px' }}>
       {/* ── PHOTO BACKGROUND ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div ref={bgRef} className="absolute inset-[-4%]"

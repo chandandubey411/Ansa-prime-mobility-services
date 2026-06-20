@@ -1,138 +1,259 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaUserFriends, FaSuitcase, FaSnowflake, FaGasPump } from 'react-icons/fa'
-import { HiArrowRight } from 'react-icons/hi'
 import MiniHero from '../components/MiniHero/MiniHero'
+import { FaCarSide, FaPhoneAlt, FaWhatsapp, FaUsers, FaRoad, FaCheckCircle } from 'react-icons/fa'
 
-import { cars } from '../data/cars'
-
-const fleet = cars.map(c => ({
-  ...c,
-  cat: c.category,
-  pax: c.passengers,
-  bags: c.luggage
-}))
-
-const tagStyle = {
-  'Economy':     'bg-zinc-800/80 text-zinc-300 border-zinc-600/40',
-  'Premium':     'bg-amber-900/40 text-amber-300 border-amber-700/40',
-  'Sedan':       'bg-blue-900/40 text-blue-300 border-blue-700/40',
-  'MPV':         'bg-emerald-900/40 text-emerald-300 border-emerald-700/40',
-  'Premium MPV': 'bg-purple-900/40 text-purple-300 border-purple-700/40',
-  'Hybrid MPV':  'bg-teal-900/40 text-teal-300 border-teal-700/40',
-  'Premium SUV': 'bg-orange-900/40 text-orange-300 border-orange-700/40',
-  'Executive':   'bg-sky-900/40 text-sky-300 border-sky-700/40',
-  'Ultra Luxury':'bg-yellow-900/50 text-yellow-300 border-yellow-600/50',
-}
-
-const filters = ['All', 'Economy', 'Sedan', 'MPV', 'SUV', 'Luxury']
+const vehicles = [
+  {
+    name: 'Maruti Dzire',
+    type: 'Sedan',
+    seating: '4+1D',
+    rate: '₹15',
+    features: ['AC', 'Comfortable Seats', 'Music System', 'GPS Tracked'],
+    ideal: 'Perfect for couples and small families for city rides and short outstation trips.',
+    color: '#3B82F6',
+    image: 'https://i.pinimg.com/736x/9a/28/2a/9a282a1accb239d50522ccc812899d9d.jpg'
+  },
+  {
+    name: 'Honda City',
+    type: 'Sedan',
+    seating: '4+1D',
+    rate: '₹17',
+    features: ['AC', 'Premium Interiors', 'Music System', 'GPS Tracked'],
+    ideal: 'Premium sedan offering superior comfort and status for business and family trips.',
+    color: '#3B82F6',
+    image: 'https://i.pinimg.com/736x/4a/83/80/4a8380026577d4c2b65a958057c00262.jpg'
+  },
+  {
+    name: 'Hyundai Aura',
+    type: 'Sedan',
+    seating: '4+1D',
+    rate: '₹15',
+    features: ['AC', 'Comfortable Seating', 'Music System', 'GPS Tracked'],
+    ideal: 'Modern sedan, highly fuel-efficient and spacious for city and outstation travel.',
+    color: '#3B82F6',
+    image: 'https://i.pinimg.com/736x/a9/79/49/a97949e1229fae0b28beb9dca167b1b0.jpg'
+  },
+  {
+    name: 'Premium Dzire',
+    type: 'Premium Sedan',
+    seating: '4+1D',
+    rate: '₹18',
+    features: ['Luxury AC', 'Extra Comfort Seats', 'Music System', 'GPS Tracked'],
+    ideal: 'Upgraded sedan for extra comfort, ideal for corporate travel and long-distance rides.',
+    color: '#D4A73C',
+    image: 'https://i.pinimg.com/736x/f2/0d/7f/f20d7fe875f96071e151608e040d8ecc.jpg'
+  },
+  {
+    name: 'Maruti Ertiga',
+    type: 'MPV',
+    seating: '6+1D',
+    rate: '₹19',
+    features: ['AC', 'Push-back Seats', 'Spacious Cabin', 'GPS Tracked'],
+    ideal: 'Ideal for small group travel, family trips and outstation journeys.',
+    color: '#10B981',
+    image: 'https://i.pinimg.com/736x/83/c2/98/83c298c77de26dc6355885f0307e7d10.jpg'
+  },
+  {
+    name: 'Kia Carens',
+    type: 'MPV',
+    seating: '6+1D',
+    rate: '₹20',
+    features: ['AC', 'Modern Interior', 'Panoramic Roof', 'GPS Tracked'],
+    ideal: 'Modern and stylish MPV perfect for family outings and medium-distance trips.',
+    color: '#8B5CF6',
+    image: 'https://i.pinimg.com/736x/3a/8f/49/3a8f4965003a43180ba20603616f983d.jpg'
+  },
+  {
+    name: 'Mahindra Marazzo',
+    type: 'MPV',
+    seating: '7+1D',
+    rate: '₹20',
+    features: ['Dual AC', 'Comfortable Captain Seats', 'Large Boot Space', 'GPS Tracked'],
+    ideal: 'Spacious and smooth ride, perfect for highway travels and family vacations.',
+    color: '#06B6D4',
+    image: 'https://i.pinimg.com/736x/93/fc/98/93fc98106ac707d4f4bd3a4b02bb3fac.jpg'
+  },
+  {
+    name: 'Toyota Hycross',
+    type: 'Premium MPV',
+    seating: '7+1D',
+    rate: '₹33',
+    features: ['Luxury Dual AC', 'Captain Seats', 'Ambient Lighting', 'GPS Tracked'],
+    ideal: 'Premium hybrid MPV for ultimate passenger comfort and a smooth, silent ride.',
+    color: '#D4A73C',
+    image: 'https://i.pinimg.com/736x/f1/ce/c7/f1cec755fadd16928cb75010da5e8d70.jpg'
+  },
+  {
+    name: 'Innova Crysta',
+    type: 'Premium SUV',
+    seating: '7+1D',
+    rate: '₹22',
+    features: ['Luxury AC', 'Captain Seats', 'Ample Luggage', 'GPS Tracked'],
+    ideal: 'Best choice for premium travel, corporate trips and large family outstation tours.',
+    color: '#D4A73C',
+    image: 'https://i.pinimg.com/736x/b3/0e/8f/b30e8ffd409781768e031bcb7e79f165.jpg'
+  },
+  {
+    name: 'Toyota Fortuner',
+    type: 'Luxury SUV',
+    seating: '7+1D',
+    rate: '₹48',
+    features: ['Dual AC', 'Leather Interiors', 'Powerful Engine', 'GPS Tracked'],
+    ideal: 'Luxury SUV with high road presence, perfect for VIP travel and rough terrains.',
+    color: '#F59E0B',
+    image: 'https://i.pinimg.com/736x/14/f1/cb/14f1cbe0edfb3620de8bd8bd53ebc411.jpg'
+  },
+  {
+    name: 'Toyota Camry Hybrid',
+    type: 'Luxury Sedan',
+    seating: '4+1D',
+    rate: '₹53',
+    features: ['Premium AC', 'Reclining Rear Seats', 'Silent Electric Cabin', 'GPS Tracked'],
+    ideal: 'Executive luxury sedan for VIP transfers, corporate executives and premium occasions.',
+    color: '#F43F5E',
+    image: 'https://i.pinimg.com/736x/10/39/75/103975fc93f1e60de40c8a0fdd44b3ea.jpg'
+  },
+  {
+    name: 'Mercedes Benz',
+    type: 'Ultra Luxury',
+    seating: '4+1D',
+    rate: '₹88',
+    features: ['Dual-Zone Climate Control', 'Premium Leather', 'State-of-the-Art Safety', 'GPS Tracked'],
+    ideal: 'Elite class luxury for VIPs, celebrity transport, corporate events and luxury weddings.',
+    color: '#6366F1',
+    image: 'https://i.pinimg.com/736x/7f/f5/8f/7ff58fa900f6172d69fa16cb34024da9.jpg'
+  },
+]
 
 export default function Fleet() {
-  const [active, setActive] = useState('All')
-
-  const filtered = fleet.filter(car => {
-    if (active === 'All') return true
-    if (active === 'Economy') return car.tag === 'Economy' || car.tag === 'Premium'
-    if (active === 'Sedan')   return car.cat.includes('Sedan')
-    if (active === 'MPV')     return car.cat.includes('MPV') || car.cat.includes('Utility')
-    if (active === 'SUV')     return car.tag.includes('SUV')
-    if (active === 'Luxury')  return car.tag === 'Ultra Luxury' || car.tag === 'Executive'
-    return true
-  })
-
   return (
     <main>
       <MiniHero
         title="OUR FLEET"
-        subtitle="12 premium vehicles from compact economy to ultra-luxury — choose your perfect ride"
+        subtitle="Well-maintained, GPS-tracked vehicles with professional drivers — choose your perfect ride"
         breadcrumb={['Fleet']}
       />
 
-      <section className="py-28" style={{ background: '#0a0a0a' }}>
+      {/* ═══════════════ VEHICLES GRID ═══════════════ */}
+      <section className="py-24" style={{ background: '#0a0a0a' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Heading */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="section-label mb-3">Our Vehicles</motion.p>
+              className="section-label mb-3">Premium Vehicles</motion.p>
             <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="section-title text-4xl md:text-5xl mb-4">
-              Premium <span>Fleet</span> Lineup
+              Best Taxi Service <span>In Delhi</span>
             </motion.h2>
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+              className="font-body text-sm text-white/40 mt-5 max-w-2xl mx-auto leading-relaxed">
+              We provide the best taxi service in Delhi with well-maintained cabs, reliable drivers, and budget-friendly rates for every journey.
+            </motion.p>
           </div>
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {filters.map(f => (
-              <button
-                key={f}
-                onClick={() => setActive(f)}
-                className={`font-body text-xs font-semibold tracking-wider uppercase px-5 py-2 rounded-sm transition-all duration-300 ${
-                  active === f
-                    ? 'bg-gold text-dark-DEFAULT shadow-gold'
-                    : 'border border-gold/25 text-white/50 hover:border-gold/50 hover:text-gold'
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {filtered.map((car, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {vehicles.map((v, i) => (
               <motion.div
-                key={car.name}
-                layout
-                initial={{ opacity: 0, y: 40 }}
+                key={v.name}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: (i % 4) * 0.08, duration: 0.5 }}
-                className="luxury-card rounded-xl overflow-hidden group"
+                transition={{ delay: (i % 3) * 0.1, duration: 0.6 }}
+                whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(212,167,60,0.15)' }}
+                className="rounded-xl overflow-hidden group"
+                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}
               >
-                {/* Visual */}
-                <div className="h-44 flex items-center justify-center relative overflow-hidden bg-zinc-900">
+                {/* Vehicle Image */}
+                <div className="h-48 relative overflow-hidden">
                   <img
-                    src={car.image}
-                    alt={car.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-90"
+                    src={v.image}
+                    alt={v.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{ background: 'radial-gradient(circle at center, rgba(212,167,60,0.15), transparent 70%)' }} />
-                  <span className={`absolute top-3 left-3 text-[10px] font-body font-semibold px-2.5 py-0.5 rounded-sm tracking-wider uppercase border z-10 ${tagStyle[car.tag] || 'bg-gold/15 text-gold border-gold/30'}`}>
-                    {car.tag}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  {/* Badges */}
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-sm text-[10px] font-bold tracking-wider uppercase"
+                    style={{ background: `${v.color}dd`, color: '#fff' }}>
+                    {v.type}
                   </span>
-                  <div className="absolute bottom-3 right-3 glass-dark rounded-sm px-2.5 py-1 z-10">
-                    <span className="font-heading text-sm font-bold gold-text">{car.rate}</span>
+                  <div className="absolute bottom-3 right-3 flex gap-2">
+                    <span className="px-2 py-1 rounded-sm text-[10px] font-bold"
+                      style={{ background: 'rgba(212,167,60,0.9)', color: '#0a0a0a' }}>
+                      <FaUsers className="inline mr-1" />{v.seating}
+                    </span>
                   </div>
                 </div>
 
-                {/* Info */}
-                <div className="p-5">
-                  <h3 className="font-heading text-base font-bold text-white mb-1 group-hover:text-gold transition-colors">{car.name}</h3>
-                  <p className="font-body text-[11px] text-white/30 mb-4 uppercase tracking-wider">{car.cat}</p>
-                  <div className="flex flex-wrap gap-x-3 gap-y-1 mb-5">
-                    {[
-                      { icon: FaUserFriends, label: `${car.pax} Pax` },
-                      { icon: FaSuitcase,    label: `${car.bags} Bags` },
-                      { icon: FaSnowflake,   label: 'AC' },
-                      { icon: FaGasPump,     label: car.fuel },
-                    ].map(({ icon: Icon, label }) => (
-                      <span key={label} className="flex items-center gap-1 text-[11px] text-white/40 font-body">
-                        <Icon className="text-gold/55 text-xs" /> {label}
-                      </span>
-                    ))}
+                <div className="p-6">
+                  {/* Title + Rate */}
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="font-heading text-lg font-bold text-white group-hover:text-gold transition-colors">{v.name}</h3>
+                    <div className="text-right shrink-0 ml-3">
+                      <p className="font-heading text-xl font-black gold-text">{v.rate}/km</p>
+                      <p className="font-body text-[10px] text-white/30 tracking-wider">Rate</p>
+                    </div>
                   </div>
-                  <Link to={`/book?car=${encodeURIComponent(car.name)}`} className="btn-gold w-full py-2.5 text-[11px] rounded-sm">
-                    Book Now
-                  </Link>
+
+                  <p className="font-body text-xs text-white/40 leading-relaxed mb-4">{v.ideal}</p>
+
+                  {/* Features */}
+                  <ul className="grid grid-cols-2 gap-1.5 mb-5">
+                    {v.features.map(f => (
+                      <li key={f} className="flex items-center gap-1.5 font-body text-xs text-white/45">
+                        <FaCheckCircle className="text-gold/60 text-xs shrink-0" /> {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Distance info */}
+                  <div className="flex items-center gap-2 mb-5">
+                    <FaRoad className="text-gold/40 text-xs" />
+                    <span className="font-body text-[10px] text-white/30 tracking-wider uppercase">Min 250 km/day for outstation</span>
+                  </div>
+
+                  {/* CTAs */}
+                  <div className="flex gap-2">
+                    <Link to={`/book?car=${encodeURIComponent(v.name)}`} className="flex-1 btn-gold py-2.5 text-[10px] rounded-sm justify-center">
+                      Book Now
+                    </Link>
+                    <a href="tel:+919643199064"
+                      className="flex-1 btn-outline py-2.5 text-[10px] rounded-sm gap-1.5 justify-center">
+                      <FaPhoneAlt className="text-[9px]" /> Call
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ CTA ═══════════════ */}
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
+        <div className="absolute inset-0 opacity-[0.06]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+        <div className="max-w-3xl mx-auto px-4 text-center relative">
+          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="font-heading text-3xl md:text-4xl font-black text-white mb-3">
+            Need a <span className="gold-text">Custom Quote?</span>
+          </motion.h2>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+            className="font-body text-sm text-white/45 mb-8">
+            Contact us for bulk bookings, multi-day packages, wedding transport or any special requirements.
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20enquire%20about%20your%20fleet.%20Thanks"
+              target="_blank" rel="noreferrer"
+              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
+              <FaWhatsapp className="text-base" /> WhatsApp Now
+            </a>
+            <a href="tel:+919643199064" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+              <FaPhoneAlt /> +91 96431 99064
+            </a>
+          </motion.div>
         </div>
       </section>
     </main>
