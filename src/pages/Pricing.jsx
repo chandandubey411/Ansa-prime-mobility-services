@@ -9,7 +9,7 @@ const packages = [
     from: 'Delhi', to: 'Agra',
     desc: 'Visit the iconic Taj Mahal, Agra Fort and enjoy a comfortable same-day or multi-day tour.',
     highlights: ['Taj Mahal', 'Agra Fort', 'Fatehpur Sikri', 'Mehtab Bagh'],
-    dist: '~230 km', time: '3–4 hrs', duration: 'Same Day / 2 Days',
+    dist: '~230', time: '3–4 hrs', duration: 'Same Day / 2 Days',
     color: 'rgba(212,167,60,0.12)',
     border: 'rgba(212,167,60,0.3)',
     tag: 'Popular',
@@ -18,7 +18,7 @@ const packages = [
     from: 'Delhi', to: 'Jaipur',
     desc: 'Explore forts, palaces, and vibrant culture with a smooth and well-planned Jaipur tour.',
     highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
-    dist: '~270 km', time: '4–5 hrs', duration: '1–2 Days',
+    dist: '~270', time: '4–5 hrs', duration: '1–2 Days',
     color: 'rgba(59,130,246,0.08)',
     border: 'rgba(59,130,246,0.25)',
     tag: 'Most Booked',
@@ -27,7 +27,7 @@ const packages = [
     from: 'Delhi', to: 'Rishikesh',
     desc: 'Enjoy a peaceful journey to Rishikesh with scenic views, river ghats, and spiritual attractions.',
     highlights: ['Laxman Jhula', 'River Rafting', 'Ganga Ghat', 'Triveni Ghat'],
-    dist: '~240 km', time: '4–5 hrs', duration: '1–2 Days',
+    dist: '~240', time: '4–5 hrs', duration: '1–2 Days',
     color: 'rgba(16,185,129,0.08)',
     border: 'rgba(16,185,129,0.25)',
     tag: 'Adventure',
@@ -36,7 +36,7 @@ const packages = [
     from: 'Delhi', to: 'Haridwar',
     desc: 'Experience a peaceful journey with holy ghats, Ganga Aarti, and spiritual landmarks.',
     highlights: ['Har ki Pauri', 'Ganga Aarti', 'Mansa Devi Temple', 'Chandi Devi'],
-    dist: '~215 km', time: '3–4 hrs', duration: '1–2 Days',
+    dist: '~215', time: '3–4 hrs', duration: '1–2 Days',
     color: 'rgba(245,158,11,0.08)',
     border: 'rgba(245,158,11,0.25)',
     tag: 'Spiritual',
@@ -45,7 +45,7 @@ const packages = [
     from: 'Delhi', to: 'Mathura & Vrindavan',
     desc: 'Visit the sacred city of Lord Krishna with Mathura and Vrindavan temples on same day.',
     highlights: ['Krishna Janmabhoomi', 'Vrindavan ISKCON', 'Banke Bihari', 'Prem Mandir'],
-    dist: '~165 km', time: '2.5–3 hrs', duration: 'Same Day / 1 Day',
+    dist: '~165', time: '2.5–3 hrs', duration: 'Same Day / 1 Day',
     color: 'rgba(139,92,246,0.08)',
     border: 'rgba(139,92,246,0.25)',
     tag: 'Spiritual',
@@ -54,7 +54,7 @@ const packages = [
     from: 'Delhi', to: 'Manali',
     desc: 'Experience snow-capped mountains, adventure activities, and a comfortable long-distance journey.',
     highlights: ['Rohtang Pass', 'Solang Valley', 'Hadimba Temple', 'Mall Road'],
-    dist: '~540 km', time: '10–12 hrs', duration: '3–4 Days',
+    dist: '~540', time: '10–12 hrs', duration: '3–4 Days',
     color: 'rgba(236,72,153,0.08)',
     border: 'rgba(236,72,153,0.25)',
     tag: 'Hill Station',
@@ -63,7 +63,7 @@ const packages = [
     from: 'Delhi', to: 'Mussoorie',
     desc: 'Enjoy a scenic hill station journey with pleasant weather, mountain views, and a relaxing trip.',
     highlights: ['Mall Road', 'Kempty Falls', 'Lal Tibba', 'Camel Back Road'],
-    dist: '~300 km', time: '5–6 hrs', duration: '1–2 Days',
+    dist: '~300', time: '5–6 hrs', duration: '1–2 Days',
     color: 'rgba(6,182,212,0.08)',
     border: 'rgba(6,182,212,0.25)',
     tag: 'Hill Station',
@@ -72,7 +72,7 @@ const packages = [
     from: 'Delhi', to: 'Khatu Shyam',
     desc: 'Plan a comfortable religious trip to Khatu Shyam Ji for a peaceful and hassle-free darshan.',
     highlights: ['Khatu Shyam Temple', 'Salasar Balaji', 'Lohargal Kund', 'Night Darshan'],
-    dist: '~320 km', time: '5–6 hrs', duration: '1–2 Days',
+    dist: '~320', time: '5–6 hrs', duration: '1–2 Days',
     color: 'rgba(34,197,94,0.08)',
     border: 'rgba(34,197,94,0.25)',
     tag: 'Pilgrimage',
@@ -81,7 +81,7 @@ const packages = [
     from: 'Delhi', to: 'Dehradun',
     desc: 'A refreshing trip to Uttarakhand\'s capital with forest parks, waterfalls and pleasant climate.',
     highlights: ['Robber\'s Cave', 'Sahastradhara', 'Forest Research Institute', 'Tapkeshwar Temple'],
-    dist: '~295 km', time: '5–6 hrs', duration: '1–2 Days',
+    dist: '~295', time: '5–6 hrs', duration: '1–2 Days',
     color: 'rgba(251,191,36,0.08)',
     border: 'rgba(251,191,36,0.25)',
     tag: 'Nature',
@@ -90,7 +90,7 @@ const packages = [
     from: 'Delhi', to: 'Chandigarh',
     desc: 'Visit the beautifully planned city of Chandigarh — Rock Garden, Rose Garden and more.',
     highlights: ['Rock Garden', 'Rose Garden', 'Sukhna Lake', 'Elante Mall'],
-    dist: '~250 km', time: '4–5 hrs', duration: '1–2 Days',
+    dist: '~250', time: '4–5 hrs', duration: '1–2 Days',
     color: 'rgba(168,85,247,0.08)',
     border: 'rgba(168,85,247,0.25)',
     tag: 'City Tour',
@@ -99,7 +99,7 @@ const packages = [
     from: 'Delhi', to: 'Shimla',
     desc: 'Drive to the queen of hill stations for a perfect getaway with scenic mountain landscapes.',
     highlights: ['Mall Road', 'Christ Church', 'Jakhoo Temple', 'Kufri'],
-    dist: '~345 km', time: '6–7 hrs', duration: '2–3 Days',
+    dist: '~345', time: '6–7 hrs', duration: '2–3 Days',
     color: 'rgba(20,184,166,0.08)',
     border: 'rgba(20,184,166,0.25)',
     tag: 'Hill Station',
@@ -108,7 +108,7 @@ const packages = [
     from: 'Delhi', to: 'Amritsar',
     desc: 'A spiritual and cultural journey to the Golden Temple and Wagah Border in Punjab.',
     highlights: ['Golden Temple', 'Wagah Border', 'Jallianwala Bagh', 'Durgiana Temple'],
-    dist: '~450 km', time: '7–8 hrs', duration: '1–2 Days',
+    dist: '~450', time: '7–8 hrs', duration: '1–2 Days',
     color: 'rgba(245,101,57,0.08)',
     border: 'rgba(245,101,57,0.25)',
     tag: 'Spiritual',
@@ -176,10 +176,7 @@ export default function Pricing() {
 
                   {/* Meta chips */}
                   <div className="flex flex-wrap gap-2 mb-5">
-                    <span className="flex items-center gap-1 font-body text-[10px] text-white/50 px-3 py-1 rounded-full"
-                      style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
-                      <FaRoad className="text-gold/60 text-[9px]" /> {pkg.dist}
-                    </span>
+
                     <span className="flex items-center gap-1 font-body text-[10px] text-white/50 px-3 py-1 rounded-full"
                       style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
                       <FaClock className="text-gold/60 text-[9px]" /> {pkg.time}

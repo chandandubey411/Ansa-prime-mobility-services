@@ -81,8 +81,8 @@ export default function Footer() {
             {/* Social */}
             <div className="flex items-center gap-2.5">
               {[
-                { Icon: FaFacebookF,  href: 'https://www.facebook.com/',  label: 'Facebook' },
-                { Icon: FaInstagram,  href: 'https://www.instagram.com/', label: 'Instagram' },
+                { Icon: FaFacebookF,  href: 'https://www.facebook.com/share/1GQDKScG4Z/',  label: 'Facebook' },
+                { Icon: FaInstagram,  href: 'https://www.instagram.com/ansaprimemobilityservices?igsh=cGFnZnZ6ankwa2wx', label: 'Instagram' },
                 { Icon: FaGoogle,     href: 'https://maps.google.com/',   label: 'Google' },
                 { Icon: FaWhatsapp,   href: 'https://wa.me/919643199064', label: 'WhatsApp' },
               ].map(({ Icon, href, label }) => (

@@ -145,56 +145,56 @@ const tourPackages = [
     from: 'Delhi', to: 'Agra',
     desc: 'Visit the iconic Taj Mahal, Agra Fort and enjoy a comfortable same-day return trip.',
     highlights: ['Taj Mahal', 'Agra Fort', 'Fatehpur Sikri', 'Same Day Return'],
-    dist: '~230 km', time: '3–4 hrs',
+    dist: '~230', time: '3–4 hrs',
     color: 'rgba(212,167,60,0.1)',
   },
   {
     from: 'Delhi', to: 'Jaipur',
     desc: 'Explore forts, palaces, and vibrant culture with a smooth and well-planned Jaipur tour.',
     highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
-    dist: '~270 km', time: '4–5 hrs',
+    dist: '~270', time: '4–5 hrs',
     color: 'rgba(59,130,246,0.1)',
   },
   {
     from: 'Delhi', to: 'Rishikesh',
     desc: 'Enjoy a peaceful journey to Rishikesh with scenic views, river ghats, and spiritual attractions.',
     highlights: ['Laxman Jhula', 'River Rafting', 'Ganga Ghat', 'Triveni Ghat'],
-    dist: '~240 km', time: '4–5 hrs',
+    dist: '~240', time: '4–5 hrs',
     color: 'rgba(16,185,129,0.1)',
   },
   {
     from: 'Delhi', to: 'Haridwar',
     desc: 'Experience a peaceful journey with holy ghats, Ganga Aarti, and spiritual landmarks.',
     highlights: ['Har ki Pauri', 'Ganga Aarti', 'Mansa Devi', 'Chandi Devi'],
-    dist: '~215 km', time: '3–4 hrs',
+    dist: '~215', time: '3–4 hrs',
     color: 'rgba(139,92,246,0.1)',
   },
   {
     from: 'Delhi', to: 'Mathura',
     desc: 'Visit the sacred city of Lord Krishna with a smooth ride covering Mathura and Vrindavan temples.',
     highlights: ['Krishna Janmabhoomi', 'Vrindavan', 'Banke Bihari', 'ISKCON Temple'],
-    dist: '~165 km', time: '2.5–3 hrs',
+    dist: '~165', time: '2.5–3 hrs',
     color: 'rgba(245,158,11,0.1)',
   },
   {
     from: 'Delhi', to: 'Manali',
     desc: 'Experience snow-capped mountains, adventure activities, and a comfortable long-distance journey.',
     highlights: ['Rohtang Pass', 'Solang Valley', 'Hadimba Temple', 'Mall Road'],
-    dist: '~540 km', time: '10–12 hrs',
+    dist: '~540', time: '10–12 hrs',
     color: 'rgba(236,72,153,0.1)',
   },
   {
     from: 'Delhi', to: 'Mussoorie',
     desc: 'Enjoy a scenic hill station journey with pleasant weather, mountain views, and a relaxing trip.',
     highlights: ['Mall Road', 'Kempty Falls', 'Lal Tibba', 'Camel Back Road'],
-    dist: '~300 km', time: '5–6 hrs',
+    dist: '~300', time: '5–6 hrs',
     color: 'rgba(6,182,212,0.1)',
   },
   {
     from: 'Delhi', to: 'Khatu Shyam',
     desc: 'Plan a comfortable religious trip to Khatu Shyam Ji for a peaceful and hassle-free darshan.',
     highlights: ['Khatu Shyam Temple', 'Salasar Balaji', 'Lohargal', 'Night Darshan'],
-    dist: '~320 km', time: '5–6 hrs',
+    dist: '~320', time: '5–6 hrs',
     color: 'rgba(34,197,94,0.1)',
   },
 ]
@@ -333,37 +333,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Pricing Table */}
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="rounded-xl overflow-hidden" style={{ border: '1px solid rgba(212,167,60,0.2)' }}>
-            <div className="px-6 py-4" style={{ background: 'rgba(212,167,60,0.12)' }}>
-              <h3 className="font-heading text-lg font-bold text-white">Taxi Fare Chart — Starting Rates</h3>
-              <p className="font-body text-xs text-white/40">One-way / same-day trip starting prices (Delhi NCR)</p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" style={{ background: '#171717' }}>
-              {[
-                { cab: 'Maruti Dzire', price: '₹4,000' },
-                { cab: 'Honda City', price: '₹4,500' },
-                { cab: 'Hyundai Aura', price: '₹4,000' },
-                { cab: 'Premium Dzire', price: '₹4,800' },
-                { cab: 'Maruti Ertiga', price: '₹5,000' },
-                { cab: 'Kia Carens', price: '₹5,500' },
-                { cab: 'Mahindra Marazzo', price: '₹5,500' },
-                { cab: 'Toyota Hycross', price: '₹8,500' },
-                { cab: 'Innova Crysta', price: '₹6,000' },
-                { cab: 'Toyota Fortuner', price: '₹12,000' },
-                { cab: 'Toyota Camry Hybrid', price: '₹13,000' },
-                { cab: 'Mercedes Benz', price: '₹20,000' },
-              ].map((row, i) => (
-                <div key={row.cab} className={`flex flex-col items-center py-4 px-3 ${
-                  i % 2 === 0 ? '' : ''
-                } border-r border-b border-white/5 last:border-r-0`}>
-                  <p className="font-heading text-lg font-black gold-text">{row.price}</p>
-                  <p className="font-body text-[11px] text-white/40 tracking-wider text-center">{row.cab}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+
         </div>
       </section>
 
@@ -427,7 +397,6 @@ export default function Home() {
 
                   {/* Meta */}
                   <div className="flex gap-3 mb-5">
-                    <span className="gold-badge">{pkg.dist}</span>
                     <span className="gold-badge">{pkg.time}</span>
                   </div>
 
@@ -537,10 +506,10 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.8 }}
               className="grid grid-cols-2 gap-5">
               {[
-                { value: '5,000+', label: 'Happy Clients',    sub: 'Across Delhi NCR' },
-                { value: '100+',   label: 'Expert Drivers',   sub: 'Police Verified' },
-                { value: '15+',    label: 'Premium Vehicles', sub: 'Well Maintained' },
-                { value: '8+',     label: 'Years Experience', sub: 'Trusted Since 2016' },
+                { value: '5,000+', label: 'Happy Clients', sub: 'Across Delhi NCR' },
+                { value: '100+', label: 'Expert Drivers', sub: 'Police Verified' },
+                { value: '15+', label: 'Premium Vehicles', sub: 'Well Maintained' },
+                { value: '8+', label: 'Years Experience', sub: 'Trusted Since 2016' },
               ].map((s, i) => (
                 <motion.div key={s.label}
                   initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
