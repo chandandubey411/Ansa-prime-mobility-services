@@ -40,7 +40,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-dark" style={{ paddingTop: '120px' }}>
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden" style={{ paddingTop: '120px', background: '#f8f5f0' }}>
       {/* ── PHOTO BACKGROUND ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div ref={bgRef} className="absolute inset-[-4%]"
@@ -50,9 +50,9 @@ export default function HeroSection() {
             backgroundPosition: 'center',
           }}
         />
-        {/* Dark vignette overlay */}
+        {/* Light overlay */}
         <div className="absolute inset-0"
-          style={{ background: 'linear-gradient(135deg, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.82) 45%, rgba(10,10,10,0.55) 100%)' }}
+          style={{ background: 'linear-gradient(135deg, rgba(248,245,240,0.96) 0%, rgba(248,245,240,0.85) 50%, rgba(248,245,240,0.55) 100%)' }}
         />
         {/* Gold glow orb top */}
         <div className="absolute -top-32 left-1/3 w-[700px] h-[700px] rounded-full opacity-[0.06]"
@@ -92,8 +92,8 @@ export default function HeroSection() {
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5.2rem)' }}
             >
               <span className="gold-text block">ANSA PRIME</span>
-              <span className="text-white block">MOBILITY</span>
-              <span className="text-white/60 block" style={{ fontSize: '0.68em', letterSpacing: '0.12em' }}>
+              <span className="text-gray-900 block">MOBILITY</span>
+              <span className="text-gray-800 block" style={{ fontSize: '0.68em', letterSpacing: '0.12em' }}>
                 SERVICES
               </span>
             </motion.h1>
@@ -103,7 +103,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.85 }}
-              className="font-heading text-xl md:text-2xl text-white/40 italic mb-3"
+              className="font-heading text-xl md:text-2xl text-gray-800 italic mb-3"
             >
               Ride in Comfort. Arrive in Style.
             </motion.p>
@@ -112,7 +112,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.95 }}
-              className="font-body text-sm text-white/45 max-w-[460px] mx-auto lg:mx-0 leading-relaxed mb-7"
+              className="font-body text-sm text-gray-700 max-w-[460px] mx-auto lg:mx-0 leading-relaxed mb-7"
             >
               Experience seamless luxury travel across Delhi NCR — verified chauffeurs,
               premium vehicles, transparent pricing, available 24 hours a day.
@@ -156,7 +156,7 @@ export default function HeroSection() {
               {stats.map(s => (
                 <div key={s.label} className="text-center lg:text-left">
                   <p className="font-heading text-2xl font-black gold-text">{s.value}</p>
-                  <p className="font-body text-[11px] text-white/40 tracking-wider uppercase">{s.label}</p>
+                  <p className="font-body text-[11px] text-gray-700 tracking-wider uppercase">{s.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -181,7 +181,7 @@ export default function HeroSection() {
         transition={{ delay: 2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
-        <span className="font-body text-[10px] text-white/20 tracking-[4px] uppercase">Scroll</span>
+        <span className="font-body text-[10px] text-gray-400 tracking-[4px] uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.8 }}

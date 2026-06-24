@@ -63,29 +63,30 @@ export default function BookCar() {
   }
 
   const tagStyle = {
-    'Economy':     'bg-zinc-800/80 text-zinc-300 border-zinc-600/40',
-    'Premium':     'bg-amber-900/40 text-amber-300 border-amber-700/40',
-    'Sedan':       'bg-blue-900/40 text-blue-300 border-blue-700/40',
-    'MPV':         'bg-emerald-900/40 text-emerald-300 border-emerald-700/40',
-    'Premium MPV': 'bg-purple-900/40 text-purple-300 border-purple-700/40',
-    'Hybrid MPV':  'bg-teal-900/40 text-teal-300 border-teal-700/40',
-    'Premium SUV': 'bg-orange-900/40 text-orange-300 border-orange-700/40',
-    'Executive':   'bg-sky-900/40 text-sky-300 border-sky-700/40',
-    'Ultra Luxury':'bg-yellow-900/50 text-yellow-300 border-yellow-600/50',
+    'Economy':     'bg-gray-100 text-gray-700 border-gray-300/60',
+    'Premium':     'bg-amber-50 text-amber-700 border-amber-300/60',
+    'Sedan':       'bg-blue-50 text-blue-700 border-blue-300/60',
+    'MPV':         'bg-emerald-50 text-emerald-700 border-emerald-300/60',
+    'Premium MPV': 'bg-purple-50 text-purple-700 border-purple-300/60',
+    'Hybrid MPV':  'bg-teal-50 text-teal-700 border-teal-300/60',
+    'Premium SUV': 'bg-orange-50 text-orange-700 border-orange-300/60',
+    'Executive':   'bg-sky-50 text-sky-700 border-sky-300/60',
+    'Ultra Luxury':'bg-yellow-50 text-yellow-700 border-yellow-400/60',
   }
 
   const inputClass = "luxury-input w-full rounded-sm px-4 py-3.5 text-sm font-body focus:border-gold transition-colors duration-300"
 
   return (
-    <main className="min-h-screen pb-24" style={{ background: '#0a0a0a' }}>
+    <main className="min-h-screen pb-24" style={{ background: '#f8f5f0' }}>
       <MiniHero
         title="BOOK YOUR RIDE"
         subtitle={`Pre-filled booking request for ${selectedCar.name}`}
         breadcrumb={['Fleet', 'Book Car']}
+        bgImage="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-16">
-        <Link to="/fleet" className="inline-flex items-center gap-2 text-xs font-body font-semibold tracking-wider text-gold hover:text-white transition-colors uppercase mb-8">
+        <Link to="/fleet" className="inline-flex items-center gap-2 text-xs font-body font-semibold tracking-wider text-gold hover:text-gray-900 transition-colors uppercase mb-8">
           <HiArrowLeft className="text-sm" /> Back to Fleet
         </Link>
 
@@ -99,7 +100,7 @@ export default function BookCar() {
               className="luxury-card rounded-2xl overflow-hidden"
             >
               {/* Car Image Visual Container */}
-              <div className="h-96 relative bg-zinc-900 overflow-hidden flex items-center justify-center">
+              <div className="h-96 relative bg-gray-100 overflow-hidden flex items-center justify-center">
                 <img
                   src={selectedCar.image}
                   alt={selectedCar.name}
@@ -112,11 +113,11 @@ export default function BookCar() {
 
                 {/* Floating Rate Badge */}
                 <div className="absolute bottom-4 right-4 glass-dark rounded-sm px-4 py-2 flex flex-col items-end">
-                  <span className="text-[10px] uppercase font-body text-white/40 tracking-wider">Estimated Rate</span>
+                  <span className="text-[10px] uppercase font-body text-gray-400 tracking-wider">Estimated Rate</span>
                   <div className="flex items-baseline gap-0.5">
                     <FaRupeeSign className="text-gold text-xs" />
                     <span className="font-heading text-2xl font-black gold-text">{selectedCar.rateNum}</span>
-                    <span className="text-[10px] text-white/50 ml-1 font-body">/ km</span>
+                    <span className="text-[10px] text-gray-500 ml-1 font-body">/ km</span>
                   </div>
                 </div>
               </div>
@@ -124,38 +125,38 @@ export default function BookCar() {
               {/* Information */}
               <div className="p-8">
                 <div className="flex flex-wrap items-baseline gap-x-3 mb-2">
-                  <h2 className="font-heading text-3xl font-bold text-white">{selectedCar.name}</h2>
-                  <span className="font-body text-xs text-white/30 uppercase tracking-widest">{selectedCar.category}</span>
+                  <h2 className="font-heading text-3xl font-bold text-gray-900">{selectedCar.name}</h2>
+                  <span className="font-body text-xs text-gray-400 uppercase tracking-widest">{selectedCar.category}</span>
                 </div>
                 
                 <div className="gold-divider mb-6 ml-0" />
 
-                <p className="font-body text-white/60 leading-relaxed text-sm mb-8">
+                <p className="font-body text-gray-600 leading-relaxed text-sm mb-8">
                   {selectedCar.description}
                 </p>
 
                 {/* Specs */}
-                <h3 className="font-heading text-lg font-bold text-white mb-4">Specifications</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02]">
+                <h3 className="font-heading text-lg font-bold text-gray-900 mb-4">Specifications</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-xl border border-black/5 bg-white">
                   <div className="flex flex-col items-center text-center p-2">
                     <FaUserFriends className="text-gold text-lg mb-2" />
-                    <span className="font-heading text-sm font-bold text-white">{selectedCar.passengers} pax</span>
-                    <span className="font-body text-[10px] text-white/30 uppercase">Capacity</span>
+                    <span className="font-heading text-sm font-bold text-gray-900">{selectedCar.passengers} pax</span>
+                    <span className="font-body text-[10px] text-gray-500 uppercase">Capacity</span>
                   </div>
                   <div className="flex flex-col items-center text-center p-2">
                     <FaSuitcase className="text-gold text-lg mb-2" />
-                    <span className="font-heading text-sm font-bold text-white">{selectedCar.luggage} bags</span>
-                    <span className="font-body text-[10px] text-white/30 uppercase">Luggage</span>
+                    <span className="font-heading text-sm font-bold text-gray-900">{selectedCar.luggage} bags</span>
+                    <span className="font-body text-[10px] text-gray-500 uppercase">Luggage</span>
                   </div>
                   <div className="flex flex-col items-center text-center p-2">
                     <FaSnowflake className="text-gold text-lg mb-2" />
-                    <span className="font-heading text-sm font-bold text-white">Equipped</span>
-                    <span className="font-body text-[10px] text-white/30 uppercase">Air Conditioning</span>
+                    <span className="font-heading text-sm font-bold text-gray-900">Equipped</span>
+                    <span className="font-body text-[10px] text-gray-500 uppercase">Air Conditioning</span>
                   </div>
                   <div className="flex flex-col items-center text-center p-2">
                     <FaGasPump className="text-gold text-lg mb-2" />
-                    <span className="font-heading text-sm font-bold text-white">{selectedCar.fuel}</span>
-                    <span className="font-body text-[10px] text-white/30 uppercase">Fuel Type</span>
+                    <span className="font-heading text-sm font-bold text-gray-900">{selectedCar.fuel}</span>
+                    <span className="font-body text-[10px] text-gray-500 uppercase">Fuel Type</span>
                   </div>
                 </div>
               </div>
@@ -178,8 +179,8 @@ export default function BookCar() {
                 <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/60 rounded-tl-xl pointer-events-none" />
                 <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/60 rounded-br-xl pointer-events-none" />
 
-                <h3 className="font-heading text-2xl font-bold text-white mb-1">Book This <span className="gold-text">Vehicle</span></h3>
-                <p className="font-body text-xs text-white/40 mb-6">Confirm details below to request your booking instantly.</p>
+                <h3 className="font-heading text-2xl font-bold text-gray-900 mb-1">Book This <span className="gold-text">Vehicle</span></h3>
+                <p className="font-body text-xs text-gray-500 mb-6">Confirm details below to request your booking instantly.</p>
 
                 {sent ? (
                   <motion.div
@@ -193,8 +194,8 @@ export default function BookCar() {
                         <span className="text-gold text-4xl">✓</span>
                       </div>
                     </div>
-                    <p className="font-heading text-2xl text-white mb-2 font-bold">Booking Request Sent!</p>
-                    <p className="font-body text-sm text-white/45 max-w-xs mx-auto leading-relaxed">
+                    <p className="font-heading text-2xl text-gray-900 mb-2 font-bold">Booking Request Sent!</p>
+                    <p className="font-body text-sm text-gray-500 max-w-xs mx-auto leading-relaxed">
                       Our customer relations agent will contact you on your mobile number within 10 minutes to verify.
                     </p>
                   </motion.div>
@@ -202,7 +203,7 @@ export default function BookCar() {
                   <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Selected Car Display */}
                     <div>
-                      <label className="font-body text-[11px] text-white/40 mb-1.5 block tracking-wider uppercase font-semibold">Selected Vehicle</label>
+                      <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">Selected Vehicle</label>
                       <select
                         name="car"
                         value={form.car}
@@ -211,7 +212,7 @@ export default function BookCar() {
                         required
                       >
                         {cars.map(c => (
-                          <option key={c.name} value={c.name} className="bg-zinc-950 text-white">
+                          <option key={c.name} value={c.name} className="bg-white text-gray-900">
                             {c.name} ({c.category} - {c.rate})
                           </option>
                         ))}
@@ -220,7 +221,7 @@ export default function BookCar() {
 
                     {/* Name */}
                     <div>
-                      <label className="font-body text-[11px] text-white/40 mb-1.5 block tracking-wider uppercase font-semibold">
+                      <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">
                         <span className="flex items-center gap-1.5"><FaUser className="text-gold/50 text-[10px]" /> Your Name</span>
                       </label>
                       <input
@@ -236,7 +237,7 @@ export default function BookCar() {
 
                     {/* Mobile */}
                     <div>
-                      <label className="font-body text-[11px] text-white/40 mb-1.5 block tracking-wider uppercase font-semibold">
+                      <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">
                         <span className="flex items-center gap-1.5"><FaPhoneAlt className="text-gold/50 text-[10px]" /> Mobile Number</span>
                       </label>
                       <input
@@ -252,7 +253,7 @@ export default function BookCar() {
 
                     {/* Pickup Location */}
                     <div>
-                      <label className="font-body text-[11px] text-white/40 mb-1.5 block tracking-wider uppercase font-semibold">
+                      <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">
                         <span className="flex items-center gap-1.5"><FaMapMarkerAlt className="text-gold/50 text-[10px]" /> Pickup Address / Point</span>
                       </label>
                       <input
@@ -277,7 +278,7 @@ export default function BookCar() {
                         value={form.drop}
                         onChange={handleChange}
                         placeholder="Enter destination (e.g. Noida, Jaipur)"
-                        className="luxury-input w-full rounded-sm px-4 py-3.5 text-sm font-body border-gold/70 focus:border-gold bg-gold/5 text-white"
+                        className={inputClass}
                         required
                       />
                     </div>
@@ -285,7 +286,7 @@ export default function BookCar() {
                     {/* Date and Time */}
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="font-body text-[11px] text-white/40 mb-1.5 block tracking-wider uppercase font-semibold">
+                        <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">
                           <span className="flex items-center gap-1.5"><FaCalendarAlt className="text-gold/50 text-[10px]" /> Date</span>
                         </label>
                         <input
@@ -306,7 +307,7 @@ export default function BookCar() {
                           name="time"
                           value={form.time}
                           onChange={handleChange}
-                          className="luxury-input w-full rounded-sm px-4 py-3.5 text-sm font-body border-gold/70 focus:border-gold bg-gold/5 text-white"
+                          className={inputClass}
                           required
                         />
                       </div>
@@ -319,7 +320,7 @@ export default function BookCar() {
                       Book Your Ride Now <HiArrowRight className="text-sm" />
                     </button>
 
-                    <p className="font-body text-[10px] text-white/20 text-center leading-relaxed">
+                    <p className="font-body text-[10px] text-gray-400 text-center leading-relaxed">
                       All rates are estimated. Outstation travel billing minimum is 250km per day. State taxes & tolls are charged extra at actuals.
                     </p>
                   </form>

@@ -44,7 +44,7 @@ const cards = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-28 relative overflow-hidden" style={{ background: '#0f0f0f' }}>
+    <section className="py-28 relative overflow-hidden" style={{ background: '#f2ede6' }}>
       {/* BG decorations */}
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.35), transparent)' }} />
       <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.35), transparent)' }} />
@@ -75,7 +75,7 @@ export default function WhyChooseUs() {
             className="shrink-0"
           >
             <div className="gold-divider-left mb-4" />
-            <p className="font-body text-sm text-white/45 max-w-xs leading-relaxed">
+            <p className="font-body text-sm text-gray-500 max-w-xs leading-relaxed">
               We combine luxury, reliability and genuine care to give you the finest travel experience in the capital.
             </p>
             <Link to="/about" className="flex items-center gap-2 text-gold text-xs font-body font-semibold mt-4 group hover:gap-3 transition-all">
@@ -96,7 +96,7 @@ export default function WhyChooseUs() {
               className="luxury-card rounded-xl p-7 cursor-default group relative overflow-hidden"
             >
               {/* Number watermark */}
-              <span className="absolute top-4 right-5 font-heading text-6xl font-black text-white/[0.03] select-none pointer-events-none">
+              <span className="absolute top-4 right-5 font-heading text-6xl font-black text-gray-900/[0.04] select-none pointer-events-none">
                 {c.num}
               </span>
 
@@ -105,10 +105,10 @@ export default function WhyChooseUs() {
                 <c.icon className="text-gold text-xl" />
               </div>
 
-              <h3 className="font-heading text-lg font-bold text-white mb-2 group-hover:text-gold transition-colors duration-300">
+              <h3 className="font-heading text-lg font-bold text-gray-900 mb-2 group-hover:text-gold transition-colors duration-300">
                 {c.title}
               </h3>
-              <p className="font-body text-sm text-white/45 leading-relaxed">{c.desc}</p>
+              <p className="font-body text-sm text-gray-500 leading-relaxed">{c.desc}</p>
 
               {/* Bottom accent line */}
               <div className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500"

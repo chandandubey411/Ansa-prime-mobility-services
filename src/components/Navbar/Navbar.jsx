@@ -32,9 +32,9 @@ function DropdownMenu({ items, isOpen }) {
           transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
           className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 rounded-xl overflow-hidden z-50"
           style={{
-            background: 'rgba(15,12,6,0.97)',
+            background: 'rgba(255,255,255,0.98)',
             border: '1px solid rgba(212,167,60,0.25)',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(212,167,60,0.08)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.12), 0 0 40px rgba(212,167,60,0.06)',
             backdropFilter: 'blur(20px)',
           }}
         >
@@ -45,7 +45,7 @@ function DropdownMenu({ items, isOpen }) {
               <li key={item.label}>
                 <Link
                   to={item.path}
-                  className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-gold hover:bg-gold/5 transition-all duration-200 group"
+                  className="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:text-gold hover:bg-gold/5 transition-all duration-200 group"
                   style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}
                 >
                   <item.icon className="text-gold/50 group-hover:text-gold text-xs transition-colors shrink-0" />
@@ -127,9 +127,10 @@ export default function Navbar() {
         transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
         className={`fixed left-0 right-0 z-40 transition-all duration-500 ${
           scrolled
-            ? 'top-[36px] md:top-[36px] glass-dark shadow-luxury py-3'
+            ? 'top-[36px] md:top-[36px] py-3'
             : 'top-[36px] md:top-[36px] bg-transparent py-5'
         }`}
+        style={scrolled ? { background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(20px)', boxShadow: '0 4px 30px rgba(0,0,0,0.08)', borderBottom: '1px solid rgba(212,167,60,0.15)' } : {}}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* LOGO */}
@@ -226,7 +227,7 @@ export default function Navbar() {
 
           {/* HAMBURGER */}
           <button
-            className="lg:hidden text-white text-2xl focus:outline-none p-1"
+            className="lg:hidden text-gray-700 text-2xl focus:outline-none p-1"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -244,7 +245,7 @@ export default function Navbar() {
             exit={{ x: '100%' }}
             transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
             className="fixed inset-0 z-30 flex flex-col pt-28 pb-10 px-8 overflow-y-auto"
-            style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #111 60%, #0f0c08 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #f8f5f0 0%, #ece6db 60%, #f5f0e8 100%)' }}
           >
             <div className="gradient-line-h mb-8" />
             <div className="flex flex-col gap-2">
@@ -254,7 +255,7 @@ export default function Navbar() {
                 <NavLink
                   to="/" end onClick={closeMobile}
                   className={({ isActive }) =>
-                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-white/8 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-white/80'}`
+                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
                   }
                 >
                   <span className="text-gold text-sm font-body tracking-widest">01</span>Home
@@ -266,7 +267,7 @@ export default function Navbar() {
                 <NavLink
                   to="/about" onClick={closeMobile}
                   className={({ isActive }) =>
-                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-white/8 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-white/80'}`
+                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
                   }
                 >
                   <span className="text-gold text-sm font-body tracking-widest">02</span>About Us
@@ -278,7 +279,7 @@ export default function Navbar() {
                 <NavLink
                   to="/fleet" onClick={closeMobile}
                   className={({ isActive }) =>
-                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-white/8 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-white/80'}`
+                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
                   }
                 >
                   <span className="text-gold text-sm font-body tracking-widest">03</span>Fleet
@@ -289,7 +290,7 @@ export default function Navbar() {
               <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 }}>
                 <button
                   onClick={() => setMobileServices(v => !v)}
-                  className="w-full font-heading text-3xl font-bold pb-4 mb-2 border-b border-white/8 flex items-center justify-between text-white/80 transition-colors"
+                  className="w-full font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center justify-between text-gray-800 transition-colors"
                 >
                   <span className="flex items-center gap-3">
                     <span className="text-gold text-sm font-body tracking-widest">04</span>Services
@@ -311,7 +312,7 @@ export default function Navbar() {
                         <li key={item.label}>
                           <Link
                              to={item.path} onClick={closeMobile}
-                            className="flex items-center gap-2 text-white/55 hover:text-gold transition-colors font-body text-sm tracking-wider uppercase"
+                            className="flex items-center gap-2 text-gray-500 hover:text-gold transition-colors font-body text-sm tracking-wider uppercase"
                           >
                             <item.icon className="text-gold/50 text-xs" />
                             {item.label}
@@ -327,7 +328,7 @@ export default function Navbar() {
               <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.20 }}>
                 <button
                   onClick={() => setMobilePackages(v => !v)}
-                  className="w-full font-heading text-3xl font-bold pb-4 mb-2 border-b border-white/8 flex items-center justify-between text-white/80 transition-colors"
+                  className="w-full font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center justify-between text-gray-800 transition-colors"
                 >
                   <span className="flex items-center gap-3">
                     <span className="text-gold text-sm font-body tracking-widest">05</span>Packages
@@ -349,7 +350,7 @@ export default function Navbar() {
                         <li key={item.label}>
                           <Link
                             to={item.path} onClick={closeMobile}
-                            className="flex items-center gap-2 text-white/55 hover:text-gold transition-colors font-body text-sm tracking-wider uppercase"
+                            className="flex items-center gap-2 text-gray-500 hover:text-gold transition-colors font-body text-sm tracking-wider uppercase"
                           >
                             <item.icon className="text-gold/50 text-xs" />
                             {item.label}
@@ -366,7 +367,7 @@ export default function Navbar() {
                 <NavLink
                   to="/contact" onClick={closeMobile}
                   className={({ isActive }) =>
-                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-white/8 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-white/80'}`
+                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
                   }
                 >
                   <span className="text-gold text-sm font-body tracking-widest">06</span>Contact

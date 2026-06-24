@@ -54,7 +54,7 @@ export default function FloatingButtons() {
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="floating-btn text-gold text-lg"
-            style={{ background: '#171717', border: '1.5px solid rgba(212,167,60,0.5)' }}
+            style={{ background: '#ffffff', border: '1.5px solid #D4A73C' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}

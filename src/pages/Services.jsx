@@ -101,10 +101,11 @@ export default function Services() {
         title="OUR SERVICES"
         subtitle="Premium mobility solutions for every journey — tailored to your needs across Delhi NCR and all India"
         breadcrumb={['Services']}
+        bgImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200"
       />
 
       {/* ═══════════════ SERVICES GRID ═══════════════ */}
-      <section className="py-28" style={{ background: '#0a0a0a' }}>
+      <section className="py-28" style={{ background: '#f8f5f0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -116,7 +117,7 @@ export default function Services() {
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 }}
-              className="font-body text-sm text-white/40 mt-4 max-w-xl mx-auto">
+              className="font-body text-sm text-gray-500 mt-4 max-w-xl mx-auto">
               From airport pickups to grand weddings — we have a premium service tailored for every journey.
             </motion.p>
           </div>
@@ -131,7 +132,7 @@ export default function Services() {
                 transition={{ delay: (i % 4) * 0.1, duration: 0.6 }}
                 whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(212,167,60,0.15)' }}
                 className="rounded-xl overflow-hidden cursor-default group"
-                style={{ background: '#171717', border: `1px solid ${s.border}` }}
+                style={{ background: '#ffffff', border: `1px solid ${s.border}`, boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}
               >
                 {/* Header */}
                 <div className="p-7 pb-5 relative overflow-hidden"
@@ -143,17 +144,17 @@ export default function Services() {
                     style={{ background: 'rgba(212,167,60,0.1)', border: '1px solid rgba(212,167,60,0.25)' }}>
                     <s.icon className="text-gold text-xl group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="font-heading text-lg font-bold text-white group-hover:text-gold transition-colors">
+                  <h3 className="font-heading text-lg font-bold text-gray-900 group-hover:text-gold transition-colors">
                     {s.title}
                   </h3>
                 </div>
 
                 {/* Body */}
                 <div className="p-6">
-                  <p className="font-body text-sm text-white/45 leading-relaxed mb-5">{s.desc}</p>
+                  <p className="font-body text-sm text-gray-500 leading-relaxed mb-5">{s.desc}</p>
                   <ul className="space-y-2 mb-5">
                     {s.features.map(f => (
-                      <li key={f} className="flex items-center gap-2.5 font-body text-xs text-white/40">
+                      <li key={f} className="flex items-center gap-2.5 font-body text-xs text-gray-500">
                         <FaCheckCircle className="text-gold/60 text-sm shrink-0" /> {f}
                       </li>
                     ))}
@@ -176,7 +177,7 @@ export default function Services() {
       </section>
 
       {/* ═══════════════ LOCAL SERVICES ═══════════════ */}
-      <section className="py-16 relative" style={{ background: '#111' }}>
+      <section className="py-16 relative" style={{ background: '#f2ede6' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.25),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.h3 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -184,7 +185,7 @@ export default function Services() {
           <div className="flex flex-wrap gap-3 justify-center">
             {localServices.map(s => (
               <a key={s.area} href={s.link}
-                className="font-body text-xs text-white/50 hover:text-gold border border-white/10 hover:border-gold/40 px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-gold/5">
+                className="font-body text-xs text-gray-500 hover:text-gold border border-black/10 hover:border-gold/40 px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-gold/5">
                 {s.area}
               </a>
             ))}
@@ -193,26 +194,27 @@ export default function Services() {
       </section>
 
       {/* ═══════════════ CTA ═══════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
+        <div className="absolute inset-0 opacity-[0.08]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 0, transparent 60px)' }} />
         <div className="max-w-3xl mx-auto px-4 text-center relative">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="font-heading text-3xl md:text-4xl font-black text-white mb-3">
-            Need a <span className="gold-text">Custom Solution?</span>
+            Need a <span style={{ color: 'rgba(255,255,255,0.75)' }}>Custom Solution?</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="font-body text-sm text-white/45 mb-8">
+            className="font-body text-sm text-white/80 mb-8">
             Contact us for corporate packages, bulk bookings or any special travel requirements.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20enquire%20about%20your%20services.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
-              <FaWhatsapp className="text-base" /> WhatsApp Now
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+              <FaWhatsapp className="text-base text-green-600" /> WhatsApp Now
             </a>
-            <a href="tel:+919643199064" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+            <a href="tel:+919643199064"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-sm hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300">
               <FaPhoneAlt /> +91 96431 99064
             </a>
           </motion.div>

@@ -32,7 +32,7 @@ const tourLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden" style={{ background: '#080808' }}>
+    <footer className="relative overflow-hidden" style={{ background: '#f2ede6' }}>
       {/* Top border */}
       <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, #D4A73C, transparent)' }} />
 
@@ -51,7 +51,7 @@ export default function Footer() {
                 className="h-16 w-auto object-contain"
               />
             </Link>
-            <p className="font-body text-sm text-white/45 leading-relaxed mb-5">
+            <p className="font-body text-sm text-gray-600 leading-relaxed mb-5">
               ANSA Prime Mobility Services — New Delhi's trusted premium cab service. Ride in Comfort. Arrive in Style.
             </p>
 
@@ -59,20 +59,20 @@ export default function Footer() {
             <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-2.5">
                 <HiLocationMarker className="text-gold text-lg mt-0.5 shrink-0" />
-                <span className="font-body text-xs text-white/40 leading-relaxed">
-                  <strong className="text-white/60 block">Head Office:</strong>
+                <span className="font-body text-xs text-gray-500 leading-relaxed">
+                  <strong className="text-gray-700 block">Head Office:</strong>
                   94, Block B, Zamrudpur, Greater Kailash,<br />New Delhi – 110048
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
                 <HiPhone className="text-gold text-base shrink-0" />
-                <a href="tel:+919643199064" className="font-body text-xs text-white/40 hover:text-gold transition-colors">
+                <a href="tel:+919643199064" className="font-body text-xs text-gray-500 hover:text-gold transition-colors">
                   +91 96431 99064
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <HiMail className="text-gold text-base shrink-0" />
-                <a href="mailto:info@ansaprime.com" className="font-body text-xs text-white/40 hover:text-gold transition-colors">
+                <a href="mailto:info@ansaprime.com" className="font-body text-xs text-gray-500 hover:text-gold transition-colors">
                   info@ansaprime.com
                 </a>
               </li>
@@ -97,7 +97,7 @@ export default function Footer() {
 
           {/* QUICK LINKS */}
           <div>
-            <h4 className="font-heading text-base font-bold text-white mb-6 relative pb-3">
+            <h4 className="font-heading text-base font-bold text-gray-800 mb-6 relative pb-3">
               Quick Links
               <span className="absolute bottom-0 left-0 w-10 h-0.5" style={{ background: 'linear-gradient(90deg, #D4A73C, transparent)' }} />
             </h4>
@@ -105,7 +105,7 @@ export default function Footer() {
               {quickLinks.map(l => (
                 <li key={l.label}>
                   <Link to={l.path}
-                    className="font-body text-sm text-white/45 hover:text-gold transition-colors flex items-center gap-2 group">
+                    className="font-body text-sm text-gray-500 hover:text-gold transition-colors flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold/40 group-hover:bg-gold transition-colors shrink-0" />
                     {l.label}
                   </Link>
@@ -116,7 +116,7 @@ export default function Footer() {
 
           {/* SERVICES */}
           <div>
-            <h4 className="font-heading text-base font-bold text-white mb-6 relative pb-3">
+            <h4 className="font-heading text-base font-bold text-gray-800 mb-6 relative pb-3">
               Our Services
               <span className="absolute bottom-0 left-0 w-10 h-0.5" style={{ background: 'linear-gradient(90deg, #D4A73C, transparent)' }} />
             </h4>
@@ -124,7 +124,7 @@ export default function Footer() {
               {serviceLinks.map(s => (
                 <li key={s.label}>
                   <Link to={s.path}
-                    className="font-body text-sm text-white/45 hover:text-gold transition-colors flex items-center gap-2 group">
+                    className="font-body text-sm text-gray-500 hover:text-gold transition-colors flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold/40 group-hover:bg-gold transition-colors shrink-0" />
                     {s.label}
                   </Link>
@@ -135,7 +135,7 @@ export default function Footer() {
 
           {/* TOUR PACKAGES */}
           <div>
-            <h4 className="font-heading text-base font-bold text-white mb-6 relative pb-3">
+            <h4 className="font-heading text-base font-bold text-gray-800 mb-6 relative pb-3">
               Tour Packages
               <span className="absolute bottom-0 left-0 w-10 h-0.5" style={{ background: 'linear-gradient(90deg, #D4A73C, transparent)' }} />
             </h4>
@@ -143,7 +143,7 @@ export default function Footer() {
               {tourLinks.map(t => (
                 <li key={t.label}>
                   <Link to={t.path}
-                    className="font-body text-sm text-white/45 hover:text-gold transition-colors flex items-center gap-2 group">
+                    className="font-body text-sm text-gray-500 hover:text-gold transition-colors flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold/40 group-hover:bg-gold transition-colors shrink-0" />
                     {t.label}
                   </Link>
@@ -154,7 +154,7 @@ export default function Footer() {
 
           {/* WORKING HOURS */}
           <div>
-            <h4 className="font-heading text-base font-bold text-white mb-6 relative pb-3">
+            <h4 className="font-heading text-base font-bold text-gray-800 mb-6 relative pb-3">
               Working Hours
               <span className="absolute bottom-0 left-0 w-10 h-0.5" style={{ background: 'linear-gradient(90deg, #D4A73C, transparent)' }} />
             </h4>
@@ -166,7 +166,6 @@ export default function Footer() {
                 { day: 'Holidays',        time: '24 Hours' },
               ].map(h => (
                 <li key={h.day} className="flex flex-col gap-0.5">
-                  <span className="font-body text-xs text-white/30 tracking-wider uppercase">{h.day}</span>
                   <span className="font-heading text-sm font-bold gold-text">{h.time}</span>
                 </li>
               ))}
@@ -176,7 +175,7 @@ export default function Footer() {
               <p className="font-body text-xs text-gold font-semibold tracking-wider uppercase mb-2">Book Instantly</p>
               <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
                 target="_blank" rel="noreferrer"
-                className="flex items-center gap-2 font-body text-xs text-white/60 hover:text-gold transition-colors">
+                className="flex items-center gap-2 font-body text-xs text-gray-600 hover:text-gold transition-colors">
                 <FaWhatsapp className="text-base text-green-400" />
                 WhatsApp: +91 96431 99064
               </a>
@@ -186,17 +185,17 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/5 py-5">
+      <div className="border-t border-black/8 py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="font-body text-xs text-white/25">
+          <p className="font-body text-xs text-gray-400">
             © Copyright reserved to ANSA Prime Mobility Services 2026
           </p>
           <div className="flex items-center gap-4">
-            <Link to="/about" className="font-body text-xs text-white/25 hover:text-gold transition-colors">Privacy Policy</Link>
-            <span className="w-px h-3 bg-white/10" />
-            <Link to="/about" className="font-body text-xs text-white/25 hover:text-gold transition-colors">Terms of Service</Link>
+            <Link to="/about" className="font-body text-xs text-gray-400 hover:text-gold transition-colors">Privacy Policy</Link>
+            <span className="w-px h-3 bg-black/10" />
+            <Link to="/about" className="font-body text-xs text-gray-400 hover:text-gold transition-colors">Terms of Service</Link>
           </div>
-          <p className="font-body text-xs text-white/25">
+          <p className="font-body text-xs text-gray-400">
             Designed with <span className="text-gold">♥</span> for Premium Travel
           </p>
         </div>

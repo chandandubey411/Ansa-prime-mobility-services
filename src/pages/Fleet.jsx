@@ -133,10 +133,11 @@ export default function Fleet() {
         title="OUR FLEET"
         subtitle="Well-maintained, GPS-tracked vehicles with professional drivers — choose your perfect ride"
         breadcrumb={['Fleet']}
+        bgImage="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1200"
       />
 
       {/* ═══════════════ VEHICLES GRID ═══════════════ */}
-      <section className="py-24" style={{ background: '#0a0a0a' }}>
+      <section className="py-24" style={{ background: '#f8f5f0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -148,7 +149,7 @@ export default function Fleet() {
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-              className="font-body text-sm text-white/40 mt-5 max-w-2xl mx-auto leading-relaxed">
+              className="font-body text-sm text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed">
               We provide the best taxi service in Delhi with well-maintained cabs, reliable drivers, and budget-friendly rates for every journey.
             </motion.p>
           </div>
@@ -163,7 +164,7 @@ export default function Fleet() {
                 transition={{ delay: (i % 3) * 0.1, duration: 0.6 }}
                 whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(212,167,60,0.15)' }}
                 className="rounded-xl overflow-hidden group"
-                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}
+                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}
               >
                 {/* Vehicle Image */}
                 <div className="h-48 relative overflow-hidden">
@@ -189,19 +190,19 @@ export default function Fleet() {
                 <div className="p-6">
                   {/* Title + Rate */}
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="font-heading text-lg font-bold text-white group-hover:text-gold transition-colors">{v.name}</h3>
+                    <h3 className="font-heading text-lg font-bold text-gray-900 group-hover:text-gold transition-colors">{v.name}</h3>
                     <div className="text-right shrink-0 ml-3">
                       <p className="font-heading text-xl font-black gold-text">{v.rate}/km</p>
-                      <p className="font-body text-[10px] text-white/30 tracking-wider">Rate</p>
+                      <p className="font-body text-[10px] text-gray-400 tracking-wider">Rate</p>
                     </div>
                   </div>
 
-                  <p className="font-body text-xs text-white/40 leading-relaxed mb-4">{v.ideal}</p>
+                  <p className="font-body text-xs text-gray-500 leading-relaxed mb-4">{v.ideal}</p>
 
                   {/* Features */}
                   <ul className="grid grid-cols-2 gap-1.5 mb-5">
                     {v.features.map(f => (
-                      <li key={f} className="flex items-center gap-1.5 font-body text-xs text-white/45">
+                      <li key={f} className="flex items-center gap-1.5 font-body text-xs text-gray-500">
                         <FaCheckCircle className="text-gold/60 text-xs shrink-0" /> {f}
                       </li>
                     ))}
@@ -210,7 +211,7 @@ export default function Fleet() {
                   {/* Distance info */}
                   <div className="flex items-center gap-2 mb-5">
                     <FaRoad className="text-gold/40 text-xs" />
-                    <span className="font-body text-[10px] text-white/30 tracking-wider uppercase">Min 250 km/day for outstation</span>
+                    <span className="font-body text-[10px] text-gray-400 tracking-wider uppercase">Min 250 km/day for outstation</span>
                   </div>
 
                   {/* CTAs */}
@@ -231,26 +232,27 @@ export default function Fleet() {
       </section>
 
       {/* ═══════════════ CTA ═══════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
+        <div className="absolute inset-0 opacity-[0.08]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 0, transparent 60px)' }} />
         <div className="max-w-3xl mx-auto px-4 text-center relative">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="font-heading text-3xl md:text-4xl font-black text-white mb-3">
-            Need a <span className="gold-text">Custom Quote?</span>
+            Need a <span style={{ WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Custom Quote?</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="font-body text-sm text-white/45 mb-8">
+            className="font-body text-sm text-white/80 mb-8">
             Contact us for bulk bookings, multi-day packages, wedding transport or any special requirements.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20enquire%20about%20your%20fleet.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
-              <FaWhatsapp className="text-base" /> WhatsApp Now
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+              <FaWhatsapp className="text-base text-green-600" /> WhatsApp Now
             </a>
-            <a href="tel:+919643199064" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+            <a href="tel:+919643199064"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-sm hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300">
               <FaPhoneAlt /> +91 96431 99064
             </a>
           </motion.div>

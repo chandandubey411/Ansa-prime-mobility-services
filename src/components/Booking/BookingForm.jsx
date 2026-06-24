@@ -66,7 +66,7 @@ export default function BookingForm() {
           <FaCarAlt className="text-gold text-sm" />
           <span className="section-label text-[10px]">Quick Booking</span>
         </div>
-        <h3 className="font-heading text-2xl font-bold text-white mb-5">
+        <h3 className="font-heading text-2xl font-bold text-gray-900 mb-5">
           Book Your <span className="gold-text">Ride</span>
         </h3>
 
@@ -82,14 +82,14 @@ export default function BookingForm() {
                 <span className="text-gold text-4xl">✓</span>
               </div>
             </div>
-            <p className="font-heading text-xl text-white mb-1">Redirecting to WhatsApp!</p>
-            <p className="font-body text-sm text-white/40">We'll confirm your booking shortly.</p>
+            <p className="font-heading text-xl text-gray-900 mb-1">Redirecting to WhatsApp!</p>
+            <p className="font-body text-sm text-gray-500">We'll confirm your booking shortly.</p>
           </motion.div>
         ) : (
           <form onSubmit={submit} className="space-y-3">
             {/* Name */}
             <div>
-              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Name</label>
+              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Name</label>
               <input
                 name="name"
                 type="text"
@@ -103,7 +103,7 @@ export default function BookingForm() {
 
             {/* Mobile number */}
             <div>
-              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Mobile Number</label>
+              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Mobile Number</label>
               <input
                 name="mobile"
                 type="tel"
@@ -117,7 +117,7 @@ export default function BookingForm() {
 
             {/* Select Car */}
             <div>
-              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Select Car</label>
+              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Select Car</label>
               <select name="car" value={form.car} onChange={handle} required className={inputCls}>
                 <option value="">— Choose Car —</option>
                 {VEHICLES.map(v => <option key={v} value={v}>{v}</option>)}
@@ -126,7 +126,7 @@ export default function BookingForm() {
 
             {/* Pickup Location */}
             <div>
-              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Pickup Location</label>
+              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Pickup Location</label>
               <input
                 name="pickup"
                 type="text"
@@ -140,7 +140,7 @@ export default function BookingForm() {
 
             {/* Drop Location */}
             <div>
-              <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Drop Location</label>
+              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Drop Location</label>
               <input
                 name="drop"
                 type="text"
@@ -155,11 +155,11 @@ export default function BookingForm() {
             {/* Journey Date + Pickup Time */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Journey Date</label>
+                <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Journey Date</label>
                 <input name="date" type="date" value={form.date} onChange={handle} required className={inputCls} />
               </div>
               <div>
-                <label className="font-body text-[11px] text-white/40 mb-1 block tracking-wider">Pickup Time</label>
+                <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Pickup Time</label>
                 <input name="time" type="time" value={form.time} onChange={handle} required className={inputCls} />
               </div>
             </div>
@@ -171,7 +171,7 @@ export default function BookingForm() {
               <FaWhatsapp className="text-base" /> Book Now via WhatsApp <HiArrowRight className="text-sm" />
             </button>
 
-            <p className="font-body text-[11px] text-white/25 text-center">
+            <p className="font-body text-[11px] text-gray-600 text-center">
               Or call us: <a href="tel:+919643199064" className="text-gold hover:text-gold-light transition-colors">+91 96431 99064</a>
             </p>
           </form>

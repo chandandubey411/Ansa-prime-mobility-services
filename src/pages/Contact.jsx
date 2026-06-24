@@ -48,15 +48,16 @@ export default function Contact() {
         title="CONTACT US"
         subtitle="Get in touch — we're available 24/7 to plan your premium journey"
         breadcrumb={['Contact']}
+        bgImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=1200"
       />
 
-      <section className="py-28" style={{ background: '#0a0a0a' }}>
+      <section className="py-24" style={{ background: '#f8f5f0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="section-label mb-3">Get In Touch</motion.p>
             <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-              className="section-title text-4xl md:text-5xl mb-4">
+              className="section-title text-4xl md:text-5xl mb-4 text-gray-900">
               Let's <span>Connect</span>
             </motion.h2>
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
@@ -66,35 +67,35 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             {/* LEFT — Info */}
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <h3 className="font-heading text-2xl font-bold text-white mb-2">
+              <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">
                 ANSA PRIME <span className="gold-text">MOBILITY</span>
               </h3>
-              <p className="font-body text-sm text-white/45 mb-8 leading-relaxed max-w-md">
+              <p className="font-body text-sm text-gray-500 mb-8 leading-relaxed max-w-md">
                 Whether you need an airport cab, a corporate chauffeur or a long outstation journey — we are here for you round the clock. Reach out and let us take care of every detail.
               </p>
 
               {/* Contact Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {contactInfo.map((info, i) => (
-                  <motion.div
+                  <motion.div 
                     key={info.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="luxury-card rounded-xl p-5 group"
+                    className="bg-white rounded-xl p-5 shadow-sm border border-black/5"
                   >
                     <div className="icon-box w-11 h-11 mb-3">
                       <info.icon className="text-gold text-lg" />
                     </div>
-                    <p className="font-body text-[10px] text-gold/60 uppercase tracking-widest mb-1.5">{info.title}</p>
+                    <p className="font-body text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">{info.title}</p>
                     {info.href ? (
-                      <a href={info.href} className="font-body text-sm text-white/65 hover:text-gold transition-colors font-medium">
+                      <a href={info.href} className="font-body text-sm text-gray-700 hover:text-gold transition-colors font-medium">
                         {info.lines.join('')}
                       </a>
                     ) : (
                       info.lines.map(l => (
-                        <p key={l} className="font-body text-sm text-white/65">{l}</p>
+                        <p key={l} className="font-body text-sm text-gray-700">{l}</p>
                       ))
                     )}
                   </motion.div>
@@ -117,18 +118,9 @@ export default function Contact() {
             {/* RIGHT — Form */}
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="relative">
-                {/* Glow */}
-                <div className="absolute -inset-3 rounded-xl opacity-15 blur-2xl pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, #D4A73C, transparent 70%)' }} />
-
-                <div className="glass rounded-xl p-8 relative overflow-hidden">
-                  {/* Corner accents */}
-                  <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none"
-                    style={{ borderTop: '2px solid rgba(212,167,60,0.6)', borderLeft: '2px solid rgba(212,167,60,0.6)', borderRadius: '12px 0 0 0' }} />
-                  <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none"
-                    style={{ borderBottom: '2px solid rgba(212,167,60,0.6)', borderRight: '2px solid rgba(212,167,60,0.6)', borderRadius: '0 0 12px 0' }} />
-
-                  <h3 className="font-heading text-xl font-bold text-white mb-6">
+                <div className="rounded-xl overflow-hidden" style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 20px rgba(0,0,0,0.06)' }}>
+                  <div className="p-8 relative">
+                  <h3 className="font-heading text-xl font-bold text-gray-900 mb-6">
                     Send Us a <span className="gold-text">Message</span>
                   </h3>
 
@@ -141,30 +133,30 @@ export default function Contact() {
                           <span className="text-gold text-4xl">✓</span>
                         </div>
                       </div>
-                      <p className="font-heading text-xl text-white mb-1">Message Sent!</p>
-                      <p className="font-body text-sm text-white/40">We'll get back to you within 30 minutes.</p>
+                      <h3 className="font-heading text-2xl font-bold text-gray-900 mb-1">Message Sent!</h3>
+                      <p className="font-body text-sm text-gray-500">Fill in the form and we'll get back to you on WhatsApp.</p>
                     </motion.div>
                   ) : (
                     <form onSubmit={submit} className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="font-body text-[11px] text-white/35 mb-1.5 block tracking-wider">Full Name</label>
+                          <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Full Name</label>
                           <input name="name" value={form.name} onChange={handle}
                             placeholder="Your name" required className={inp} />
                         </div>
                         <div>
-                          <label className="font-body text-[11px] text-white/35 mb-1.5 block tracking-wider">Mobile No.</label>
+                          <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Mobile No.</label>
                           <input name="mobile" value={form.mobile} onChange={handle}
                             placeholder="+91 XXXXX" required className={inp} />
                         </div>
                       </div>
                       <div>
-                        <label className="font-body text-[11px] text-white/35 mb-1.5 block tracking-wider">Email Address</label>
+                        <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Email Address</label>
                         <input name="email" type="email" value={form.email} onChange={handle}
                           placeholder="your@email.com" required className={inp} />
                       </div>
                       <div>
-                        <label className="font-body text-[11px] text-white/35 mb-1.5 block tracking-wider">Service Required</label>
+                        <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Service Required</label>
                         <select name="service" value={form.service} onChange={handle} className={inp}>
                           <option value="">Select a service</option>
                           {['Airport Transfer', 'Corporate Travel', 'Local Taxi', 'Outstation Trip', 'Wedding Transport', 'Premium Chauffeur'].map(s => (
@@ -173,7 +165,7 @@ export default function Contact() {
                         </select>
                       </div>
                       <div>
-                        <label className="font-body text-[11px] text-white/35 mb-1.5 block tracking-wider">Message</label>
+                        <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Message</label>
                         <textarea name="message" value={form.message} onChange={handle}
                           placeholder="Tell us about your travel requirements..."
                           rows={4} required className={`${inp} resize-none`} />
@@ -183,6 +175,7 @@ export default function Contact() {
                       </button>
                     </form>
                   )}
+                  </div>
                 </div>
               </div>
             </motion.div>

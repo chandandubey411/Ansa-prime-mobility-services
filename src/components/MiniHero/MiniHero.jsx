@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { HiHome, HiChevronRight } from 'react-icons/hi'
 
-export default function MiniHero({ title, subtitle, breadcrumb = [] }) {
+export default function MiniHero({ title, subtitle, breadcrumb = [], bgImage = '/hero-bg.jpg' }) {
   return (
-    <section className="mini-hero" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #171717 50%, #0f0c08 100%)' }}>
+    <section className="mini-hero" style={{ background: `url(${bgImage}) center/cover no-repeat` }}>
       {/* Gold radial glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full opacity-[0.08] pointer-events-none"
         style={{ background: 'radial-gradient(circle, #D4A73C, transparent 70%)' }} />
@@ -19,7 +19,7 @@ export default function MiniHero({ title, subtitle, breadcrumb = [] }) {
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 inset-x-0 h-24 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, #0a0a0a, transparent)' }} />
+        style={{ background: 'linear-gradient(to top, #f8f5f0, transparent)' }} />
 
       {/* Content */}
       <div className="mini-hero-content px-4 w-full">
@@ -40,7 +40,7 @@ export default function MiniHero({ title, subtitle, breadcrumb = [] }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-          className="font-heading font-black text-white text-center mb-3"
+          className="font-heading font-black text-gray-900 text-center mb-3"
           style={{ fontSize: 'clamp(2rem, 7vw, 4.5rem)' }}
         >
           {title}
@@ -51,7 +51,7 @@ export default function MiniHero({ title, subtitle, breadcrumb = [] }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="font-body text-sm text-white/40 text-center mb-4 max-w-lg mx-auto"
+            className="font-body text-sm text-gray-500 text-center mb-4 max-w-lg mx-auto"
           >
             {subtitle}
           </motion.p>
@@ -63,7 +63,7 @@ export default function MiniHero({ title, subtitle, breadcrumb = [] }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="flex items-center gap-1.5 justify-center font-body text-xs text-white/35 tracking-wider"
+            className="flex items-center gap-1.5 justify-center font-body text-xs text-gray-400 tracking-wider"
           >
             <Link to="/" className="flex items-center gap-1 hover:text-gold transition-colors">
               <HiHome className="text-sm" /> Home
@@ -71,7 +71,7 @@ export default function MiniHero({ title, subtitle, breadcrumb = [] }) {
             {breadcrumb.map((b, i) => (
               <span key={i} className="flex items-center gap-1.5">
                 <HiChevronRight className="text-gold/40" />
-                <span className={i === breadcrumb.length - 1 ? 'text-gold font-semibold' : 'text-white/35'}>
+                <span className={i === breadcrumb.length - 1 ? 'text-gold font-semibold' : 'text-gray-400'}>
                   {b}
                 </span>
               </span>

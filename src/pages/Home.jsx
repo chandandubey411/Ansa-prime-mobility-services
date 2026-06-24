@@ -146,56 +146,56 @@ const tourPackages = [
     desc: 'Visit the iconic Taj Mahal, Agra Fort and enjoy a comfortable same-day return trip.',
     highlights: ['Taj Mahal', 'Agra Fort', 'Fatehpur Sikri', 'Same Day Return'],
     dist: '~230', time: '3–4 hrs',
-    color: 'rgba(212,167,60,0.1)',
+    color: 'rgba(212,167,60,0.08)',
   },
   {
     from: 'Delhi', to: 'Jaipur',
     desc: 'Explore forts, palaces, and vibrant culture with a smooth and well-planned Jaipur tour.',
     highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
     dist: '~270', time: '4–5 hrs',
-    color: 'rgba(59,130,246,0.1)',
+    color: 'rgba(59,130,246,0.08)',
   },
   {
     from: 'Delhi', to: 'Rishikesh',
     desc: 'Enjoy a peaceful journey to Rishikesh with scenic views, river ghats, and spiritual attractions.',
     highlights: ['Laxman Jhula', 'River Rafting', 'Ganga Ghat', 'Triveni Ghat'],
     dist: '~240', time: '4–5 hrs',
-    color: 'rgba(16,185,129,0.1)',
+    color: 'rgba(16,185,129,0.08)',
   },
   {
     from: 'Delhi', to: 'Haridwar',
     desc: 'Experience a peaceful journey with holy ghats, Ganga Aarti, and spiritual landmarks.',
     highlights: ['Har ki Pauri', 'Ganga Aarti', 'Mansa Devi', 'Chandi Devi'],
     dist: '~215', time: '3–4 hrs',
-    color: 'rgba(139,92,246,0.1)',
+    color: 'rgba(139,92,246,0.08)',
   },
   {
     from: 'Delhi', to: 'Mathura',
     desc: 'Visit the sacred city of Lord Krishna with a smooth ride covering Mathura and Vrindavan temples.',
     highlights: ['Krishna Janmabhoomi', 'Vrindavan', 'Banke Bihari', 'ISKCON Temple'],
     dist: '~165', time: '2.5–3 hrs',
-    color: 'rgba(245,158,11,0.1)',
+    color: 'rgba(245,158,11,0.08)',
   },
   {
     from: 'Delhi', to: 'Manali',
     desc: 'Experience snow-capped mountains, adventure activities, and a comfortable long-distance journey.',
     highlights: ['Rohtang Pass', 'Solang Valley', 'Hadimba Temple', 'Mall Road'],
     dist: '~540', time: '10–12 hrs',
-    color: 'rgba(236,72,153,0.1)',
+    color: 'rgba(236,72,153,0.08)',
   },
   {
     from: 'Delhi', to: 'Mussoorie',
     desc: 'Enjoy a scenic hill station journey with pleasant weather, mountain views, and a relaxing trip.',
     highlights: ['Mall Road', 'Kempty Falls', 'Lal Tibba', 'Camel Back Road'],
     dist: '~300', time: '5–6 hrs',
-    color: 'rgba(6,182,212,0.1)',
+    color: 'rgba(6,182,212,0.08)',
   },
   {
     from: 'Delhi', to: 'Khatu Shyam',
     desc: 'Plan a comfortable religious trip to Khatu Shyam Ji for a peaceful and hassle-free darshan.',
     highlights: ['Khatu Shyam Temple', 'Salasar Balaji', 'Lohargal', 'Night Darshan'],
     dist: '~320', time: '5–6 hrs',
-    color: 'rgba(34,197,94,0.1)',
+    color: 'rgba(34,197,94,0.08)',
   },
 ]
 
@@ -217,7 +217,7 @@ export default function Home() {
       <HeroSection />
 
       {/* ═══════════════ FEATURE CARDS ═══════════════ */}
-      <section style={{ background: '#0d0d0d' }} className="py-16 relative">
+      <section style={{ background: '#f2ede6' }} className="py-16 relative">
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -229,17 +229,17 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="rounded-xl p-7 group relative overflow-hidden"
-                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}
+                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 20px rgba(0,0,0,0.06)' }}
               >
                 {/* Number badge */}
-                <span className="absolute top-4 right-5 font-heading text-4xl font-black opacity-[0.06] text-white select-none">{f.num}</span>
+                <span className="absolute top-4 right-5 font-heading text-4xl font-black opacity-[0.06] text-gray-900 select-none">{f.num}</span>
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-xl mb-5 flex items-center justify-center transition-all duration-300"
                   style={{ background: `${f.color}22`, border: `1px solid ${f.color}44` }}>
                   <f.icon style={{ color: f.color }} className="text-xl group-hover:scale-110 transition-transform" />
                 </div>
-                <h3 className="font-heading text-base font-bold text-white mb-2 group-hover:text-gold transition-colors">{f.title}</h3>
-                <p className="font-body text-sm text-white/40 leading-relaxed">{f.desc}</p>
+                <h3 className="font-heading text-base font-bold text-gray-900 mb-2 group-hover:text-gold transition-colors">{f.title}</h3>
+                <p className="font-body text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -247,7 +247,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ FLEET / BEST CAB SERVICE ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#111' }}>
+      <section className="py-24 relative" style={{ background: '#f8f5f0' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Header */}
@@ -261,7 +261,7 @@ export default function Home() {
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-              className="font-body text-sm text-white/40 mt-5 max-w-2xl mx-auto leading-relaxed">
+              className="font-body text-sm text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed">
               We provide the best taxi service in Delhi with well-maintained cabs, reliable drivers, and budget-friendly rates for every journey.
             </motion.p>
           </div>
@@ -277,7 +277,7 @@ export default function Home() {
                 transition={{ delay: (i % 4) * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(212,167,60,0.18)' }}
                 className="rounded-xl overflow-hidden group"
-                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}
+                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.06)' }}
               >
                 {/* Vehicle Image */}
                 <div className="h-44 relative overflow-hidden">
@@ -286,30 +286,30 @@ export default function Home() {
                     alt={v.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                   {/* Type badge */}
                   <span className="absolute top-3 left-3 px-2.5 py-1 rounded-sm text-[10px] font-bold tracking-wider uppercase"
-                    style={{ background: 'rgba(212,167,60,0.9)', color: '#0a0a0a' }}>
+                    style={{ background: 'rgba(212,167,60,0.9)', color: '#fff' }}>
                     {v.type}
                   </span>
                 </div>
 
                 <div className="p-5">
-                  <h3 className="font-heading text-base font-bold text-white mb-3 group-hover:text-gold transition-colors">{v.name}</h3>
+                  <h3 className="font-heading text-base font-bold text-gray-900 mb-3 group-hover:text-gold transition-colors">{v.name}</h3>
                   <div className="flex justify-between items-center mb-4">
                     <div className="text-center">
                       <p className="font-heading text-lg font-black gold-text">{v.seating}</p>
-                      <p className="font-body text-[10px] text-white/35 tracking-wider uppercase">Seats</p>
+                      <p className="font-body text-[10px] text-gray-400 tracking-wider uppercase">Seats</p>
                     </div>
                     <div className="w-px h-8" style={{ background: 'rgba(212,167,60,0.2)' }} />
                     <div className="text-center">
                       <p className="font-heading text-lg font-black gold-text">{v.rate}/km</p>
-                      <p className="font-body text-[10px] text-white/35 tracking-wider uppercase">Rate</p>
+                      <p className="font-body text-[10px] text-gray-400 tracking-wider uppercase">Rate</p>
                     </div>
                     <div className="w-px h-8" style={{ background: 'rgba(212,167,60,0.2)' }} />
                     <div className="text-center">
                       <p className="font-heading text-sm font-black gold-text">{v.startingPrice}</p>
-                      <p className="font-body text-[10px] text-white/35 tracking-wider uppercase">Start</p>
+                      <p className="font-body text-[10px] text-gray-400 tracking-wider uppercase">Start</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -338,7 +338,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ TOUR PACKAGES ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#0a0a0a' }}>
+      <section className="py-24 relative" style={{ background: '#f2ede6' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Header */}
@@ -352,7 +352,7 @@ export default function Home() {
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-              className="font-body text-sm text-white/40 mt-5 max-w-2xl mx-auto leading-relaxed">
+              className="font-body text-sm text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed">
               Discover India's most loved tourist destinations with our premium outstation taxi services. Comfortable rides, fixed pricing, and professional drivers for a stress-free journey.
             </motion.p>
           </div>
@@ -367,29 +367,29 @@ export default function Home() {
                 transition={{ delay: (i % 4) * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(212,167,60,0.15)' }}
                 className="rounded-xl overflow-hidden group cursor-default"
-                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}
+                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}
               >
                 {/* Color band */}
-                <div className="h-2 w-full" style={{ background: 'linear-gradient(90deg, #D4A73C, #F0D060)' }} />
+                <div className="h-2 w-full" style={{ background: 'linear-gradient(90deg, #D4A73C, #B8891F)' }} />
 
                 <div className="p-6">
                   {/* Route */}
                   <div className="flex items-center gap-2 mb-4">
                     <HiLocationMarker className="text-gold text-base shrink-0" />
                     <div>
-                      <span className="font-body text-[10px] text-white/35 tracking-widest uppercase">{pkg.from}</span>
-                      <p className="font-heading text-lg font-bold text-white group-hover:text-gold transition-colors">
+                      <span className="font-body text-[10px] text-gray-400 tracking-widest uppercase">{pkg.from}</span>
+                      <p className="font-heading text-lg font-bold text-gray-900 group-hover:text-gold transition-colors">
                         To {pkg.to}
                       </p>
                     </div>
                   </div>
 
-                  <p className="font-body text-xs text-white/40 leading-relaxed mb-4">{pkg.desc}</p>
+                  <p className="font-body text-xs text-gray-500 leading-relaxed mb-4">{pkg.desc}</p>
 
                   {/* Highlights */}
                   <ul className="space-y-1.5 mb-5">
                     {pkg.highlights.map(h => (
-                      <li key={h} className="flex items-center gap-2 font-body text-[11px] text-white/50">
+                      <li key={h} className="flex items-center gap-2 font-body text-[11px] text-gray-500">
                         <FaCheckCircle className="text-gold/60 text-xs shrink-0" /> {h}
                       </li>
                     ))}
@@ -424,28 +424,29 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ CTA BANNER ═══════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
+        <div className="absolute inset-0 opacity-[0.08]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 0, transparent 60px)' }} />
         <div className="max-w-4xl mx-auto px-4 text-center relative">
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="section-label mb-3">Ready to Ride?</motion.p>
+            className="font-body text-xs font-bold tracking-[5px] uppercase text-white/80 mb-3">Ready to Ride?</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="font-heading text-4xl md:text-5xl font-black text-white mb-4">
-            Book Your <span className="gold-text">Cab Now!</span>
+            Book Your Cab Now!
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="font-body text-sm text-white/50 mb-8 max-w-xl mx-auto leading-relaxed">
+            className="font-body text-sm text-white/75 mb-8 max-w-xl mx-auto leading-relaxed">
             Call us or WhatsApp for instant booking. Available 24/7 across Delhi NCR — Airport, Outstation, Corporate, Wedding & Local.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
-              <FaWhatsapp className="text-base" /> WhatsApp Us
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+              <FaWhatsapp className="text-base text-green-600" /> WhatsApp Us
             </a>
-            <a href="tel:+919643199064" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+            <a href="tel:+919643199064"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-sm hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300">
               <FaPhoneAlt /> Call Now: +91 96431 99064
             </a>
           </motion.div>
@@ -453,7 +454,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ ABOUT TEXT SECTION ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#111' }}>
+      <section className="py-24 relative" style={{ background: '#f8f5f0' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
@@ -469,15 +470,15 @@ export default function Home() {
                 className="gold-divider-left mb-7" />
 
               <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 }}
-                className="font-body text-sm text-white/50 leading-relaxed mb-4">
+                className="font-body text-sm text-gray-500 leading-relaxed mb-4">
                 We are providing the best way to explore India, one road trip at a time. Every turn brings a new story, a new sight, and a new experience. That love for road travel inspires us to create journeys that are as enjoyable as they are unforgettable.
               </motion.p>
               <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-                className="font-body text-sm text-white/50 leading-relaxed mb-4">
+                className="font-body text-sm text-gray-500 leading-relaxed mb-4">
                 Travelling by cab lets you experience the journey as much as the destination. Connect with cultures, enjoy local food — because it's these moments that make travel truly meaningful.
               </motion.p>
               <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.45 }}
-                className="font-body text-sm text-white/50 leading-relaxed mb-8">
+                className="font-body text-sm text-gray-500 leading-relaxed mb-8">
                 To make planning easier, you can book a cab on our website or call us on <strong className="text-gold">+91 96431 99064</strong> to discuss your itinerary. From booking to safe return, we ensure a memorable journey.
               </motion.p>
 
@@ -485,7 +486,7 @@ export default function Home() {
               <motion.ul initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
                 className="space-y-3 mb-8">
                 {['Multiple Vehicle Options Available', 'Affordable & Transparent Pricing', 'Experienced Drivers & 24/7 Support', 'Safe, Comfortable & Reliable Travel'].map(item => (
-                  <li key={item} className="flex items-center gap-3 font-body text-sm text-white/60">
+                  <li key={item} className="flex items-center gap-3 font-body text-sm text-gray-600">
                     <FaCheckCircle className="text-gold text-sm shrink-0" /> {item}
                   </li>
                 ))}
@@ -514,10 +515,10 @@ export default function Home() {
                 <motion.div key={s.label}
                   initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                   className="rounded-xl p-6 text-center"
-                  style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.15)' }}>
+                  style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
                   <p className="font-heading text-3xl font-black gold-text mb-1">{s.value}</p>
-                  <p className="font-body text-sm font-semibold text-white/80">{s.label}</p>
-                  <p className="font-body text-[11px] text-white/30 tracking-wider mt-1">{s.sub}</p>
+                  <p className="font-body text-sm font-semibold text-gray-700">{s.label}</p>
+                  <p className="font-body text-[11px] text-gray-400 tracking-wider mt-1">{s.sub}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -529,7 +530,7 @@ export default function Home() {
       <Testimonials />
 
       {/* ═══════════════ POPULAR ROUTES ═══════════════ */}
-      <section className="py-16 relative" style={{ background: '#0a0a0a' }}>
+      <section className="py-16 relative" style={{ background: '#f2ede6' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.25),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.h3 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -540,7 +541,7 @@ export default function Home() {
                 key={route}
                 href={`https://wa.me/919643199064?text=Hello%20I%20need%20${encodeURIComponent(route)}%20service.%20Please%20share%20details.`}
                 target="_blank" rel="noreferrer"
-                className="font-body text-xs text-white/50 hover:text-gold border border-white/10 hover:border-gold/40 px-4 py-2 rounded-full transition-all duration-300 hover:bg-gold/5"
+                className="font-body text-xs text-gray-500 hover:text-gold border border-black/10 hover:border-gold/40 px-4 py-2 rounded-full transition-all duration-300 hover:bg-gold/5"
               >
                 {route}
               </a>

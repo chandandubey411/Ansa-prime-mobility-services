@@ -46,7 +46,7 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section className="py-28 relative overflow-hidden" style={{ background: '#0d0d0d' }}>
+    <section className="py-28 relative overflow-hidden" style={{ background: '#f2ede6' }}>
       {/* BG */}
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.35), transparent)' }} />
       <div className="absolute inset-0 opacity-[0.025] pointer-events-none"
@@ -102,18 +102,18 @@ export default function Testimonials() {
                 </div>
 
                 {/* Text */}
-                <p className="font-body text-sm text-white/55 leading-relaxed mb-6 italic flex-1">
+                <p className="font-body text-sm text-gray-600 leading-relaxed mb-6 italic flex-1">
                   "{r.text}"
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-3 border-t border-white/8 pt-5">
+                <div className="flex items-center gap-3 border-t border-black/8 pt-5">
                   <div className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 font-heading font-black text-gold text-base"
                     style={{ background: 'linear-gradient(135deg, rgba(212,167,60,0.18), rgba(212,167,60,0.06))', border: '1.5px solid rgba(212,167,60,0.4)' }}>
                     {r.avatar}
                   </div>
                   <div>
-                    <p className="font-body text-sm font-bold text-white">{r.name}</p>
+                    <p className="font-body text-sm font-bold text-gray-900">{r.name}</p>
                     <p className="font-body text-xs text-gold/60">{r.role}</p>
                   </div>
                 </div>

@@ -122,10 +122,11 @@ export default function Pricing() {
         title="TOUR PACKAGES"
         subtitle="Discover India's most loved destinations — comfortable rides, fixed pricing, professional drivers"
         breadcrumb={['Packages']}
+        bgImage="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=1200"
       />
 
       {/* ═══════════════ PACKAGES GRID ═══════════════ */}
-      <section className="py-24" style={{ background: '#0a0a0a' }}>
+      <section className="py-24" style={{ background: '#f8f5f0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -137,7 +138,7 @@ export default function Pricing() {
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-              className="font-body text-sm text-white/40 mt-5 max-w-2xl mx-auto leading-relaxed">
+              className="font-body text-sm text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed">
               Discover India's most loved tourist destinations with our premium outstation taxi services. Comfortable rides, fixed pricing, and professional drivers for a stress-free journey.
             </motion.p>
           </div>
@@ -152,7 +153,7 @@ export default function Pricing() {
                 transition={{ delay: (i % 3) * 0.1, duration: 0.6 }}
                 whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(212,167,60,0.15)' }}
                 className="rounded-xl overflow-hidden group cursor-default"
-                style={{ background: '#171717', border: `1px solid ${pkg.border}` }}
+                style={{ background: '#ffffff', border: `1px solid ${pkg.border}`, boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}
               >
                 {/* Top band */}
                 <div className="h-1.5 w-full" style={{ background: 'linear-gradient(90deg, #D4A73C, #F0D060)' }} />
@@ -165,23 +166,23 @@ export default function Pricing() {
                   <div className="flex items-start gap-2 mb-4">
                     <HiLocationMarker className="text-gold text-xl mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-body text-[10px] text-white/35 tracking-widest uppercase">{pkg.from}</p>
-                      <h3 className="font-heading text-2xl font-bold text-white group-hover:text-gold transition-colors">
+                      <p className="font-body text-[10px] text-gray-400 tracking-widest uppercase">{pkg.from}</p>
+                      <h3 className="font-heading text-2xl font-bold text-gray-900 group-hover:text-gold transition-colors">
                         To {pkg.to}
                       </h3>
                     </div>
                   </div>
 
-                  <p className="font-body text-sm text-white/45 leading-relaxed mb-5">{pkg.desc}</p>
+                  <p className="font-body text-sm text-gray-500 leading-relaxed mb-5">{pkg.desc}</p>
 
                   {/* Meta chips */}
                   <div className="flex flex-wrap gap-2 mb-5">
 
-                    <span className="flex items-center gap-1 font-body text-[10px] text-white/50 px-3 py-1 rounded-full"
+                    <span className="flex items-center gap-1 font-body text-[10px] text-gray-500 px-3 py-1 rounded-full"
                       style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
                       <FaClock className="text-gold/60 text-[9px]" /> {pkg.time}
                     </span>
-                    <span className="flex items-center gap-1 font-body text-[10px] text-white/50 px-3 py-1 rounded-full"
+                    <span className="flex items-center gap-1 font-body text-[10px] text-gray-500 px-3 py-1 rounded-full"
                       style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
                       <FaMapMarkerAlt className="text-gold/60 text-[9px]" /> {pkg.duration}
                     </span>
@@ -190,7 +191,7 @@ export default function Pricing() {
                   {/* Highlights */}
                   <ul className="space-y-2 mb-6">
                     {pkg.highlights.map(h => (
-                      <li key={h} className="flex items-center gap-2.5 font-body text-xs text-white/45">
+                      <li key={h} className="flex items-center gap-2.5 font-body text-xs text-gray-500">
                         <FaCheckCircle className="text-gold/60 text-xs shrink-0" /> {h}
                       </li>
                     ))}
@@ -216,7 +217,7 @@ export default function Pricing() {
       </section>
 
       {/* ═══════════════ BOOKING INFO ═══════════════ */}
-      <section className="py-16 relative" style={{ background: '#111' }}>
+      <section className="py-16 relative" style={{ background: '#f2ede6' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -252,11 +253,11 @@ export default function Pricing() {
               <motion.div key={section.title}
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
                 className="rounded-xl p-7"
-                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}>
-                <h3 className="font-heading text-lg font-bold text-white mb-5">{section.title}</h3>
+                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.12)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
+                <h3 className="font-heading text-lg font-bold text-gray-900 mb-5">{section.title}</h3>
                 <ul className="space-y-3">
                   {section.steps.map((step, j) => (
-                    <li key={j} className="flex items-start gap-3 font-body text-sm text-white/50">
+                    <li key={j} className="flex items-start gap-3 font-body text-sm text-gray-500">
                       <span className="font-heading text-gold font-bold text-xs mt-0.5 shrink-0">{String(j + 1).padStart(2, '0')}</span>
                       {step}
                     </li>
@@ -269,26 +270,27 @@ export default function Pricing() {
       </section>
 
       {/* ═══════════════ CTA ═══════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
+        <div className="absolute inset-0 opacity-[0.08]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 0, transparent 60px)' }} />
         <div className="max-w-3xl mx-auto px-4 text-center relative">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="font-heading text-3xl md:text-4xl font-black text-white mb-3">
-            Book Your <span className="gold-text">Tour Now!</span>
+            Book Your <span style={{ color: 'rgba(255,255,255,0.75)' }}>Tour Now!</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="font-body text-sm text-white/45 mb-8">
+            className="font-body text-sm text-white/80 mb-8">
             Call us or WhatsApp for custom tour packages, bulk bookings or any special travel requirements.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20tour%20package.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
-              <FaWhatsapp className="text-base" /> WhatsApp Now
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+              <FaWhatsapp className="text-base text-green-600" /> WhatsApp Now
             </a>
-            <a href="tel:+919643199064" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+            <a href="tel:+919643199064"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-sm hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300">
               <FaPhoneAlt /> +91 96431 99064
             </a>
           </motion.div>

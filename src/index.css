@@ -21,8 +21,8 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: #f8f5f0;
+  color: #1a1a1a;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -33,7 +33,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #f0ece5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -50,23 +50,23 @@ body {
   --gold: #D4A73C;
   --gold-light: #E8C460;
   --gold-dark: #B8891F;
-  --dark: #0a0a0a;
-  --dark-1: #111111;
-  --dark-2: #171717;
-  --dark-3: #1E1E1E;
-  --dark-4: #242424;
+  --light: #f8f5f0;
+  --light-1: #f2ede6;
+  --light-2: #ebe5dc;
+  --light-3: #e2dbd0;
+  --light-4: #d8d0c4;
 }
 
 /* ===== GOLD TEXT ===== */
 .gold-text {
-  background: linear-gradient(135deg, #D4A73C 0%, #F0D060 50%, #B8891F 100%);
+  background: linear-gradient(135deg, #D4A73C 0%, #B8891F 50%, #D4A73C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gold-text-shimmer {
-  background: linear-gradient(90deg, #B8891F, #F0D060, #D4A73C, #F0D060, #B8891F);
+  background: linear-gradient(90deg, #B8891F, #D4A73C, #B8891F, #D4A73C, #B8891F);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -138,7 +138,7 @@ body {
 .gold-divider {
   width: 64px;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #D4A73C, #F0D060, #D4A73C, transparent);
+  background: linear-gradient(90deg, transparent, #D4A73C, #B8891F, #D4A73C, transparent);
   margin: 0 auto;
   border-radius: 2px;
 }
@@ -146,7 +146,7 @@ body {
 .gold-divider-left {
   width: 64px;
   height: 3px;
-  background: linear-gradient(90deg, #D4A73C, #F0D060, transparent);
+  background: linear-gradient(90deg, #D4A73C, #B8891F, transparent);
   border-radius: 2px;
 }
 
@@ -157,44 +157,44 @@ body {
   font-weight: 700;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: #D4A73C;
+  color: #B8891F;
 }
 
 /* ===== SECTION TITLE ===== */
 .section-title {
   font-family: 'Playfair Display', serif;
   font-weight: 800;
-  color: #ffffff;
+  color: #1a1a1a;
   line-height: 1.1;
 }
 
 .section-title span {
-  background: linear-gradient(135deg, #D4A73C, #F0D060, #B8891F);
+  background: linear-gradient(135deg, #D4A73C, #B8891F, #D4A73C);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ===== GLASSMORPHISM ===== */
+/* ===== GLASSMORPHISM (light variant) ===== */
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(212, 167, 60, 0.2);
+  border: 1px solid rgba(212, 167, 60, 0.3);
 }
 
 .glass-dark {
-  background: rgba(10, 10, 10, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 167, 60, 0.15);
+  border: 1px solid rgba(212, 167, 60, 0.25);
 }
 
 .glass-gold {
-  background: rgba(212, 167, 60, 0.08);
+  background: rgba(212, 167, 60, 0.1);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 167, 60, 0.35);
+  border: 1px solid rgba(212, 167, 60, 0.45);
 }
 
 /* ===== GOLD BUTTON ===== */
@@ -204,8 +204,8 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #D4A73C 0%, #F0D060 50%, #B8891F 100%);
-  color: #0a0a0a;
+  background: linear-gradient(135deg, #D4A73C 0%, #c49535 50%, #B8891F 100%);
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
@@ -220,7 +220,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #F0D060, #D4A73C);
+  background: linear-gradient(135deg, #c49535, #D4A73C);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -241,7 +241,7 @@ body {
 }
 
 .btn-gold:hover {
-  box-shadow: 0 0 40px rgba(212, 167, 60, 0.65), 0 8px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 40px rgba(212, 167, 60, 0.5), 0 8px 30px rgba(0, 0, 0, 0.15);
   transform: translateY(-3px);
 }
 
@@ -258,7 +258,7 @@ body {
   position: relative;
   overflow: hidden;
   border: 2px solid #D4A73C;
-  color: #D4A73C;
+  color: #B8891F;
   background: transparent;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -274,21 +274,21 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #D4A73C, #F0D060);
+  background: linear-gradient(135deg, #D4A73C, #c49535);
   opacity: 0;
   transition: opacity 0.3s;
   z-index: -1;
 }
 
 .btn-outline:hover {
-  color: #000000 !important;
-  border-color: #F0D060;
-  box-shadow: 0 0 30px rgba(212, 167, 60, 0.45);
+  color: #ffffff !important;
+  border-color: #D4A73C;
+  box-shadow: 0 0 30px rgba(212, 167, 60, 0.35);
   transform: translateY(-3px);
 }
 
 .btn-outline:hover * {
-  color: #000000 !important;
+  color: #ffffff !important;
 }
 
 .btn-outline:hover::after {
@@ -302,14 +302,14 @@ body {
 
 /* ===== LUXURY CARD ===== */
 .luxury-card {
-  background: #171717;
-  border: 1px solid rgba(212, 167, 60, 0.12);
+  background: #ffffff;
+  border: 1px solid rgba(212, 167, 60, 0.2);
   transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 
 .luxury-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 24px 60px rgba(212, 167, 60, 0.18), 0 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 24px 60px rgba(212, 167, 60, 0.2), 0 4px 20px rgba(0, 0, 0, 0.08);
   border-color: rgba(212, 167, 60, 0.5);
 }
 
@@ -329,7 +329,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.45) 0%, rgba(10, 10, 10, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(248, 245, 240, 0.88) 0%, rgba(248, 245, 240, 0.94) 100%);
   z-index: 1;
 }
 
@@ -349,7 +349,7 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
 }
 
 .floating-btn:hover {
@@ -363,7 +363,7 @@ body {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(26, 26, 26, 0.75);
   transition: color 0.3s;
   padding-bottom: 4px;
   text-decoration: none;
@@ -376,13 +376,13 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #D4A73C, #F0D060);
+  background: linear-gradient(90deg, #D4A73C, #B8891F);
   transition: width 0.35s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #D4A73C;
+  color: #B8891F;
 }
 
 .nav-link:hover::after,
@@ -392,9 +392,9 @@ body {
 
 /* ===== INPUT ===== */
 .luxury-input {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(212, 167, 60, 0.25);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(212, 167, 60, 0.35);
+  color: #1a1a1a;
   font-family: 'Poppins', sans-serif;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   outline: none;
@@ -402,17 +402,17 @@ body {
 
 .luxury-input:focus {
   border-color: #D4A73C;
-  background: rgba(255, 255, 255, 0.09);
-  box-shadow: 0 0 0 3px rgba(212, 167, 60, 0.12);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(212, 167, 60, 0.15);
 }
 
 .luxury-input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(26, 26, 26, 0.4);
 }
 
 .luxury-input option {
-  background: #1E1E1E;
-  color: #fff;
+  background: #ffffff;
+  color: #1a1a1a;
 }
 
 /* ===== SWIPER OVERRIDES ===== */
@@ -442,7 +442,7 @@ body {
 /* ===== COUNTER CARD ===== */
 .counter-card {
   border-left: 3px solid #D4A73C;
-  background: linear-gradient(135deg, rgba(212, 167, 60, 0.06) 0%, rgba(10, 10, 10, 0) 100%);
+  background: linear-gradient(135deg, rgba(212, 167, 60, 0.08) 0%, rgba(248, 245, 240, 0) 100%);
 }
 
 /* ===== GRADIENT LINE ===== */
@@ -459,8 +459,8 @@ body {
 /* ===== BADGE ===== */
 .gold-badge {
   background: linear-gradient(135deg, rgba(212, 167, 60, 0.15), rgba(212, 167, 60, 0.05));
-  border: 1px solid rgba(212, 167, 60, 0.4);
-  color: #D4A73C;
+  border: 1px solid rgba(212, 167, 60, 0.5);
+  color: #B8891F;
   font-family: 'Poppins', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
@@ -475,8 +475,8 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 12px;
-  background: rgba(212, 167, 60, 0.08);
-  border: 1px solid rgba(212, 167, 60, 0.2);
+  background: rgba(212, 167, 60, 0.1);
+  border: 1px solid rgba(212, 167, 60, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -485,8 +485,8 @@ body {
 }
 
 .group:hover .icon-box {
-  background: rgba(212, 167, 60, 0.18);
-  border-color: rgba(212, 167, 60, 0.55);
+  background: rgba(212, 167, 60, 0.2);
+  border-color: rgba(212, 167, 60, 0.6);
   box-shadow: 0 0 25px rgba(212, 167, 60, 0.2);
 }
 

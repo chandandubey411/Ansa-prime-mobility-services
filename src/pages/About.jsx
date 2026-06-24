@@ -54,10 +54,11 @@ export default function About() {
         title="ABOUT US"
         subtitle="Learn more about ANSA Prime Mobility Services — New Delhi's trusted premium cab service"
         breadcrumb={['About Us']}
+        bgImage="/about-img.jpg"
       />
 
       {/* ═══════════════ WHO WE ARE ═══════════════ */}
-      <section className="py-24" style={{ background: '#0a0a0a' }}>
+      <section className="py-24" style={{ background: '#f8f5f0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             {/* Left */}
@@ -77,7 +78,7 @@ export default function About() {
                 'Whether it\'s a quick airport transfer, a corporate commute, an outstation trip, or a grand wedding — ANSA Prime delivers an unmatched travel experience with professionally trained chauffeurs and well-maintained, luxury vehicles.',
               ].map((para, i) => (
                 <motion.p key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 + i * 0.1 }}
-                  className="font-body text-sm text-white/50 leading-relaxed mb-4">
+                  className="font-body text-sm text-gray-500 leading-relaxed mb-4">
                   {para}
                 </motion.p>
               ))}
@@ -105,10 +106,10 @@ export default function About() {
                 <motion.div key={s.label}
                   initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                   className="rounded-xl p-6 text-center"
-                  style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.15)' }}>
+                  style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
                   <p className="font-heading text-3xl font-black gold-text mb-1">{s.value}</p>
-                  <p className="font-body text-sm font-semibold text-white/80">{s.label}</p>
-                  <p className="font-body text-[11px] text-white/30 tracking-wider mt-1">{s.sub}</p>
+                  <p className="font-body text-sm font-semibold text-gray-700">{s.label}</p>
+                  <p className="font-body text-[11px] text-gray-400 tracking-wider mt-1">{s.sub}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -117,7 +118,7 @@ export default function About() {
       </section>
 
       {/* ═══════════════ WHY CHOOSE US ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#111' }}>
+      <section className="py-24 relative" style={{ background: '#f2ede6' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -137,13 +138,13 @@ export default function About() {
                 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
                 whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(212,167,60,0.15)' }}
                 className="rounded-xl p-7 group text-center"
-                style={{ background: '#171717', border: '1px solid rgba(212,167,60,0.12)' }}>
+                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.12)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
                 <div className="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center transition-all duration-300"
                   style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
                   <item.icon className="text-gold text-2xl group-hover:scale-110 transition-transform" />
                 </div>
-                <h3 className="font-heading text-base font-bold text-white mb-3 group-hover:text-gold transition-colors">{item.title}</h3>
-                <p className="font-body text-sm text-white/40 leading-relaxed">{item.desc}</p>
+                <h3 className="font-heading text-base font-bold text-gray-900 mb-3 group-hover:text-gold transition-colors">{item.title}</h3>
+                <p className="font-body text-sm text-gray-500 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -151,7 +152,7 @@ export default function About() {
       </section>
 
       {/* ═══════════════ OUR VALUES ═══════════════ */}
-      <section className="py-24" style={{ background: '#0a0a0a' }}>
+      <section className="py-24" style={{ background: '#f8f5f0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             {/* Left — Values list */}
@@ -168,7 +169,7 @@ export default function About() {
                 {teamValues.map((val, i) => (
                   <motion.li key={val}
                     initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                    className="flex items-center gap-3 font-body text-sm text-white/60">
+                    className="flex items-center gap-3 font-body text-sm text-gray-600">
                     <FaCheckCircle className="text-gold text-base shrink-0" /> {val}
                   </motion.li>
                 ))}
@@ -183,10 +184,10 @@ export default function About() {
                   initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                   className="relative mb-8 last:mb-0">
                   {/* Dot */}
-                  <div className="absolute -left-[30px] top-1 w-4 h-4 rounded-full border-2 border-gold bg-dark" />
+                  <div className="absolute -left-[30px] top-1 w-4 h-4 rounded-full border-2 border-gold bg-white" />
                   <span className="font-body text-xs text-gold font-bold tracking-widest">{m.year}</span>
-                  <h4 className="font-heading text-base font-bold text-white mt-1 mb-1">{m.title}</h4>
-                  <p className="font-body text-sm text-white/40 leading-relaxed">{m.desc}</p>
+                  <h4 className="font-heading text-base font-bold text-gray-900 mt-1 mb-1">{m.title}</h4>
+                  <p className="font-body text-sm text-gray-500 leading-relaxed">{m.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -195,9 +196,9 @@ export default function About() {
       </section>
 
       {/* ═══════════════ CONTACT INFO STRIP ═══════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0f0c00, #1a1200, #0f0c00)' }}>
-        <div className="absolute inset-0 opacity-[0.06]"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #D4A73C 0px, #D4A73C 1px, transparent 0, transparent 60px)' }} />
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
+        <div className="absolute inset-0 opacity-[0.08]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 0, transparent 60px)' }} />
         <div className="max-w-5xl mx-auto px-4 relative">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
@@ -206,15 +207,15 @@ export default function About() {
               { icon: HiMail,           label: 'Email Us',      value: 'info@ansaprime.com' },
             ].map((c, i) => (
               <motion.div key={c.label}
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="flex flex-col items-center">
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+               <div className="flex flex-col items-center">
                 <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: 'rgba(212,167,60,0.15)', border: '1px solid rgba(212,167,60,0.35)' }}>
-                  <c.icon className="text-gold text-xl" />
+                  style={{ background: 'rgba(255,255,255,0.25)', border: '1px solid rgba(255,255,255,0.5)' }}>
+                  <c.icon className="text-white text-xl" />
                 </div>
-                <p className="font-body text-xs text-gold tracking-widest uppercase mb-1">{c.label}</p>
-                <p className="font-body text-sm text-white/60">{c.value}</p>
-              </motion.div>
+                <p className="font-body text-xs text-white/70 tracking-widest uppercase mb-1">{c.label}</p>
+                <p className="font-body text-sm font-semibold text-white">{c.value}</p>
+              </div></motion.div>
             ))}
           </div>
 
@@ -222,10 +223,11 @@ export default function About() {
             className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="btn-gold px-10 py-4 text-[11px] rounded-sm gap-2">
-              <FaWhatsapp className="text-base" /> WhatsApp Us
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+              <FaWhatsapp className="text-base text-green-600" /> WhatsApp Us
             </a>
-            <Link to="/contact" className="btn-outline px-10 py-4 text-[11px] rounded-sm gap-2">
+            <Link to="/contact"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-sm hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300">
               Contact Us <FaArrowRight />
             </Link>
           </motion.div>
