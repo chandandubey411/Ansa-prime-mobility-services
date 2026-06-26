@@ -8,6 +8,12 @@ import {
   FaArrowRight, FaStar
 } from 'react-icons/fa'
 import { HiLocationMarker } from 'react-icons/hi'
+import DzireImg from '../assets/car_images/Dzire.jpeg'
+import AuraImg from '../assets/car_images/Aura.jpeg'
+import MarazzoImg from '../assets/car_images/Marazzo.png'
+import InnovaCrystaImg from '../assets/car_images/Innova Crysta.jpeg'
+import HycrossImg from '../assets/car_images/Hycross.png'
+import PremiumSedanImg from '../assets/car_images/Perimum sedan.png'
 
 /* ── DATA ── */
 const features = [
@@ -48,7 +54,7 @@ const fleetVehicles = [
     rate: '₹15',
     type: 'Sedan',
     startingPrice: '₹4,000',
-    image: 'https://i.pinimg.com/736x/9a/28/2a/9a282a1accb239d50522ccc812899d9d.jpg'
+    image: DzireImg
   },
   {
     name: 'Honda City',
@@ -56,7 +62,7 @@ const fleetVehicles = [
     rate: '₹17',
     type: 'Sedan',
     startingPrice: '₹4,500',
-    image: 'https://i.pinimg.com/736x/4a/83/80/4a8380026577d4c2b65a958057c00262.jpg'
+    image: PremiumSedanImg
   },
   {
     name: 'Hyundai Aura',
@@ -64,7 +70,7 @@ const fleetVehicles = [
     rate: '₹15',
     type: 'Sedan',
     startingPrice: '₹4,000',
-    image: 'https://i.pinimg.com/736x/a9/79/49/a97949e1229fae0b28beb9dca167b1b0.jpg'
+    image: AuraImg
   },
   {
     name: 'Premium Dzire',
@@ -72,7 +78,7 @@ const fleetVehicles = [
     rate: '₹18',
     type: 'Premium Sedan',
     startingPrice: '₹4,800',
-    image: 'https://i.pinimg.com/736x/f2/0d/7f/f20d7fe875f96071e151608e040d8ecc.jpg'
+    image: DzireImg
   },
   {
     name: 'Maruti Ertiga',
@@ -96,7 +102,7 @@ const fleetVehicles = [
     rate: '₹20',
     type: 'MPV',
     startingPrice: '₹5,500',
-    image: 'https://i.pinimg.com/736x/93/fc/98/93fc98106ac707d4f4bd3a4b02bb3fac.jpg'
+    image: MarazzoImg
   },
   {
     name: 'Toyota Hycross',
@@ -104,7 +110,7 @@ const fleetVehicles = [
     rate: '₹33',
     type: 'Premium MPV',
     startingPrice: '₹8,500',
-    image: 'https://i.pinimg.com/736x/f1/ce/c7/f1cec755fadd16928cb75010da5e8d70.jpg'
+    image: HycrossImg
   },
   {
     name: 'Innova Crysta',
@@ -112,7 +118,7 @@ const fleetVehicles = [
     rate: '₹22',
     type: 'Premium SUV',
     startingPrice: '₹6,000',
-    image: 'https://i.pinimg.com/736x/b3/0e/8f/b30e8ffd409781768e031bcb7e79f165.jpg'
+    image: InnovaCrystaImg
   },
   {
     name: 'Toyota Fortuner',
@@ -306,7 +312,7 @@ export default function Home() {
 
                 <div className="p-5">
                   <h3 className="font-heading text-base font-bold text-gray-900 mb-3 group-hover:text-gold transition-colors">{v.name}</h3>
-                  <div className="flex justify-between items-center mb-4">
+                  <div className="flex justify-around items-center mb-4">
                     <div className="text-center">
                       <p className="font-heading text-lg font-black gold-text">{v.seating}</p>
                       <p className="font-body text-[10px] text-gray-400 tracking-wider uppercase">Seats</p>
@@ -315,11 +321,6 @@ export default function Home() {
                     <div className="text-center">
                       <p className="font-heading text-lg font-black gold-text">{v.rate}/km</p>
                       <p className="font-body text-[10px] text-gray-400 tracking-wider uppercase">Rate</p>
-                    </div>
-                    <div className="w-px h-8" style={{ background: 'rgba(212,167,60,0.2)' }} />
-                    <div className="text-center">
-                      <p className="font-heading text-sm font-black gold-text">{v.startingPrice}</p>
-                      <p className="font-body text-[10px] text-gray-400 tracking-wider uppercase">Start</p>
                     </div>
                   </div>
                   <div className="flex gap-2">

@@ -1,3 +1,10 @@
+import DzireImg from '../assets/car_images/Dzire.jpeg'
+import AuraImg from '../assets/car_images/Aura.jpeg'
+import MarazzoImg from '../assets/car_images/Marazzo.png'
+import InnovaCrystaImg from '../assets/car_images/Innova Crysta.jpeg'
+import HycrossImg from '../assets/car_images/Hycross.png'
+import PremiumSedanImg from '../assets/car_images/Perimum sedan.png'
+
 export const cars = [
   {
     name: 'Dzire',
@@ -10,7 +17,7 @@ export const cars = [
     rateNum: 15,
     color: 'from-slate-800 to-slate-950',
     tagColor: 'from-zinc-900/60 to-zinc-950/60 border-zinc-700/40 text-zinc-300',
-    image: 'https://i.pinimg.com/736x/9a/28/2a/9a282a1accb239d50522ccc812899d9d.jpg',
+    image: DzireImg,
     description: 'The Maruti Suzuki Dzire is India\'s most popular compact sedan. It offers a smooth and reliable city ride with exceptional fuel efficiency. Perfect for solo travelers, business professionals, or small families seeking an budget-friendly trip or swift airport transfers.'
   },
   {
@@ -24,7 +31,7 @@ export const cars = [
     rateNum: 18,
     color: 'from-zinc-800 to-zinc-950',
     tagColor: 'from-amber-900/60 to-amber-950/60 border-amber-700/40 text-amber-300',
-    image: 'https://i.pinimg.com/736x/f2/0d/7f/f20d7fe875f96071e151608e040d8ecc.jpg',
+    image: DzireImg,
     description: 'An upgraded variant of our compact sedan fleet featuring premium leather seating, enhanced air conditioning controls, and additional legroom. Designed for travelers who require executive level comfort at an affordable daily rate.'
   },
   {
@@ -38,7 +45,7 @@ export const cars = [
     rateNum: 15,
     color: 'from-slate-800 to-slate-950',
     tagColor: 'from-zinc-900/60 to-zinc-950/60 border-zinc-700/40 text-zinc-300',
-    image: 'https://i.pinimg.com/736x/a9/79/49/a97949e1229fae0b28beb9dca167b1b0.jpg',
+    image: AuraImg,
     description: 'The Hyundai Aura CNG provides eco-friendly transportation without compromising style or interior amenities. Ideal for short business travels and clean-energy city commutes, offering standard air conditioning and passenger safety features.'
   },
   {
@@ -52,7 +59,7 @@ export const cars = [
     rateNum: 17,
     color: 'from-blue-900 to-blue-950',
     tagColor: 'from-blue-900/60 to-blue-950/60 border-blue-700/40 text-blue-300',
-    image: 'https://i.pinimg.com/736x/4a/83/80/4a8380026577d4c2b65a958057c00262.jpg',
+    image: PremiumSedanImg,
     description: 'The iconic Honda City is the gold standard for mid-size executive sedans. It features spacious rear legroom, plush interiors, a massive boot space for luggage, and a powerful petrol engine that makes long-distance highway runs exceptionally smooth.'
   },
   {
@@ -94,7 +101,7 @@ export const cars = [
     rateNum: 20,
     color: 'from-emerald-900 to-emerald-950',
     tagColor: 'from-emerald-900/60 to-emerald-950/60 border-emerald-700/40 text-emerald-300',
-    image: 'https://i.pinimg.com/736x/93/fc/98/93fc98106ac707d4f4bd3a4b02bb3fac.jpg',
+    image: MarazzoImg,
     description: 'The Mahindra Marazzo is a rugged and dependable 8-seater MPV with an exceptionally spacious cabin and robust suspension. Perfect for large families or corporate teams traveling together with multiple heavy luggage bags.'
   },
   {
@@ -108,7 +115,7 @@ export const cars = [
     rateNum: 22,
     color: 'from-neutral-800 to-neutral-950',
     tagColor: 'from-purple-900/60 to-purple-950/60 border-purple-700/40 text-purple-300',
-    image: 'https://i.pinimg.com/736x/b3/0e/8f/b30e8ffd409781768e031bcb7e79f165.jpg',
+    image: InnovaCrystaImg,
     description: 'The undisputed benchmark for premium MPVs in India. The Toyota Innova Crysta features plush captain seats, a silent highway cabin, dual-zone air conditioning, and top-tier safety. The standard choice for executive travel and long-distance comfort.'
   },
   {
@@ -122,7 +129,7 @@ export const cars = [
     rateNum: 33,
     color: 'from-teal-900 to-teal-950',
     tagColor: 'from-teal-900/60 to-teal-950/60 border-teal-700/40 text-teal-300',
-    image: 'https://i.pinimg.com/736x/f1/ce/c7/f1cec755fadd16928cb75010da5e8d70.jpg',
+    image: HycrossImg,
     description: 'The Toyota Innova Hycross Hybrid combines self-charging hybrid power with a luxurious cabin experience. Equipped with a panoramic glass roof, ventilated seats, and premium ambient lighting for a quiet, eco-friendly luxury travel.'
   },
   {

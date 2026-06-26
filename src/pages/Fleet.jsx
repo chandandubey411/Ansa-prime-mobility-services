@@ -2,6 +2,12 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import MiniHero from '../components/MiniHero/MiniHero'
 import { FaCarSide, FaPhoneAlt, FaWhatsapp, FaUsers, FaRoad, FaCheckCircle } from 'react-icons/fa'
+import DzireImg from '../assets/car_images/Dzire.jpeg'
+import AuraImg from '../assets/car_images/Aura.jpeg'
+import MarazzoImg from '../assets/car_images/Marazzo.png'
+import InnovaCrystaImg from '../assets/car_images/Innova Crysta.jpeg'
+import HycrossImg from '../assets/car_images/Hycross.png'
+import PremiumSedanImg from '../assets/car_images/Perimum sedan.png'
 
 const vehicles = [
   {
@@ -12,7 +18,7 @@ const vehicles = [
     features: ['AC', 'Comfortable Seats', 'Music System', 'GPS Tracked'],
     ideal: 'Perfect for couples and small families for city rides and short outstation trips.',
     color: '#3B82F6',
-    image: 'https://i.pinimg.com/736x/9a/28/2a/9a282a1accb239d50522ccc812899d9d.jpg'
+    image: DzireImg
   },
   {
     name: 'Honda City',
@@ -22,7 +28,7 @@ const vehicles = [
     features: ['AC', 'Premium Interiors', 'Music System', 'GPS Tracked'],
     ideal: 'Premium sedan offering superior comfort and status for business and family trips.',
     color: '#3B82F6',
-    image: 'https://i.pinimg.com/736x/4a/83/80/4a8380026577d4c2b65a958057c00262.jpg'
+    image: PremiumSedanImg
   },
   {
     name: 'Hyundai Aura',
@@ -32,7 +38,7 @@ const vehicles = [
     features: ['AC', 'Comfortable Seating', 'Music System', 'GPS Tracked'],
     ideal: 'Modern sedan, highly fuel-efficient and spacious for city and outstation travel.',
     color: '#3B82F6',
-    image: 'https://i.pinimg.com/736x/a9/79/49/a97949e1229fae0b28beb9dca167b1b0.jpg'
+    image: AuraImg
   },
   {
     name: 'Premium Dzire',
@@ -42,7 +48,7 @@ const vehicles = [
     features: ['Luxury AC', 'Extra Comfort Seats', 'Music System', 'GPS Tracked'],
     ideal: 'Upgraded sedan for extra comfort, ideal for corporate travel and long-distance rides.',
     color: '#D4A73C',
-    image: 'https://i.pinimg.com/736x/f2/0d/7f/f20d7fe875f96071e151608e040d8ecc.jpg'
+    image: DzireImg
   },
   {
     name: 'Maruti Ertiga',
@@ -72,7 +78,7 @@ const vehicles = [
     features: ['Dual AC', 'Comfortable Captain Seats', 'Large Boot Space', 'GPS Tracked'],
     ideal: 'Spacious and smooth ride, perfect for highway travels and family vacations.',
     color: '#06B6D4',
-    image: 'https://i.pinimg.com/736x/93/fc/98/93fc98106ac707d4f4bd3a4b02bb3fac.jpg'
+    image: MarazzoImg
   },
   {
     name: 'Toyota Hycross',
@@ -82,7 +88,7 @@ const vehicles = [
     features: ['Luxury Dual AC', 'Captain Seats', 'Ambient Lighting', 'GPS Tracked'],
     ideal: 'Premium hybrid MPV for ultimate passenger comfort and a smooth, silent ride.',
     color: '#D4A73C',
-    image: 'https://i.pinimg.com/736x/f1/ce/c7/f1cec755fadd16928cb75010da5e8d70.jpg'
+    image: HycrossImg
   },
   {
     name: 'Innova Crysta',
@@ -92,7 +98,7 @@ const vehicles = [
     features: ['Luxury AC', 'Captain Seats', 'Ample Luggage', 'GPS Tracked'],
     ideal: 'Best choice for premium travel, corporate trips and large family outstation tours.',
     color: '#D4A73C',
-    image: 'https://i.pinimg.com/736x/b3/0e/8f/b30e8ffd409781768e031bcb7e79f165.jpg'
+    image: InnovaCrystaImg
   },
   {
     name: 'Toyota Fortuner',
