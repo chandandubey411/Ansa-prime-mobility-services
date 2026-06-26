@@ -126,7 +126,7 @@ export default function Pricing() {
       />
 
       {/* ═══════════════ PACKAGES GRID ═══════════════ */}
-      <section className="py-24" style={{ background: '#f8f5f0' }}>
+      <section className="py-24" style={{ background: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -138,7 +138,7 @@ export default function Pricing() {
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-              className="font-body text-sm text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed">
+              className="text-sm text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
               Discover India's most loved tourist destinations with our premium outstation taxi services. Comfortable rides, fixed pricing, and professional drivers for a stress-free journey.
             </motion.p>
           </div>
@@ -152,8 +152,8 @@ export default function Pricing() {
                 viewport={{ once: true }}
                 transition={{ delay: (i % 3) * 0.1, duration: 0.6 }}
                 whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(212,167,60,0.15)' }}
-                className="rounded-xl overflow-hidden group cursor-default"
-                style={{ background: '#ffffff', border: `1px solid ${pkg.border}`, boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}
+                className="luxury-card overflow-hidden group cursor-default"
+                style={{ border: `1px solid ${pkg.border}` }}
               >
                 {/* Top band */}
                 <div className="h-1.5 w-full" style={{ background: 'linear-gradient(90deg, #D4A73C, #F0D060)' }} />
@@ -166,24 +166,19 @@ export default function Pricing() {
                   <div className="flex items-start gap-2 mb-4">
                     <HiLocationMarker className="text-gold text-xl mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-body text-[10px] text-gray-400 tracking-widest uppercase">{pkg.from}</p>
+                      <p className="text-[10px] text-gray-400 tracking-widest uppercase font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{pkg.from}</p>
                       <h3 className="font-heading text-2xl font-bold text-gray-900 group-hover:text-gold transition-colors">
                         To {pkg.to}
                       </h3>
                     </div>
                   </div>
 
-                  <p className="font-body text-sm text-gray-500 leading-relaxed mb-5">{pkg.desc}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-5" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{pkg.desc}</p>
 
                   {/* Meta chips */}
                   <div className="flex flex-wrap gap-2 mb-5">
-
-                    <span className="flex items-center gap-1 font-body text-[10px] text-gray-500 px-3 py-1 rounded-full"
-                      style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
-                      <FaClock className="text-gold/60 text-[9px]" /> {pkg.time}
-                    </span>
-                    <span className="flex items-center gap-1 font-body text-[10px] text-gray-500 px-3 py-1 rounded-full"
-                      style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
+                    <span className="flex items-center gap-1 text-[10px] text-gray-500 px-3 py-1 rounded-full font-semibold"
+                      style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)', fontFamily: 'Inter, Poppins, sans-serif' }}>
                       <FaMapMarkerAlt className="text-gold/60 text-[9px]" /> {pkg.duration}
                     </span>
                   </div>
@@ -191,7 +186,7 @@ export default function Pricing() {
                   {/* Highlights */}
                   <ul className="space-y-2 mb-6">
                     {pkg.highlights.map(h => (
-                      <li key={h} className="flex items-center gap-2.5 font-body text-xs text-gray-500">
+                      <li key={h} className="flex items-center gap-2.5 text-xs text-gray-500" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                         <FaCheckCircle className="text-gold/60 text-xs shrink-0" /> {h}
                       </li>
                     ))}
@@ -201,11 +196,11 @@ export default function Pricing() {
                   <div className="flex gap-2">
                     <a href={`https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20${encodeURIComponent(`Delhi to ${pkg.to}`)}.%20Please%20share%20details.%20Thanks`}
                       target="_blank" rel="noreferrer"
-                      className="flex-1 btn-gold py-2.5 text-[10px] rounded-sm justify-center gap-1.5">
+                      className="flex-1 btn-gold py-2.5 rounded-full justify-center gap-1.5" style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}>
                       Book Now <FaArrowRight />
                     </a>
                     <a href="tel:+919643199064"
-                      className="flex-1 btn-outline py-2.5 text-[10px] rounded-sm gap-1.5 justify-center">
+                      className="flex-1 btn-outline py-2.5 rounded-full gap-1.5 justify-center" style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}>
                       <FaPhoneAlt className="text-[9px]" /> Call Now
                     </a>
                   </div>
@@ -217,8 +212,8 @@ export default function Pricing() {
       </section>
 
       {/* ═══════════════ BOOKING INFO ═══════════════ */}
-      <section className="py-16 relative" style={{ background: '#f2ede6' }}>
-        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
+      <section className="py-16 relative" style={{ background: '#f8fafc' }}>
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.25),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -252,12 +247,12 @@ export default function Pricing() {
             ].map((section, i) => (
               <motion.div key={section.title}
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
-                className="rounded-xl p-7"
-                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.12)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
+                className="info-card group"
+              >
                 <h3 className="font-heading text-lg font-bold text-gray-900 mb-5">{section.title}</h3>
                 <ul className="space-y-3">
                   {section.steps.map((step, j) => (
-                    <li key={j} className="flex items-start gap-3 font-body text-sm text-gray-500">
+                    <li key={j} className="flex items-start gap-3 text-sm text-gray-500" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                       <span className="font-heading text-gold font-bold text-xs mt-0.5 shrink-0">{String(j + 1).padStart(2, '0')}</span>
                       {step}
                     </li>
@@ -279,18 +274,22 @@ export default function Pricing() {
             Book Your <span style={{ color: 'rgba(255,255,255,0.75)' }}>Tour Now!</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="font-body text-sm text-white/80 mb-8">
+            className="text-sm text-white/80 mb-8" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
             Call us or WhatsApp for custom tour packages, bulk bookings or any special travel requirements.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20tour%20package.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-full hover:-translate-y-1 transition-all duration-300 hover:shadow-lg"
+              style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+            >
               <FaWhatsapp className="text-base text-green-600" /> WhatsApp Now
             </a>
             <a href="tel:+919643199064"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-sm hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300">
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-full hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300"
+              style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+            >
               <FaPhoneAlt /> +91 96431 99064
             </a>
           </motion.div>

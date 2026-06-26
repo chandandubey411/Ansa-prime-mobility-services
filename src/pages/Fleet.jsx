@@ -137,7 +137,7 @@ export default function Fleet() {
       />
 
       {/* ═══════════════ VEHICLES GRID ═══════════════ */}
-      <section className="py-24" style={{ background: '#f8f5f0' }}>
+      <section className="py-24" style={{ background: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -149,7 +149,7 @@ export default function Fleet() {
             <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="gold-divider" />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-              className="font-body text-sm text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed">
+              className="text-sm text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
               We provide the best taxi service in Delhi with well-maintained cabs, reliable drivers, and budget-friendly rates for every journey.
             </motion.p>
           </div>
@@ -163,8 +163,7 @@ export default function Fleet() {
                 viewport={{ once: true }}
                 transition={{ delay: (i % 3) * 0.1, duration: 0.6 }}
                 whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(212,167,60,0.15)' }}
-                className="rounded-xl overflow-hidden group"
-                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}
+                className="luxury-card overflow-hidden group"
               >
                 {/* Vehicle Image */}
                 <div className="h-48 relative overflow-hidden">
@@ -175,13 +174,13 @@ export default function Fleet() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                   {/* Badges */}
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-sm text-[10px] font-bold tracking-wider uppercase"
-                    style={{ background: `${v.color}dd`, color: '#fff' }}>
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase"
+                    style={{ background: `${v.color}dd`, color: '#fff', fontFamily: 'Inter, Poppins, sans-serif' }}>
                     {v.type}
                   </span>
                   <div className="absolute bottom-3 right-3 flex gap-2">
-                    <span className="px-2 py-1 rounded-sm text-[10px] font-bold"
-                      style={{ background: 'rgba(212,167,60,0.9)', color: '#0a0a0a' }}>
+                    <span className="px-2 py-1 rounded-full text-[10px] font-bold"
+                      style={{ background: 'rgba(212,167,60,0.9)', color: '#0a0a0a', fontFamily: 'Inter, Poppins, sans-serif' }}>
                       <FaUsers className="inline mr-1" />{v.seating}
                     </span>
                   </div>
@@ -193,16 +192,16 @@ export default function Fleet() {
                     <h3 className="font-heading text-lg font-bold text-gray-900 group-hover:text-gold transition-colors">{v.name}</h3>
                     <div className="text-right shrink-0 ml-3">
                       <p className="font-heading text-xl font-black gold-text">{v.rate}/km</p>
-                      <p className="font-body text-[10px] text-gray-400 tracking-wider">Rate</p>
+                      <p className="text-[10px] text-gray-400 tracking-wider font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Rate</p>
                     </div>
                   </div>
 
-                  <p className="font-body text-xs text-gray-500 leading-relaxed mb-4">{v.ideal}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-4" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{v.ideal}</p>
 
                   {/* Features */}
                   <ul className="grid grid-cols-2 gap-1.5 mb-5">
                     {v.features.map(f => (
-                      <li key={f} className="flex items-center gap-1.5 font-body text-xs text-gray-500">
+                      <li key={f} className="flex items-center gap-1.5 text-xs text-gray-500" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                         <FaCheckCircle className="text-gold/60 text-xs shrink-0" /> {f}
                       </li>
                     ))}
@@ -211,16 +210,16 @@ export default function Fleet() {
                   {/* Distance info */}
                   <div className="flex items-center gap-2 mb-5">
                     <FaRoad className="text-gold/40 text-xs" />
-                    <span className="font-body text-[10px] text-gray-400 tracking-wider uppercase">Min 250 km/day for outstation</span>
+                    <span className="text-[10px] text-gray-400 tracking-wider uppercase font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Min 250 km/day for outstation</span>
                   </div>
 
                   {/* CTAs */}
                   <div className="flex gap-2">
-                    <Link to={`/book?car=${encodeURIComponent(v.name)}`} className="flex-1 btn-gold py-2.5 text-[10px] rounded-sm justify-center">
+                    <Link to={`/book?car=${encodeURIComponent(v.name)}`} className="flex-1 btn-gold py-2.5 rounded-full justify-center" style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}>
                       Book Now
                     </Link>
                     <a href="tel:+919643199064"
-                      className="flex-1 btn-outline py-2.5 text-[10px] rounded-sm gap-1.5 justify-center">
+                      className="flex-1 btn-outline py-2.5 rounded-full gap-1.5 justify-center" style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}>
                       <FaPhoneAlt className="text-[9px]" /> Call
                     </a>
                   </div>
@@ -241,18 +240,22 @@ export default function Fleet() {
             Need a <span style={{ WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Custom Quote?</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="font-body text-sm text-white/80 mb-8">
+            className="text-sm text-white/80 mb-8" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
             Contact us for bulk bookings, multi-day packages, wedding transport or any special requirements.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20enquire%20about%20your%20fleet.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-full hover:-translate-y-1 transition-all duration-300 hover:shadow-lg"
+              style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+            >
               <FaWhatsapp className="text-base text-green-600" /> WhatsApp Now
             </a>
             <a href="tel:+919643199064"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-sm hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300">
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-full hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300"
+              style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+            >
               <FaPhoneAlt /> +91 96431 99064
             </a>
           </motion.div>

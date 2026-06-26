@@ -2,65 +2,66 @@ import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { FaPhoneAlt, FaCarAlt, FaWhatsapp } from 'react-icons/fa'
-import { HiArrowRight, HiLocationMarker } from 'react-icons/hi'
+import { FaCarAlt, FaWhatsapp, FaShieldAlt, FaClock, FaStar } from 'react-icons/fa'
+import { HiArrowRight, HiPhone } from 'react-icons/hi'
 import BookingForm from '../Booking/BookingForm'
 
 const stats = [
-  { value: '5000+', label: 'Happy Clients' },
-  { value: '100+',  label: 'Expert Drivers' },
-  { value: '12+',   label: 'Luxury Cars' },
-  { value: '24×7',  label: 'Availability' },
+  { value: '5,000+', label: 'Happy Clients' },
+  { value: '100+',   label: 'Expert Drivers' },
+  { value: '15+',    label: 'Premium Cars' },
+  { value: '24×7',   label: 'Availability' },
 ]
 
+const tags = ['Airport Transfers', 'Outstation Trips', 'Corporate Travel', 'Wedding Transport']
+
 export default function HeroSection() {
-  const carRef  = useRef(null)
-  const bgRef   = useRef(null)
+  const bgRef = useRef(null)
 
   useEffect(() => {
-    // Floating car animation
-    if (carRef.current) {
-      gsap.to(carRef.current, {
-        y: -22,
-        duration: 3.8,
-        ease: 'power1.inOut',
-        yoyo: true,
-        repeat: -1,
-      })
-    }
     // Subtle parallax on BG
     const onMove = e => {
       if (!bgRef.current) return
-      const x = (e.clientX / window.innerWidth - 0.5) * 12
-      const y = (e.clientY / window.innerHeight - 0.5) * 8
-      gsap.to(bgRef.current, { x, y, duration: 1.2, ease: 'power2.out' })
+      const x = (e.clientX / window.innerWidth - 0.5) * 10
+      const y = (e.clientY / window.innerHeight - 0.5) * 7
+      gsap.to(bgRef.current, { x, y, duration: 1.4, ease: 'power2.out' })
     }
     window.addEventListener('mousemove', onMove)
     return () => window.removeEventListener('mousemove', onMove)
   }, [])
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden" style={{ paddingTop: '120px', background: '#f8f5f0' }}>
-      {/* ── PHOTO BACKGROUND ── */}
+    <section
+      className="relative w-full min-h-screen flex items-center overflow-hidden"
+      style={{ paddingTop: '130px' }}
+    >
+      {/* ── DARK PHOTO BACKGROUND (like unicorncab.in) ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div ref={bgRef} className="absolute inset-[-4%]"
+        <div
+          ref={bgRef}
+          className="absolute inset-[-4%]"
           style={{
             backgroundImage: 'url(/hero-bg.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
-        {/* Light overlay */}
-        <div className="absolute inset-0"
-          style={{ background: 'linear-gradient(135deg, rgba(248,245,240,0.96) 0%, rgba(248,245,240,0.85) 50%, rgba(248,245,240,0.55) 100%)' }}
+        {/* Dark gradient overlay — inspired by reference site */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(120deg, rgba(10,14,20,0.90) 0%, rgba(10,14,20,0.72) 45%, rgba(10,14,20,0.45) 100%)',
+          }}
         />
-        {/* Gold glow orb top */}
-        <div className="absolute -top-32 left-1/3 w-[700px] h-[700px] rounded-full opacity-[0.06]"
+        {/* Bottom fade to white */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-48"
+          style={{ background: 'linear-gradient(to top, #ffffff, transparent)' }}
+        />
+        {/* Gold glow orb */}
+        <div
+          className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.08] pointer-events-none"
           style={{ background: 'radial-gradient(circle, #D4A73C, transparent 70%)' }}
-        />
-        {/* Thin diagonal lines */}
-        <div className="absolute inset-0 opacity-[0.025]"
-          style={{ backgroundImage: 'repeating-linear-gradient(-45deg, #D4A73C 0px, #D4A73C 1px, transparent 0px, transparent 60px)' }}
         />
       </div>
 
@@ -71,102 +72,146 @@ export default function HeroSection() {
           {/* ── LEFT COLUMN ── */}
           <div className="flex-1 text-center lg:text-left">
 
-            {/* Eyebrow */}
+            {/* Eyebrow badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex items-center gap-3 justify-center lg:justify-start mb-5"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/10 backdrop-blur mb-6"
             >
-              <span className="w-10 h-px bg-gradient-to-r from-gold to-transparent" />
-              <span className="section-label">New Delhi's Finest Cab Service</span>
-              <span className="w-10 h-px bg-gradient-to-l from-gold to-transparent" />
+              <FaStar className="text-amber-300 text-xs" />
+              <span className="text-white/90 text-xs font-semibold tracking-wide" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+                New Delhi's Trusted Premium Cab Service
+              </span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline — Inter font, tight tracking */}
             <motion.h1
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 1, ease: [0.23, 1, 0.32, 1] }}
-              className="font-heading font-black leading-[0.92] mb-4"
-              style={{ fontSize: 'clamp(2.8rem, 6vw, 5.2rem)' }}
+              transition={{ delay: 0.5, duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
+              className="font-heading font-black text-white mb-5"
+              style={{
+                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                lineHeight: 1.05,
+                letterSpacing: '-0.04em',
+                fontFamily: 'Inter, Outfit, sans-serif',
+              }}
             >
-              <span className="gold-text block">ANSA PRIME</span>
-              <span className="text-gray-900 block">MOBILITY</span>
-              <span className="text-gray-800 block" style={{ fontSize: '0.68em', letterSpacing: '0.12em' }}>
-                SERVICES
+              Travel Delhi NCR<br />
+              with a Cab Service that feels{' '}
+              <span className="gold-text-shimmer" style={{ WebkitTextFillColor: 'transparent' }}>
+                Premium,
+              </span>
+              <br />
+              <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.72em', fontWeight: 600, letterSpacing: '-0.02em' }}>
+                Calm &amp; Dependable.
               </span>
             </motion.h1>
 
-            {/* Tagline */}
+            {/* Subtext */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.85 }}
-              className="font-heading text-xl md:text-2xl text-gray-800 italic mb-3"
+              className="text-white/75 max-w-[480px] mx-auto lg:mx-0 leading-relaxed mb-7"
+              style={{ fontSize: '1rem', fontFamily: 'Inter, Poppins, sans-serif', fontWeight: 400 }}
             >
-              Ride in Comfort. Arrive in Style.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.95 }}
-              className="font-body text-sm text-gray-700 max-w-[460px] mx-auto lg:mx-0 leading-relaxed mb-7"
-            >
-              Experience seamless luxury travel across Delhi NCR — verified chauffeurs,
-              premium vehicles, transparent pricing, available 24 hours a day.
+              Airport transfers, outstation rides, corporate commutes, and wedding transport —
+              with verified chauffeurs, GPS tracking, and transparent pricing. Available 24 hours a day.
             </motion.p>
 
             {/* Service Tags */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.05 }}
+              transition={{ delay: 1.0 }}
               className="flex flex-wrap gap-2 justify-center lg:justify-start mb-8"
             >
-              {['Airport Transfers', 'Corporate Travel', 'Outstation Trips', 'Wedding Transport'].map(t => (
-                <span key={t} className="gold-badge">{t}</span>
+              {tags.map(t => (
+                <span
+                  key={t}
+                  className="px-4 py-1.5 rounded-full border border-white/15 bg-white/10 backdrop-blur text-white/90 text-xs font-semibold"
+                  style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+                >
+                  {t}
+                </span>
               ))}
             </motion.div>
 
             {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.15 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
+              transition={{ delay: 1.1 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-10"
             >
-              <Link to="/contact" className="btn-gold px-8 py-4 text-[11px] rounded-sm gap-2">
+              <Link to="/contact"
+                className="btn-gold px-8 py-4 text-xs gap-2 rounded-full"
+              >
                 <FaCarAlt /> Book Your Ride <HiArrowRight />
               </Link>
               <a href="https://wa.me/919643199064" target="_blank" rel="noreferrer"
-                className="btn-outline px-8 py-4 text-[11px] rounded-sm gap-2">
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/40 text-white text-xs font-bold tracking-wider uppercase hover:bg-white hover:text-gray-900 transition-all duration-300 hover:-translate-y-0.5"
+                style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+              >
                 <FaWhatsapp className="text-base" /> WhatsApp Us
               </a>
             </motion.div>
 
-            {/* Stats Row */}
+            {/* Stats Row — glassmorphism chips */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.3 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-[460px] mx-auto lg:mx-0"
+              transition={{ delay: 1.25 }}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-[500px] mx-auto lg:mx-0"
             >
               {stats.map(s => (
-                <div key={s.label} className="text-center lg:text-left">
-                  <p className="font-heading text-2xl font-black gold-text">{s.value}</p>
-                  <p className="font-body text-[11px] text-gray-700 tracking-wider uppercase">{s.label}</p>
+                <div
+                  key={s.label}
+                  className="stat-chip text-center lg:text-left"
+                >
+                  <p
+                    className="text-xl font-extrabold text-white"
+                    style={{ fontFamily: 'Inter, Outfit, sans-serif', letterSpacing: '-0.03em' }}
+                  >{s.value}</p>
+                  <p
+                    className="text-[10px] text-white/65 tracking-wider uppercase mt-1"
+                    style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+                  >{s.label}</p>
                 </div>
               ))}
+            </motion.div>
+
+            {/* Trust badge row */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.4 }}
+              className="flex flex-wrap gap-4 mt-6 justify-center lg:justify-start"
+            >
+              {[
+                { icon: FaShieldAlt, text: 'Police Verified Drivers' },
+                { icon: FaClock,     text: '24/7 Availability' },
+              ].map(({ icon: Icon, text }) => (
+                <div key={text} className="flex items-center gap-2 text-white/65 text-xs" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+                  <Icon className="text-gold text-sm" /> {text}
+                </div>
+              ))}
+              <a href="tel:+919643199064"
+                className="flex items-center gap-2 text-white/80 hover:text-white text-xs font-semibold transition-colors"
+                style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+              >
+                <HiPhone className="text-sm text-gold" /> +91 96431 99064
+              </a>
             </motion.div>
           </div>
 
           {/* ── RIGHT: BOOKING FORM ── */}
           <motion.div
-            initial={{ opacity: 0, x: 80 }}
+            initial={{ opacity: 0, x: 70 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ delay: 0.65, duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
             className="w-full lg:w-[420px] xl:w-[450px] shrink-0"
           >
             <BookingForm />
@@ -181,7 +226,7 @@ export default function HeroSection() {
         transition={{ delay: 2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
-        <span className="font-body text-[10px] text-gray-400 tracking-[4px] uppercase">Scroll</span>
+        <span className="text-white/40 text-[10px] tracking-[4px] uppercase" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Scroll</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.8 }}

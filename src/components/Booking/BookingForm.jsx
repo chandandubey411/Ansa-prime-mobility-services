@@ -47,28 +47,44 @@ export default function BookingForm() {
     setTimeout(() => setSent(false), 4000)
   }
 
-  const inputCls = "luxury-input w-full rounded-sm px-4 py-3 text-sm font-body"
+  const inputCls = "luxury-input w-full px-4 py-3 text-sm"
 
   return (
     <div className="relative">
       {/* Glow behind card */}
-      <div className="absolute -inset-3 rounded-xl opacity-20 blur-2xl"
-        style={{ background: 'radial-gradient(circle, #D4A73C, transparent 70%)' }}
+      <div className="absolute -inset-4 rounded-3xl opacity-25 blur-3xl"
+        style={{ background: 'radial-gradient(circle, rgba(212,167,60,0.6), transparent 70%)' }}
       />
 
-      <div className="glass rounded-xl p-6 sm:p-7 relative overflow-hidden">
-        {/* Corner accents */}
-        <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/60 rounded-tl-xl pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/60 rounded-br-xl pointer-events-none" />
+      <div className="relative overflow-hidden"
+        style={{
+          background: 'rgba(255,255,255,0.94)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          borderRadius: '28px',
+          border: '1px solid rgba(255,255,255,0.6)',
+          boxShadow: '0 35px 100px -40px rgba(15,23,42,0.75)',
+          padding: '28px',
+        }}
+      >
+        {/* Top accent gradient */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24"
+          style={{ background: 'linear-gradient(90deg, rgba(212,167,60,0.10), rgba(255,255,255,0))' }}
+        />
 
         {/* Header */}
-        <div className="flex items-center gap-2 mb-1">
-          <FaCarAlt className="text-gold text-sm" />
-          <span className="section-label text-[10px]">Quick Booking</span>
+        <div className="relative mb-5">
+          <p className="section-label text-[10px] mb-2">Plan Your Ride</p>
+          <h3
+            className="text-2xl font-bold text-slate-900"
+            style={{ fontFamily: 'Inter, Outfit, sans-serif', letterSpacing: '-0.03em' }}
+          >
+            Keep it simple from<br />the <span className="gold-text">first message.</span>
+          </h3>
+          <p className="text-xs text-gray-500 mt-1.5" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+            Share your details and we'll confirm your booking on WhatsApp.
+          </p>
         </div>
-        <h3 className="font-heading text-2xl font-bold text-gray-900 mb-5">
-          Book Your <span className="gold-text">Ride</span>
-        </h3>
 
         {sent ? (
           <motion.div
@@ -86,10 +102,10 @@ export default function BookingForm() {
             <p className="font-body text-sm text-gray-500">We'll confirm your booking shortly.</p>
           </motion.div>
         ) : (
-          <form onSubmit={submit} className="space-y-3">
+          <form onSubmit={submit} className="space-y-3 relative">
             {/* Name */}
             <div>
-              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Name</label>
+              <label className="text-[11px] text-gray-500 mb-1 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Your Name</label>
               <input
                 name="name"
                 type="text"
@@ -103,7 +119,7 @@ export default function BookingForm() {
 
             {/* Mobile number */}
             <div>
-              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Mobile Number</label>
+              <label className="text-[11px] text-gray-500 mb-1 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Mobile Number</label>
               <input
                 name="mobile"
                 type="tel"
@@ -117,7 +133,7 @@ export default function BookingForm() {
 
             {/* Select Car */}
             <div>
-              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Select Car</label>
+              <label className="text-[11px] text-gray-500 mb-1 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Select Vehicle</label>
               <select name="car" value={form.car} onChange={handle} required className={inputCls}>
                 <option value="">— Choose Car —</option>
                 {VEHICLES.map(v => <option key={v} value={v}>{v}</option>)}
@@ -126,7 +142,7 @@ export default function BookingForm() {
 
             {/* Pickup Location */}
             <div>
-              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Pickup Location</label>
+              <label className="text-[11px] text-gray-500 mb-1 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Pickup Location</label>
               <input
                 name="pickup"
                 type="text"
@@ -140,7 +156,7 @@ export default function BookingForm() {
 
             {/* Drop Location */}
             <div>
-              <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Drop Location</label>
+              <label className="text-[11px] text-gray-500 mb-1 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Drop / Destination</label>
               <input
                 name="drop"
                 type="text"
@@ -155,24 +171,30 @@ export default function BookingForm() {
             {/* Journey Date + Pickup Time */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Journey Date</label>
+                <label className="text-[11px] text-gray-500 mb-1 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Journey Date</label>
                 <input name="date" type="date" value={form.date} onChange={handle} required className={inputCls} />
               </div>
               <div>
-                <label className="font-body text-[11px] text-gray-700 mb-1 block tracking-wider">Pickup Time</label>
+                <label className="text-[11px] text-gray-500 mb-1 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Pickup Time</label>
                 <input name="time" type="time" value={form.time} onChange={handle} required className={inputCls} />
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="btn-gold w-full py-4 text-[11px] rounded-sm mt-2 gap-2"
-            >
-              <FaWhatsapp className="text-base" /> Book Now via WhatsApp <HiArrowRight className="text-sm" />
-            </button>
+            <div className="mt-5 flex flex-col gap-3 border-t border-black/8 pt-4">
+              <p className="text-xs text-gray-500" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+                We'll call or WhatsApp you after you submit to confirm your booking.
+              </p>
+              <button
+                type="submit"
+                className="btn-gold w-full py-4 gap-2 rounded-full"
+                style={{ fontSize: '0.8rem', letterSpacing: '0.5px' }}
+              >
+                <FaWhatsapp className="text-base" /> Request Booking <HiArrowRight className="text-sm" />
+              </button>
+            </div>
 
-            <p className="font-body text-[11px] text-gray-600 text-center">
-              Or call us: <a href="tel:+919643199064" className="text-gold hover:text-gold-light transition-colors">+91 96431 99064</a>
+            <p className="text-[11px] text-gray-500 text-center" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+              Or call directly: <a href="tel:+919643199064" className="text-gold font-semibold hover:text-gold-dark transition-colors">+91 96431 99064</a>
             </p>
           </form>
         )}

@@ -74,10 +74,10 @@ export default function BookCar() {
     'Ultra Luxury':'bg-yellow-50 text-yellow-700 border-yellow-400/60',
   }
 
-  const inputClass = "luxury-input w-full rounded-sm px-4 py-3.5 text-sm font-body focus:border-gold transition-colors duration-300"
+  const inputClass = "luxury-input w-full px-4 py-3.5 text-sm"
 
   return (
-    <main className="min-h-screen pb-24" style={{ background: '#f8f5f0' }}>
+    <main className="min-h-screen pb-24" style={{ background: '#ffffff' }}>
       <MiniHero
         title="BOOK YOUR RIDE"
         subtitle={`Pre-filled booking request for ${selectedCar.name}`}
@@ -86,7 +86,7 @@ export default function BookCar() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-16">
-        <Link to="/fleet" className="inline-flex items-center gap-2 text-xs font-body font-semibold tracking-wider text-gold hover:text-gray-900 transition-colors uppercase mb-8">
+        <Link to="/fleet" className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-gold hover:text-gray-900 transition-colors uppercase mb-8" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
           <HiArrowLeft className="text-sm" /> Back to Fleet
         </Link>
 
@@ -97,7 +97,7 @@ export default function BookCar() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="luxury-card rounded-2xl overflow-hidden"
+              className="luxury-card overflow-hidden"
             >
               {/* Car Image Visual Container */}
               <div className="h-96 relative bg-gray-100 overflow-hidden flex items-center justify-center">
@@ -107,17 +107,17 @@ export default function BookCar() {
                   className="absolute inset-0 w-full h-full object-cover opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
-                <span className={`absolute top-4 left-4 text-xs font-body font-semibold px-3 py-1 rounded-sm tracking-wider uppercase border ${tagStyle[selectedCar.tag] || 'bg-gold/15 text-gold border-gold/30'}`}>
+                <span className={`absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full tracking-wider uppercase border ${tagStyle[selectedCar.tag] || 'bg-gold/15 text-gold border-gold/30'}`} style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                   {selectedCar.tag}
                 </span>
 
                 {/* Floating Rate Badge */}
-                <div className="absolute bottom-4 right-4 glass-dark rounded-sm px-4 py-2 flex flex-col items-end">
-                  <span className="text-[10px] uppercase font-body text-gray-400 tracking-wider">Estimated Rate</span>
+                <div className="absolute bottom-4 right-4 glass-dark rounded-2xl px-4 py-2 flex flex-col items-end">
+                  <span className="text-[10px] uppercase text-gray-400 tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Estimated Rate</span>
                   <div className="flex items-baseline gap-0.5">
                     <FaRupeeSign className="text-gold text-xs" />
                     <span className="font-heading text-2xl font-black gold-text">{selectedCar.rateNum}</span>
-                    <span className="text-[10px] text-gray-500 ml-1 font-body">/ km</span>
+                    <span className="text-[10px] text-gray-500 ml-1" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>/ km</span>
                   </div>
                 </div>
               </div>
@@ -126,12 +126,12 @@ export default function BookCar() {
               <div className="p-8">
                 <div className="flex flex-wrap items-baseline gap-x-3 mb-2">
                   <h2 className="font-heading text-3xl font-bold text-gray-900">{selectedCar.name}</h2>
-                  <span className="font-body text-xs text-gray-400 uppercase tracking-widest">{selectedCar.category}</span>
+                  <span className="text-xs text-gray-400 uppercase tracking-widest" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{selectedCar.category}</span>
                 </div>
                 
                 <div className="gold-divider mb-6 ml-0" />
 
-                <p className="font-body text-gray-600 leading-relaxed text-sm mb-8">
+                <p className="text-gray-600 leading-relaxed text-sm mb-8" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                   {selectedCar.description}
                 </p>
 
@@ -141,22 +141,22 @@ export default function BookCar() {
                   <div className="flex flex-col items-center text-center p-2">
                     <FaUserFriends className="text-gold text-lg mb-2" />
                     <span className="font-heading text-sm font-bold text-gray-900">{selectedCar.passengers} pax</span>
-                    <span className="font-body text-[10px] text-gray-500 uppercase">Capacity</span>
+                    <span className="text-[10px] text-gray-500 uppercase" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Capacity</span>
                   </div>
                   <div className="flex flex-col items-center text-center p-2">
                     <FaSuitcase className="text-gold text-lg mb-2" />
                     <span className="font-heading text-sm font-bold text-gray-900">{selectedCar.luggage} bags</span>
-                    <span className="font-body text-[10px] text-gray-500 uppercase">Luggage</span>
+                    <span className="text-[10px] text-gray-500 uppercase" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Luggage</span>
                   </div>
                   <div className="flex flex-col items-center text-center p-2">
                     <FaSnowflake className="text-gold text-lg mb-2" />
                     <span className="font-heading text-sm font-bold text-gray-900">Equipped</span>
-                    <span className="font-body text-[10px] text-gray-500 uppercase">Air Conditioning</span>
+                    <span className="text-[10px] text-gray-500 uppercase" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Air Conditioning</span>
                   </div>
                   <div className="flex flex-col items-center text-center p-2">
                     <FaGasPump className="text-gold text-lg mb-2" />
                     <span className="font-heading text-sm font-bold text-gray-900">{selectedCar.fuel}</span>
-                    <span className="font-body text-[10px] text-gray-500 uppercase">Fuel Type</span>
+                    <span className="text-[10px] text-gray-500 uppercase" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Fuel Type</span>
                   </div>
                 </div>
               </div>
@@ -171,16 +171,28 @@ export default function BookCar() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="relative"
             >
-              <div className="absolute -inset-2 rounded-xl opacity-20 blur-2xl pointer-events-none"
-                style={{ background: 'radial-gradient(circle, #D4A73C, transparent 70%)' }}
+              <div className="absolute -inset-4 rounded-3xl opacity-25 blur-3xl"
+                style={{ background: 'radial-gradient(circle, rgba(212,167,60,0.6), transparent 70%)' }}
               />
 
-              <div className="glass rounded-xl p-8 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/60 rounded-tl-xl pointer-events-none" />
-                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/60 rounded-br-xl pointer-events-none" />
+              <div className="relative overflow-hidden"
+                style={{
+                  background: 'rgba(255,255,255,0.94)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  borderRadius: '28px',
+                  border: '1px solid rgba(255,255,255,0.6)',
+                  boxShadow: '0 35px 100px -40px rgba(15,23,42,0.15)',
+                  padding: '28px',
+                }}
+              >
+                {/* Top accent gradient */}
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-24"
+                  style={{ background: 'linear-gradient(90deg, rgba(212,167,60,0.10), rgba(255,255,255,0))' }}
+                />
 
                 <h3 className="font-heading text-2xl font-bold text-gray-900 mb-1">Book This <span className="gold-text">Vehicle</span></h3>
-                <p className="font-body text-xs text-gray-500 mb-6">Confirm details below to request your booking instantly.</p>
+                <p className="text-xs text-gray-500 mb-6" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Confirm details below to request your booking instantly.</p>
 
                 {sent ? (
                   <motion.div
@@ -195,7 +207,7 @@ export default function BookCar() {
                       </div>
                     </div>
                     <p className="font-heading text-2xl text-gray-900 mb-2 font-bold">Booking Request Sent!</p>
-                    <p className="font-body text-sm text-gray-500 max-w-xs mx-auto leading-relaxed">
+                    <p className="text-sm text-gray-500 max-w-xs mx-auto leading-relaxed" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                       Our customer relations agent will contact you on your mobile number within 10 minutes to verify.
                     </p>
                   </motion.div>
@@ -203,7 +215,7 @@ export default function BookCar() {
                   <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Selected Car Display */}
                     <div>
-                      <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">Selected Vehicle</label>
+                      <label className="text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Selected Vehicle</label>
                       <select
                         name="car"
                         value={form.car}
@@ -221,7 +233,7 @@ export default function BookCar() {
 
                     {/* Name */}
                     <div>
-                      <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">
+                      <label className="text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                         <span className="flex items-center gap-1.5"><FaUser className="text-gold/50 text-[10px]" /> Your Name</span>
                       </label>
                       <input
@@ -237,7 +249,7 @@ export default function BookCar() {
 
                     {/* Mobile */}
                     <div>
-                      <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">
+                      <label className="text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                         <span className="flex items-center gap-1.5"><FaPhoneAlt className="text-gold/50 text-[10px]" /> Mobile Number</span>
                       </label>
                       <input
@@ -253,7 +265,7 @@ export default function BookCar() {
 
                     {/* Pickup Location */}
                     <div>
-                      <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">
+                      <label className="text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                         <span className="flex items-center gap-1.5"><FaMapMarkerAlt className="text-gold/50 text-[10px]" /> Pickup Address / Point</span>
                       </label>
                       <input
@@ -269,7 +281,7 @@ export default function BookCar() {
 
                     {/* Destination / Drop Location */}
                     <div>
-                      <label className="font-body text-[11px] text-gold mb-1.5 block tracking-wider uppercase font-bold">
+                      <label className="text-[11px] text-gold mb-1.5 block tracking-wider uppercase font-bold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                         <span className="flex items-center gap-1.5"><FaMapMarkerAlt className="text-gold text-[10px]" /> Destination (Drop Location) *</span>
                       </label>
                       <input
@@ -286,7 +298,7 @@ export default function BookCar() {
                     {/* Date and Time */}
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="font-body text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold">
+                        <label className="text-[11px] text-gray-500 mb-1.5 block tracking-wider uppercase font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                           <span className="flex items-center gap-1.5"><FaCalendarAlt className="text-gold/50 text-[10px]" /> Date</span>
                         </label>
                         <input
@@ -299,7 +311,7 @@ export default function BookCar() {
                         />
                       </div>
                       <div>
-                        <label className="font-body text-[11px] text-gold mb-1.5 block tracking-wider uppercase font-bold">
+                        <label className="text-[11px] text-gold mb-1.5 block tracking-wider uppercase font-bold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                           <span className="flex items-center gap-1.5"><FaClock className="text-gold text-[10px]" /> Pickup Time *</span>
                         </label>
                         <input
@@ -315,12 +327,13 @@ export default function BookCar() {
 
                     <button
                       type="submit"
-                      className="btn-gold w-full py-4 text-[11px] rounded-sm mt-4 gap-2 flex items-center justify-center"
+                      className="btn-gold w-full py-4 rounded-full mt-4 gap-2 flex items-center justify-center"
+                      style={{ fontSize: '0.8rem', letterSpacing: '0.5px' }}
                     >
                       Book Your Ride Now <HiArrowRight className="text-sm" />
                     </button>
 
-                    <p className="font-body text-[10px] text-gray-400 text-center leading-relaxed">
+                    <p className="text-[10px] text-gray-400 text-center leading-relaxed" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                       All rates are estimated. Outstation travel billing minimum is 250km per day. State taxes & tolls are charged extra at actuals.
                     </p>
                   </form>

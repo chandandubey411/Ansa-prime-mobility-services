@@ -40,7 +40,7 @@ export default function Contact() {
     setSent(true)
     setTimeout(() => { setSent(false); setForm({ name: '', mobile: '', email: '', service: '', message: '' }) }, 4500)
   }
-  const inp = 'luxury-input w-full rounded-sm px-4 py-3 text-sm font-body'
+  const inp = 'luxury-input w-full px-4 py-3 text-sm'
 
   return (
     <main>
@@ -51,7 +51,7 @@ export default function Contact() {
         bgImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=1200"
       />
 
-      <section className="py-24" style={{ background: '#f8f5f0' }}>
+      <section className="py-24" style={{ background: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -67,10 +67,10 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             {/* LEFT — Info */}
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2" style={{ fontFamily: 'Inter, Outfit, sans-serif' }}>
                 ANSA PRIME <span className="gold-text">MOBILITY</span>
               </h3>
-              <p className="font-body text-sm text-gray-500 mb-8 leading-relaxed max-w-md">
+              <p className="text-sm text-gray-500 mb-8 leading-relaxed max-w-md" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                 Whether you need an airport cab, a corporate chauffeur or a long outstation journey — we are here for you round the clock. Reach out and let us take care of every detail.
               </p>
 
@@ -83,19 +83,19 @@ export default function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="bg-white rounded-xl p-5 shadow-sm border border-black/5"
+                    className="info-card group"
                   >
-                    <div className="icon-box w-11 h-11 mb-3">
-                      <info.icon className="text-gold text-lg" />
+                    <div className="icon-box mb-4">
+                      <info.icon className="text-gold text-lg group-hover:scale-110 transition-transform" />
                     </div>
-                    <p className="font-body text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">{info.title}</p>
+                    <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{info.title}</p>
                     {info.href ? (
-                      <a href={info.href} className="font-body text-sm text-gray-700 hover:text-gold transition-colors font-medium">
+                      <a href={info.href} className="text-sm text-gray-700 hover:text-gold transition-colors font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                         {info.lines.join('')}
                       </a>
                     ) : (
                       info.lines.map(l => (
-                        <p key={l} className="font-body text-sm text-gray-700">{l}</p>
+                        <p key={l} className="text-sm text-gray-700 font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{l}</p>
                       ))
                     )}
                   </motion.div>
@@ -107,7 +107,7 @@ export default function Contact() {
                 href="https://wa.me/919643199064"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-7 py-4 rounded-sm font-body text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-body text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1"
                 style={{ background: 'linear-gradient(135deg, #25D366, #128C7E)', boxShadow: '0 4px 20px rgba(37,211,102,0.25)' }}
               >
                 <FaWhatsapp className="text-xl" />
@@ -118,9 +118,18 @@ export default function Contact() {
             {/* RIGHT — Form */}
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="relative">
-                <div className="rounded-xl overflow-hidden" style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 20px rgba(0,0,0,0.06)' }}>
+                <div className="absolute -inset-4 rounded-3xl opacity-25 blur-3xl"
+                  style={{ background: 'radial-gradient(circle, rgba(212,167,60,0.6), transparent 70%)' }}
+                />
+                <div className="rounded-3xl overflow-hidden relative" style={{
+                  background: 'rgba(255,255,255,0.94)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  border: '1px solid rgba(255,255,255,0.6)',
+                  boxShadow: '0 35px 100px -40px rgba(15,23,42,0.15)',
+                }}>
                   <div className="p-8 relative">
-                  <h3 className="font-heading text-xl font-bold text-gray-900 mb-6">
+                  <h3 className="font-heading text-xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Inter, Outfit, sans-serif' }}>
                     Send Us a <span className="gold-text">Message</span>
                   </h3>
 
@@ -134,29 +143,29 @@ export default function Contact() {
                         </div>
                       </div>
                       <h3 className="font-heading text-2xl font-bold text-gray-900 mb-1">Message Sent!</h3>
-                      <p className="font-body text-sm text-gray-500">Fill in the form and we'll get back to you on WhatsApp.</p>
+                      <p className="text-sm text-gray-500" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Fill in the form and we'll get back to you on WhatsApp.</p>
                     </motion.div>
                   ) : (
                     <form onSubmit={submit} className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Full Name</label>
+                          <label className="text-[11px] text-gray-500 mb-1.5 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Full Name</label>
                           <input name="name" value={form.name} onChange={handle}
                             placeholder="Your name" required className={inp} />
                         </div>
                         <div>
-                          <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Mobile No.</label>
+                          <label className="text-[11px] text-gray-500 mb-1.5 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Mobile No.</label>
                           <input name="mobile" value={form.mobile} onChange={handle}
                             placeholder="+91 XXXXX" required className={inp} />
                         </div>
                       </div>
                       <div>
-                        <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Email Address</label>
+                        <label className="text-[11px] text-gray-500 mb-1.5 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Email Address</label>
                         <input name="email" type="email" value={form.email} onChange={handle}
                           placeholder="your@email.com" required className={inp} />
                       </div>
                       <div>
-                        <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Service Required</label>
+                        <label className="text-[11px] text-gray-500 mb-1.5 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Service Required</label>
                         <select name="service" value={form.service} onChange={handle} className={inp}>
                           <option value="">Select a service</option>
                           {['Airport Transfer', 'Corporate Travel', 'Local Taxi', 'Outstation Trip', 'Wedding Transport', 'Premium Chauffeur'].map(s => (
@@ -165,12 +174,12 @@ export default function Contact() {
                         </select>
                       </div>
                       <div>
-                        <label className="font-body text-[11px] text-gray-400 mb-1.5 block tracking-wider">Message</label>
+                        <label className="text-[11px] text-gray-500 mb-1.5 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Message</label>
                         <textarea name="message" value={form.message} onChange={handle}
                           placeholder="Tell us about your travel requirements..."
                           rows={4} required className={`${inp} resize-none`} />
                       </div>
-                      <button type="submit" className="btn-gold w-full py-4 text-[11px] rounded-sm gap-2">
+                      <button type="submit" className="btn-gold w-full py-4 rounded-full gap-2" style={{ fontSize: '0.8rem', letterSpacing: '0.5px' }}>
                         Send Message <HiArrowRight />
                       </button>
                     </form>
@@ -197,6 +206,49 @@ export default function Contact() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
+      </section>
+
+      {/* ═══════════════ CONTACT INFO STRIP ═══════════════ */}
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
+        <div className="absolute inset-0 opacity-[0.08]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 0, transparent 60px)' }} />
+        <div className="max-w-5xl mx-auto px-4 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {[
+              { icon: HiLocationMarker, label: 'Our Location', value: '94, Block B, Zamrudpur, Greater Kailash, New Delhi – 110048' },
+              { icon: HiPhone,          label: 'Call Us',       value: '+91 96431 99064' },
+              { icon: HiMail,           label: 'Email Us',      value: 'info@ansaprime.com' },
+            ].map((c, i) => (
+              <motion.div key={c.label}
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+               <div className="flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
+                  style={{ background: 'rgba(255,255,255,0.25)', border: '1px solid rgba(255,255,255,0.5)' }}>
+                  <c.icon className="text-white text-xl" />
+                </div>
+                <p className="text-xs text-white/70 tracking-widest uppercase mb-1 font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.label}</p>
+                <p className="text-sm font-semibold text-white" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</p>
+              </div></motion.div>
+            ))}
+          </div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
+              target="_blank" rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-full hover:-translate-y-1 transition-all duration-300 hover:shadow-lg"
+              style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+            >
+              <FaWhatsapp className="text-base text-green-600" /> WhatsApp Us
+            </a>
+            <Link to="/contact"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-full hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300"
+              style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+            >
+              Contact Us <HiArrowRight />
+            </Link>
+          </motion.div>
+        </div>
       </section>
     </main>
   )

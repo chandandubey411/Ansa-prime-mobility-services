@@ -58,7 +58,7 @@ export default function About() {
       />
 
       {/* ═══════════════ WHO WE ARE ═══════════════ */}
-      <section className="py-24" style={{ background: '#f8f5f0' }}>
+      <section className="py-24" style={{ background: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             {/* Left */}
@@ -78,17 +78,17 @@ export default function About() {
                 'Whether it\'s a quick airport transfer, a corporate commute, an outstation trip, or a grand wedding — ANSA Prime delivers an unmatched travel experience with professionally trained chauffeurs and well-maintained, luxury vehicles.',
               ].map((para, i) => (
                 <motion.p key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 + i * 0.1 }}
-                  className="font-body text-sm text-gray-500 leading-relaxed mb-4">
+                  className="text-sm text-gray-500 leading-relaxed mb-4" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                   {para}
                 </motion.p>
               ))}
 
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}
                 className="flex flex-wrap gap-4 mt-6">
-                <Link to="/contact" className="btn-gold px-8 py-3.5 text-[11px] rounded-sm gap-2">
+                <Link to="/contact" className="btn-gold px-8 py-3.5 rounded-full gap-2" style={{ fontSize: '0.8rem', letterSpacing: '0.5px' }}>
                   Book a Cab <FaArrowRight />
                 </Link>
-                <a href="tel:+919643199064" className="btn-outline px-8 py-3.5 text-[11px] rounded-sm gap-2">
+                <a href="tel:+919643199064" className="btn-outline px-8 py-3.5 rounded-full gap-2" style={{ fontSize: '0.8rem', letterSpacing: '0.5px' }}>
                   <FaPhoneAlt /> Call Us Now
                 </a>
               </motion.div>
@@ -105,11 +105,11 @@ export default function About() {
               ].map((s, i) => (
                 <motion.div key={s.label}
                   initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className="rounded-xl p-6 text-center"
-                  style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
+                  className="info-card group text-center"
+                >
                   <p className="font-heading text-3xl font-black gold-text mb-1">{s.value}</p>
-                  <p className="font-body text-sm font-semibold text-gray-700">{s.label}</p>
-                  <p className="font-body text-[11px] text-gray-400 tracking-wider mt-1">{s.sub}</p>
+                  <p className="text-sm font-semibold text-gray-700" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{s.label}</p>
+                  <p className="text-[11px] text-gray-400 tracking-wider mt-1" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{s.sub}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -118,8 +118,8 @@ export default function About() {
       </section>
 
       {/* ═══════════════ WHY CHOOSE US ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#f2ede6' }}>
-        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
+      <section className="py-24 relative" style={{ background: '#f8fafc' }}>
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.25),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -137,14 +137,14 @@ export default function About() {
               <motion.div key={item.title}
                 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
                 whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(212,167,60,0.15)' }}
-                className="rounded-xl p-7 group text-center"
-                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.12)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
+                className="info-card group text-center"
+              >
                 <div className="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center transition-all duration-300"
                   style={{ background: 'rgba(212,167,60,0.08)', border: '1px solid rgba(212,167,60,0.2)' }}>
                   <item.icon className="text-gold text-2xl group-hover:scale-110 transition-transform" />
                 </div>
                 <h3 className="font-heading text-base font-bold text-gray-900 mb-3 group-hover:text-gold transition-colors">{item.title}</h3>
-                <p className="font-body text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -152,7 +152,7 @@ export default function About() {
       </section>
 
       {/* ═══════════════ OUR VALUES ═══════════════ */}
-      <section className="py-24" style={{ background: '#f8f5f0' }}>
+      <section className="py-24" style={{ background: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             {/* Left — Values list */}
@@ -169,7 +169,7 @@ export default function About() {
                 {teamValues.map((val, i) => (
                   <motion.li key={val}
                     initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                    className="flex items-center gap-3 font-body text-sm text-gray-600">
+                    className="flex items-center gap-3 text-sm text-gray-600" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
                     <FaCheckCircle className="text-gold text-base shrink-0" /> {val}
                   </motion.li>
                 ))}
@@ -185,9 +185,9 @@ export default function About() {
                   className="relative mb-8 last:mb-0">
                   {/* Dot */}
                   <div className="absolute -left-[30px] top-1 w-4 h-4 rounded-full border-2 border-gold bg-white" />
-                  <span className="font-body text-xs text-gold font-bold tracking-widest">{m.year}</span>
+                  <span className="text-xs text-gold font-bold tracking-widest" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{m.year}</span>
                   <h4 className="font-heading text-base font-bold text-gray-900 mt-1 mb-1">{m.title}</h4>
-                  <p className="font-body text-sm text-gray-500 leading-relaxed">{m.desc}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{m.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -213,8 +213,8 @@ export default function About() {
                   style={{ background: 'rgba(255,255,255,0.25)', border: '1px solid rgba(255,255,255,0.5)' }}>
                   <c.icon className="text-white text-xl" />
                 </div>
-                <p className="font-body text-xs text-white/70 tracking-widest uppercase mb-1">{c.label}</p>
-                <p className="font-body text-sm font-semibold text-white">{c.value}</p>
+                <p className="text-xs text-white/70 tracking-widest uppercase mb-1 font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.label}</p>
+                <p className="text-sm font-semibold text-white" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</p>
               </div></motion.div>
             ))}
           </div>
@@ -223,11 +223,15 @@ export default function About() {
             className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-sm hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-full hover:-translate-y-1 transition-all duration-300 hover:shadow-lg"
+              style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+            >
               <FaWhatsapp className="text-base text-green-600" /> WhatsApp Us
             </a>
             <Link to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-body font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-sm hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300">
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase border-2 border-white text-white rounded-full hover:-translate-y-1 hover:bg-white hover:text-gray-900 transition-all duration-300"
+              style={{ fontFamily: 'Inter, Poppins, sans-serif' }}
+            >
               Contact Us <FaArrowRight />
             </Link>
           </motion.div>

@@ -4,21 +4,23 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { HiMenuAlt3, HiX, HiPhone, HiChevronDown, HiMail } from 'react-icons/hi'
 import {
   FaPlane, FaBriefcase, FaTaxi, FaRoad, FaRing, FaUserTie,
-  FaMapMarkedAlt, FaMountain, FaStar, FaTemperatureLow,
-  FaFacebookF, FaInstagram, FaGoogle
+  FaMapMarkedAlt, FaStar,
+  FaFacebookF, FaInstagram, FaWhatsapp
 } from 'react-icons/fa'
 
 const servicesDropdown = [
-  { label: 'Car Rental Delhi',         path: '/services', icon: FaTaxi },
-  { label: 'Outstation Taxi',          path: '/services', icon: FaRoad },
-  { label: 'Tempo Traveller Service',  path: '/fleet',    icon: FaMapMarkedAlt },
-  { label: 'Oneway Cab',               path: '/services', icon: FaPlane },
-  { label: 'Airport Taxi',             path: '/services', icon: FaPlane },
+  { label: 'Airport Transfer',       path: '/services', icon: FaPlane },
+  { label: 'Outstation Taxi',        path: '/services', icon: FaRoad },
+  { label: 'Corporate Travel',       path: '/services', icon: FaBriefcase },
+  { label: 'Local Cab Service',      path: '/services', icon: FaTaxi },
+  { label: 'Wedding Transport',      path: '/services', icon: FaRing },
+  { label: 'Premium Chauffeur',      path: '/services', icon: FaUserTie },
 ]
 
 const packagesDropdown = [
-  { label: 'Chardham Tour Package',    path: '/pricing', icon: FaStar },
-  { label: 'Same Day Tour Package',    path: '/pricing', icon: FaMapMarkedAlt },
+  { label: 'Chardham Tour Package',  path: '/pricing', icon: FaStar },
+  { label: 'Same Day Tour Package',  path: '/pricing', icon: FaMapMarkedAlt },
+  { label: 'All Tour Packages',      path: '/pricing', icon: FaMapMarkedAlt },
 ]
 
 function DropdownMenu({ items, isOpen }) {
@@ -26,27 +28,24 @@ function DropdownMenu({ items, isOpen }) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: 10, scale: 0.97 }}
+          initial={{ opacity: 0, y: 8, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 8, scale: 0.97 }}
-          transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
-          className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 rounded-xl overflow-hidden z-50"
+          exit={{ opacity: 0, y: 6, scale: 0.97 }}
+          transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl overflow-hidden z-50"
           style={{
-            background: 'rgba(255,255,255,0.98)',
-            border: '1px solid rgba(212,167,60,0.25)',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.12), 0 0 40px rgba(212,167,60,0.06)',
-            backdropFilter: 'blur(20px)',
+            background: '#ffffff',
+            border: '1px solid rgba(15,23,42,0.08)',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.12)',
           }}
         >
-          {/* top accent */}
-          <div className="h-0.5 w-full" style={{ background: 'linear-gradient(90deg, transparent, #D4A73C, transparent)' }} />
-          <ul className="py-2">
+          <ul className="py-1.5">
             {items.map((item) => (
               <li key={item.label}>
                 <Link
                   to={item.path}
-                  className="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:text-gold hover:bg-gold/5 transition-all duration-200 group"
-                  style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}
+                  className="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:text-gold hover:bg-amber-50 transition-all duration-150 group"
+                  style={{ fontSize: '0.78rem', fontFamily: 'Inter, Poppins, sans-serif', fontWeight: 600 }}
                 >
                   <item.icon className="text-gold/50 group-hover:text-gold text-xs transition-colors shrink-0" />
                   {item.label}
@@ -72,12 +71,11 @@ export default function Navbar() {
   const packagesRef = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 70)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClick = (e) => {
       if (servicesRef.current && !servicesRef.current.contains(e.target)) setServicesOpen(false)
@@ -95,27 +93,34 @@ export default function Navbar() {
 
   return (
     <>
-      {/* TOP BAR — Contact Info */}
-      <div className="fixed top-0 left-0 right-0 z-50 text-dark-DEFAULT py-1.5 hidden md:block"
-        style={{ background: '#D4A73C' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-          {/* Left: Phone + Email */}
-          <div className="flex items-center gap-6">
-            <a href="tel:+919643199064" className="flex items-center gap-1.5 text-[11px] font-bold text-dark-DEFAULT hover:opacity-80 transition-opacity">
-              <HiPhone className="text-sm" /> +91 96431 99064
+      {/* TOP INFO BAR — thin, clean, dark */}
+      <div
+        className="fixed top-0 left-0 right-0 z-50 hidden md:block"
+        style={{ background: '#0f172a', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between py-2">
+          {/* Left: info */}
+          <div className="flex items-center gap-5 text-[11px] font-medium text-slate-400" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+            <span>24/7 Booking Support</span>
+            <span className="w-px h-3 bg-white/15" />
+            <span>Airport · Outstation · Corporate · Wedding</span>
+          </div>
+          {/* Right: contact + social */}
+          <div className="flex items-center gap-5">
+            <a href="tel:+919643199064" className="flex items-center gap-1.5 text-[11px] font-semibold text-white hover:text-gold transition-colors" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+              <HiPhone className="text-gold text-sm" /> +91 96431 99064
             </a>
-            <a href="mailto:info@ansaprime.com" className="flex items-center gap-1.5 text-[11px] font-bold text-dark-DEFAULT hover:opacity-80 transition-opacity">
+            <a href="mailto:info@ansaprime.com" className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-400 hover:text-gold transition-colors" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
               <HiMail className="text-sm" /> info@ansaprime.com
             </a>
-          </div>
-          {/* Right: Social Icons */}
-          <div className="flex items-center gap-3">
-            <a href="https://www.facebook.com/share/1GQDKScG4Z/" target="_blank" rel="noreferrer" aria-label="Facebook"
-              className="hover:opacity-70 transition-opacity text-dark-DEFAULT text-sm"><FaFacebookF /></a>
-            <a href="https://www.instagram.com/ansaprimemobilityservices?igsh=cGFnZnZ6ankwa2wx" target="_blank" rel="noreferrer" aria-label="Instagram"
-              className="hover:opacity-70 transition-opacity text-dark-DEFAULT text-sm"><FaInstagram /></a>
-            <a href="https://maps.google.com/" target="_blank" rel="noreferrer" aria-label="Google Maps"
-              className="hover:opacity-70 transition-opacity text-dark-DEFAULT text-sm"><FaGoogle /></a>
+            <div className="flex items-center gap-3 ml-1 border-l border-white/10 pl-4">
+              <a href="https://www.facebook.com/share/1GQDKScG4Z/" target="_blank" rel="noreferrer" aria-label="Facebook"
+                className="hover:text-gold transition-colors text-slate-400 text-sm"><FaFacebookF /></a>
+              <a href="https://www.instagram.com/ansaprimemobilityservices?igsh=cGFnZnZ6ankwa2wx" target="_blank" rel="noreferrer" aria-label="Instagram"
+                className="hover:text-gold transition-colors text-slate-400 text-sm"><FaInstagram /></a>
+              <a href="https://wa.me/919643199064" target="_blank" rel="noreferrer" aria-label="WhatsApp"
+                className="hover:text-gold transition-colors text-slate-400 text-sm"><FaWhatsapp /></a>
+            </div>
           </div>
         </div>
       </div>
@@ -124,45 +129,49 @@ export default function Navbar() {
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
-        className={`fixed left-0 right-0 z-40 transition-all duration-500 ${
+        transition={{ delay: 0.1, duration: 0.5, ease: 'easeOut' }}
+        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? 'top-[36px] md:top-[36px] py-3'
-            : 'top-[36px] md:top-[36px] bg-transparent py-5'
+            ? 'md:top-[33px] top-0 py-3'
+            : 'md:top-[33px] top-0 py-4'
         }`}
-        style={scrolled ? { background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(20px)', boxShadow: '0 4px 30px rgba(0,0,0,0.08)', borderBottom: '1px solid rgba(212,167,60,0.15)' } : {}}
+        style={scrolled
+          ? {
+              background: 'rgba(255,255,255,0.98)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              boxShadow: '0 1px 0 rgba(15,23,42,0.08), 0 4px 20px rgba(0,0,0,0.05)',
+            }
+          : {
+              background: 'rgba(255,255,255,0)',
+            }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* LOGO */}
-          <Link to="/" className="flex items-center leading-none group">
+          <Link to="/" className="flex items-center gap-3 leading-none group">
             <img
               src="/logo-transparent.png"
               alt="ANSA PRIME Mobility Services"
-              className="h-14 w-auto object-contain group-hover:opacity-90 transition-opacity drop-shadow-lg"
+              className="h-11 w-auto object-contain group-hover:opacity-90 transition-opacity drop-shadow"
             />
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center gap-7">
-            {/* Home */}
-            <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+          <nav className="hidden lg:flex items-center gap-0.5">
+            <NavLink to="/" end className={({ isActive }) => `nav-link px-3.5 py-2 rounded-lg hover:bg-black/5 ${isActive ? 'active' : ''}`}>
               Home
             </NavLink>
-
-            {/* About */}
-            <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-              About Us
+            <NavLink to="/about" className={({ isActive }) => `nav-link px-3.5 py-2 rounded-lg hover:bg-black/5 ${isActive ? 'active' : ''}`}>
+              About
             </NavLink>
-
-            {/* Fleet */}
-            <NavLink to="/fleet" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+            <NavLink to="/fleet" className={({ isActive }) => `nav-link px-3.5 py-2 rounded-lg hover:bg-black/5 ${isActive ? 'active' : ''}`}>
               Fleet
             </NavLink>
 
             {/* Services Dropdown */}
             <div className="relative" ref={servicesRef}>
               <button
-                className={`nav-link flex items-center gap-1.5 bg-transparent border-0 cursor-pointer ${servicesOpen ? 'active' : ''}`}
+                className={`nav-link flex items-center gap-1 bg-transparent border-0 cursor-pointer px-3.5 py-2 rounded-lg hover:bg-black/5 ${servicesOpen ? 'active' : ''}`}
                 onMouseEnter={() => { setServicesOpen(true); setPackagesOpen(false) }}
                 onMouseLeave={() => setServicesOpen(false)}
                 onClick={() => { setServicesOpen(v => !v); setPackagesOpen(false) }}
@@ -174,10 +183,7 @@ export default function Navbar() {
                   <HiChevronDown className="text-xs" />
                 </motion.span>
               </button>
-              <div
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
-              >
+              <div onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
                 <DropdownMenu items={servicesDropdown} isOpen={servicesOpen} />
               </div>
             </div>
@@ -185,7 +191,7 @@ export default function Navbar() {
             {/* Packages Dropdown */}
             <div className="relative" ref={packagesRef}>
               <button
-                className={`nav-link flex items-center gap-1.5 bg-transparent border-0 cursor-pointer ${packagesOpen ? 'active' : ''}`}
+                className={`nav-link flex items-center gap-1 bg-transparent border-0 cursor-pointer px-3.5 py-2 rounded-lg hover:bg-black/5 ${packagesOpen ? 'active' : ''}`}
                 onMouseEnter={() => { setPackagesOpen(true); setServicesOpen(false) }}
                 onMouseLeave={() => setPackagesOpen(false)}
                 onClick={() => { setPackagesOpen(v => !v); setServicesOpen(false) }}
@@ -197,29 +203,32 @@ export default function Navbar() {
                   <HiChevronDown className="text-xs" />
                 </motion.span>
               </button>
-              <div
-                onMouseEnter={() => setPackagesOpen(true)}
-                onMouseLeave={() => setPackagesOpen(false)}
-              >
+              <div onMouseEnter={() => setPackagesOpen(true)} onMouseLeave={() => setPackagesOpen(false)}>
                 <DropdownMenu items={packagesDropdown} isOpen={packagesOpen} />
               </div>
             </div>
 
-            {/* Contact */}
-            <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+            <NavLink to="/pricing" className={({ isActive }) => `nav-link px-3.5 py-2 rounded-lg hover:bg-black/5 ${isActive ? 'active' : ''}`}>
+              Pricing
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => `nav-link px-3.5 py-2 rounded-lg hover:bg-black/5 ${isActive ? 'active' : ''}`}>
               Contact
             </NavLink>
-          </div>
+          </nav>
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+919643199064" className="flex items-center gap-2 text-gold text-xs font-body font-semibold tracking-wider hover:text-gold-light transition-colors">
-              <HiPhone className="text-base" /> +91 96431 99064
+            <a href="tel:+919643199064"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-black/12 text-gray-700 hover:border-gold/50 hover:text-gold transition-all duration-200"
+              style={{ fontSize: '0.78rem', fontFamily: 'Inter, Poppins, sans-serif', fontWeight: 600 }}
+            >
+              <HiPhone className="text-sm text-gold" />
+              +91 96431 99064
             </a>
             <a
               href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
               target="_blank" rel="noreferrer"
-              className="btn-gold px-5 py-2.5 text-[11px] rounded-sm"
+              className="btn-gold px-5 py-2.5 rounded-lg"
             >
               Book Now
             </a>
@@ -227,7 +236,7 @@ export default function Navbar() {
 
           {/* HAMBURGER */}
           <button
-            className="lg:hidden text-gray-700 text-2xl focus:outline-none p-1"
+            className="lg:hidden w-10 h-10 rounded-xl border border-black/12 flex items-center justify-center text-gray-700 text-xl focus:outline-none hover:border-gold/40 hover:text-gold transition-all"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -243,60 +252,49 @@ export default function Navbar() {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed inset-0 z-30 flex flex-col pt-28 pb-10 px-8 overflow-y-auto"
-            style={{ background: 'linear-gradient(135deg, #f8f5f0 0%, #ece6db 60%, #f5f0e8 100%)' }}
+            transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+            className="fixed inset-0 z-30 flex flex-col pt-20 pb-10 px-6 overflow-y-auto"
+            style={{ background: '#ffffff' }}
           >
-            <div className="gradient-line-h mb-8" />
-            <div className="flex flex-col gap-2">
+            {/* Header bar */}
+            <div className="flex items-center justify-between pb-6 mb-2 border-b border-black/8">
+              <img src="/logo-transparent.png" alt="ANSA PRIME" className="h-9 w-auto object-contain" />
+              <button
+                className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-700 text-xl"
+                onClick={closeMobile}
+              >
+                <HiX />
+              </button>
+            </div>
 
-              {/* Home */}
-              <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 }}>
+            <div className="flex flex-col gap-0">
+              {[
+                { label: 'Home', to: '/', end: true },
+                { label: 'About Us', to: '/about' },
+                { label: 'Fleet', to: '/fleet' },
+              ].map(({ label, to, end }) => (
                 <NavLink
-                  to="/" end onClick={closeMobile}
+                  key={to}
+                  to={to} end={end} onClick={closeMobile}
                   className={({ isActive }) =>
-                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
+                    `text-xl font-bold py-4 border-b border-black/8 flex items-center justify-between transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
                   }
+                  style={{ fontFamily: 'Inter, Outfit, sans-serif', letterSpacing: '-0.02em' }}
                 >
-                  <span className="text-gold text-sm font-body tracking-widest">01</span>Home
+                  {label}
                 </NavLink>
-              </motion.div>
+              ))}
 
-              {/* About */}
-              <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.10 }}>
-                <NavLink
-                  to="/about" onClick={closeMobile}
-                  className={({ isActive }) =>
-                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
-                  }
-                >
-                  <span className="text-gold text-sm font-body tracking-widest">02</span>About Us
-                </NavLink>
-              </motion.div>
-
-              {/* Fleet */}
-              <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
-                <NavLink
-                  to="/fleet" onClick={closeMobile}
-                  className={({ isActive }) =>
-                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
-                  }
-                >
-                  <span className="text-gold text-sm font-body tracking-widest">03</span>Fleet
-                </NavLink>
-              </motion.div>
-
-              {/* Services accordion */}
-              <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 }}>
+              {/* Services Accordion */}
+              <div>
                 <button
                   onClick={() => setMobileServices(v => !v)}
-                  className="w-full font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center justify-between text-gray-800 transition-colors"
+                  className="w-full py-4 border-b border-black/8 flex items-center justify-between text-gray-800"
+                  style={{ fontFamily: 'Inter, Outfit, sans-serif', fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em' }}
                 >
-                  <span className="flex items-center gap-3">
-                    <span className="text-gold text-sm font-body tracking-widest">04</span>Services
-                  </span>
+                  Services
                   <motion.span animate={{ rotate: mobileServices ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                    <HiChevronDown className="text-gold text-xl" />
+                    <HiChevronDown className="text-gold text-lg" />
                   </motion.span>
                 </button>
                 <AnimatePresence>
@@ -305,14 +303,14 @@ export default function Navbar() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden pl-8 mb-4 space-y-3"
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden pl-4 py-2 space-y-2 mb-1"
                     >
                       {servicesDropdown.map(item => (
                         <li key={item.label}>
-                          <Link
-                             to={item.path} onClick={closeMobile}
-                            className="flex items-center gap-2 text-gray-500 hover:text-gold transition-colors font-body text-sm tracking-wider uppercase"
+                          <Link to={item.path} onClick={closeMobile}
+                            className="flex items-center gap-2 text-gray-500 hover:text-gold transition-colors py-1"
+                            style={{ fontFamily: 'Inter, Poppins, sans-serif', fontSize: '0.85rem', fontWeight: 600 }}
                           >
                             <item.icon className="text-gold/50 text-xs" />
                             {item.label}
@@ -322,19 +320,18 @@ export default function Navbar() {
                     </motion.ul>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </div>
 
-              {/* Packages accordion */}
-              <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.20 }}>
+              {/* Packages Accordion */}
+              <div>
                 <button
                   onClick={() => setMobilePackages(v => !v)}
-                  className="w-full font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center justify-between text-gray-800 transition-colors"
+                  className="w-full py-4 border-b border-black/8 flex items-center justify-between text-gray-800"
+                  style={{ fontFamily: 'Inter, Outfit, sans-serif', fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em' }}
                 >
-                  <span className="flex items-center gap-3">
-                    <span className="text-gold text-sm font-body tracking-widest">05</span>Packages
-                  </span>
+                  Packages
                   <motion.span animate={{ rotate: mobilePackages ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                    <HiChevronDown className="text-gold text-xl" />
+                    <HiChevronDown className="text-gold text-lg" />
                   </motion.span>
                 </button>
                 <AnimatePresence>
@@ -343,14 +340,14 @@ export default function Navbar() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden pl-8 mb-4 space-y-3"
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden pl-4 py-2 space-y-2 mb-1"
                     >
                       {packagesDropdown.map(item => (
                         <li key={item.label}>
-                          <Link
-                            to={item.path} onClick={closeMobile}
-                            className="flex items-center gap-2 text-gray-500 hover:text-gold transition-colors font-body text-sm tracking-wider uppercase"
+                          <Link to={item.path} onClick={closeMobile}
+                            className="flex items-center gap-2 text-gray-500 hover:text-gold transition-colors py-1"
+                            style={{ fontFamily: 'Inter, Poppins, sans-serif', fontSize: '0.85rem', fontWeight: 600 }}
                           >
                             <item.icon className="text-gold/50 text-xs" />
                             {item.label}
@@ -360,37 +357,50 @@ export default function Navbar() {
                     </motion.ul>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </div>
 
-              {/* Contact */}
-              <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.25 }}>
+              {[
+                { label: 'Pricing', to: '/pricing' },
+                { label: 'Contact', to: '/contact' },
+              ].map(({ label, to }) => (
                 <NavLink
-                  to="/contact" onClick={closeMobile}
+                  key={to}
+                  to={to} onClick={closeMobile}
                   className={({ isActive }) =>
-                    `font-heading text-3xl font-bold pb-4 mb-2 border-b border-black/10 flex items-center gap-3 transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
+                    `text-xl font-bold py-4 border-b border-black/8 flex items-center justify-between transition-colors ${isActive ? 'text-gold' : 'text-gray-800'}`
                   }
+                  style={{ fontFamily: 'Inter, Outfit, sans-serif', letterSpacing: '-0.02em' }}
                 >
-                  <span className="text-gold text-sm font-body tracking-widest">06</span>Contact
+                  {label}
                 </NavLink>
-              </motion.div>
-
+              ))}
             </div>
 
             <div className="mt-8 flex flex-col gap-3">
-              <a
-                href="tel:+919643199064"
-                className="btn-outline px-6 py-3 text-sm rounded-sm w-full text-center"
+              <a href="tel:+919643199064"
+                className="btn-outline px-6 py-3.5 text-sm rounded-xl w-full text-center"
                 onClick={closeMobile}
               >
+                <HiPhone className="inline mr-2" />
                 +91 96431 99064
               </a>
               <a
                 href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
                 target="_blank" rel="noreferrer"
-                className="btn-gold px-6 py-3 text-sm rounded-sm w-full text-center"
+                className="btn-gold px-6 py-3.5 text-sm rounded-xl w-full text-center"
                 onClick={closeMobile}
               >
                 Book Now
+              </a>
+            </div>
+
+            {/* Contact info */}
+            <div className="mt-6 pt-6 border-t border-black/8 space-y-2">
+              <a href="tel:+919643199064" className="flex items-center gap-2 text-sm text-gray-500 hover:text-gold transition-colors">
+                <HiPhone className="text-gold" /> +91 96431 99064
+              </a>
+              <a href="mailto:info@ansaprime.com" className="flex items-center gap-2 text-sm text-gray-500 hover:text-gold transition-colors">
+                <HiMail className="text-gold" /> info@ansaprime.com
               </a>
             </div>
           </motion.div>

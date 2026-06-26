@@ -46,23 +46,21 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section className="py-28 relative overflow-hidden" style={{ background: '#f2ede6' }}>
+    <section className="py-16 relative overflow-hidden" style={{ background: '#ffffff' }}>
       {/* BG */}
-      <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.35), transparent)' }} />
-      <div className="absolute inset-0 opacity-[0.025] pointer-events-none"
-        style={{ backgroundImage: 'radial-gradient(circle, #D4A73C 1px, transparent 1px)', backgroundSize: '45px 45px' }} />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-[0.05] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #D4A73C, transparent 70%)' }} />
+      <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,167,60,0.25), transparent)' }} />
+      <div className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        style={{ backgroundImage: 'radial-gradient(circle, #D4A73C 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="section-label mb-3">
+            className="section-label mb-3 justify-center">
             Client Stories
           </motion.p>
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            className="section-title text-4xl md:text-5xl mb-4">
+            className="section-title text-3xl md:text-4xl mb-4">
             What Our <span>Clients</span> Say
           </motion.h2>
           <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}

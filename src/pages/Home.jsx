@@ -217,29 +217,39 @@ export default function Home() {
       <HeroSection />
 
       {/* ═══════════════ FEATURE CARDS ═══════════════ */}
-      <section style={{ background: '#f2ede6' }} className="py-16 relative">
-        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
+      <section style={{ background: '#f8fafc' }} className="py-16 relative">
+        <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.25),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Section header */}
+          <div className="text-center mb-10">
+            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="section-label mb-3 justify-center">Why Book With Us</motion.p>
+            <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              className="section-title text-3xl md:text-4xl max-w-2xl mx-auto"
+            >
+              Better travel, built around <span>how you move.</span>
+            </motion.h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {features.map((f, i) => (
               <motion.div
                 key={f.num}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 36 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="rounded-xl p-7 group relative overflow-hidden"
-                style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 20px rgba(0,0,0,0.06)' }}
+                transition={{ delay: i * 0.09, duration: 0.55 }}
+                className="info-card group"
               >
-                {/* Number badge */}
-                <span className="absolute top-4 right-5 font-heading text-4xl font-black opacity-[0.06] text-gray-900 select-none">{f.num}</span>
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-xl mb-5 flex items-center justify-center transition-all duration-300"
-                  style={{ background: `${f.color}22`, border: `1px solid ${f.color}44` }}>
-                  <f.icon style={{ color: f.color }} className="text-xl group-hover:scale-110 transition-transform" />
+                <div className="w-11 h-11 rounded-2xl mb-4 flex items-center justify-center transition-all duration-300"
+                  style={{ background: `${f.color}18`, border: `1px solid ${f.color}30` }}>
+                  <f.icon style={{ color: f.color }} className="text-lg group-hover:scale-110 transition-transform" />
                 </div>
-                <h3 className="font-heading text-base font-bold text-gray-900 mb-2 group-hover:text-gold transition-colors">{f.title}</h3>
-                <p className="font-body text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+                <h3
+                  className="text-base font-bold text-gray-900 mb-2 group-hover:text-gold transition-colors"
+                  style={{ fontFamily: 'Inter, Outfit, sans-serif', letterSpacing: '-0.02em' }}
+                >{f.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -247,7 +257,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ FLEET / BEST CAB SERVICE ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#f8f5f0' }}>
+      <section className="py-20 relative" style={{ background: '#ffffff' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Header */}
@@ -338,7 +348,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ TOUR PACKAGES ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#f2ede6' }}>
+      <section className="py-20 relative" style={{ background: '#f8fafc' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Header */}
@@ -395,10 +405,7 @@ export default function Home() {
                     ))}
                   </ul>
 
-                  {/* Meta */}
-                  <div className="flex gap-3 mb-5">
-                    <span className="gold-badge">{pkg.time}</span>
-                  </div>
+
 
                   {/* Actions */}
                   <div className="flex gap-2">
@@ -454,7 +461,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ ABOUT TEXT SECTION ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#f8f5f0' }}>
+      <section className="py-20 relative" style={{ background: '#ffffff' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.35),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
@@ -530,7 +537,7 @@ export default function Home() {
       <Testimonials />
 
       {/* ═══════════════ POPULAR ROUTES ═══════════════ */}
-      <section className="py-16 relative" style={{ background: '#f2ede6' }}>
+      <section className="py-14 relative" style={{ background: '#f8fafc' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.25),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.h3 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
