@@ -70,15 +70,16 @@ const fleetVehicles = [
     rate: '₹15',
     type: 'Sedan',
     startingPrice: '₹4,000',
-    image: AuraImg
+    image: AuraImg,
+    objectPosition: 'bottom'
   },
   {
-    name: 'Premium Dzire',
+    name: 'Premium Sedan',
     seating: '4+1D',
     rate: '₹18',
     type: 'Premium Sedan',
     startingPrice: '₹4,800',
-    image: DzireImg
+    image: PremiumSedanImg
   },
   {
     name: 'Maruti Ertiga',
@@ -301,6 +302,7 @@ export default function Home() {
                     src={v.image}
                     alt={v.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    style={{ objectPosition: v.objectPosition || 'center' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                   {/* Type badge */}

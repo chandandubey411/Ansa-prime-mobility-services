@@ -7,7 +7,7 @@ const VEHICLES = [
   'Maruti Dzire',
   'Honda City',
   'Hyundai Aura',
-  'Premium Dzire',
+  'Premium Sedan',
   'Maruti Ertiga',
   'Kia Carens',
   'Mahindra Marazzo',

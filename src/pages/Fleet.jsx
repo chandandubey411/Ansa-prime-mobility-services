@@ -38,17 +38,18 @@ const vehicles = [
     features: ['AC', 'Comfortable Seating', 'Music System', 'GPS Tracked'],
     ideal: 'Modern sedan, highly fuel-efficient and spacious for city and outstation travel.',
     color: '#3B82F6',
-    image: AuraImg
+    image: AuraImg,
+    objectPosition: 'bottom'
   },
   {
-    name: 'Premium Dzire',
+    name: 'Premium Sedan',
     type: 'Premium Sedan',
     seating: '4+1D',
     rate: '₹18',
     features: ['Luxury AC', 'Extra Comfort Seats', 'Music System', 'GPS Tracked'],
-    ideal: 'Upgraded sedan for extra comfort, ideal for corporate travel and long-distance rides.',
+    ideal: 'Upgraded premium sedan offering superior space, luxury style and executive travel comfort.',
     color: '#D4A73C',
-    image: DzireImg
+    image: PremiumSedanImg
   },
   {
     name: 'Maruti Ertiga',
@@ -177,6 +178,7 @@ export default function Fleet() {
                     src={v.image}
                     alt={v.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    style={{ objectPosition: v.objectPosition || 'center' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                   {/* Badges */}

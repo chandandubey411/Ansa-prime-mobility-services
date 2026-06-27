@@ -105,6 +105,7 @@ export default function BookCar() {
                   src={selectedCar.image}
                   alt={selectedCar.name}
                   className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  style={{ objectPosition: selectedCar.objectPosition || 'center' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
                 <span className={`absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full tracking-wider uppercase border ${tagStyle[selectedCar.tag] || 'bg-gold/15 text-gold border-gold/30'}`} style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
