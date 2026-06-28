@@ -21,18 +21,18 @@ export const cars = [
     description: 'The Maruti Suzuki Dzire is India\'s most popular compact sedan. It offers a smooth and reliable city ride with exceptional fuel efficiency. Perfect for solo travelers, business professionals, or small families seeking an budget-friendly trip or swift airport transfers.'
   },
   {
-    name: 'Premium Dzire',
+    name: 'Premium Sedan',
     tag: 'Premium',
-    category: 'Compact Sedan',
+    category: 'Mid Sedan',
     passengers: 4,
-    luggage: 2,
+    luggage: 3,
     fuel: 'Petrol',
     rate: '₹18/km',
     rateNum: 18,
     color: 'from-zinc-800 to-zinc-950',
     tagColor: 'from-amber-900/60 to-amber-950/60 border-amber-700/40 text-amber-300',
-    image: DzireImg,
-    description: 'An upgraded variant of our compact sedan fleet featuring premium leather seating, enhanced air conditioning controls, and additional legroom. Designed for travelers who require executive level comfort at an affordable daily rate.'
+    image: PremiumSedanImg,
+    description: 'A premium sedan featuring comfortable leather seating, dual-zone air conditioning, and generous legroom. Ideal for corporate travelers, executives, and families seeking an upscale ride at an affordable rate.'
   },
   {
     name: 'Aura',
@@ -46,6 +46,7 @@ export const cars = [
     color: 'from-slate-800 to-slate-950',
     tagColor: 'from-zinc-900/60 to-zinc-950/60 border-zinc-700/40 text-zinc-300',
     image: AuraImg,
+    objectPosition: 'bottom',
     description: 'The Hyundai Aura CNG provides eco-friendly transportation without compromising style or interior amenities. Ideal for short business travels and clean-energy city commutes, offering standard air conditioning and passenger safety features.'
   },
   {

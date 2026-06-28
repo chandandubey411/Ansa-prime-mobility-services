@@ -516,3 +516,34 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 100px;
   }
 }
+
+/* ===== FLOATING ACTION BUTTONS ===== */
+.floating-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.floating-btn:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.24), 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .floating-btn {
+    width: 42px;
+    height: 42px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  .floating-btn svg {
+    font-size: 16px !important;
+  }
+}
