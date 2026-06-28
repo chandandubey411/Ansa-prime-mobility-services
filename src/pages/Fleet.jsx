@@ -28,7 +28,7 @@ const vehicles = [
     features: ['AC', 'Premium Interiors', 'Music System', 'GPS Tracked'],
     ideal: 'Premium sedan offering superior comfort and status for business and family trips.',
     color: '#3B82F6',
-    image: ''
+    image: 'https://imgd.aeplcdn.com/1280x720/n/cw/ec/43706/honda-new-city-exterior-0.jpeg'
   },
   {
     name: 'Hyundai Aura',
