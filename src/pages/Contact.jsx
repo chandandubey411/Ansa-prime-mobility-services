@@ -5,6 +5,7 @@ import { HiLocationMarker, HiPhone, HiMail, HiClock } from 'react-icons/hi'
 import { FaWhatsapp } from 'react-icons/fa'
 import { HiArrowRight } from 'react-icons/hi'
 import MiniHero from '../components/MiniHero/MiniHero'
+import { Link } from 'react-router-dom'
 
 const contactInfo = [
   {

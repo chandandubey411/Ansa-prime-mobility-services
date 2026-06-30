@@ -517,13 +517,18 @@ export default function Home() {
             {/* Right stats grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {[
-                { value: '5,000+', label: 'Happy Clients', sub: 'Across Delhi NCR' },
+                { value: '5,000+', label: 'Happy Clients', sub: 'Across Delhi NCR', fullWidth: true },
                 { value: '100+', label: 'Expert Drivers', sub: 'Police Verified' },
                 { value: '15+', label: 'Premium Vehicles', sub: 'Well Maintained' },
-                { value: '8+', label: 'Years Experience', sub: 'Trusted Since 2016' },
               ].map((s, i) => (
+<<<<<<< HEAD
                 <div key={s.label}
                   className="rounded-xl p-6 text-center"
+=======
+                <motion.div key={s.label}
+                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  className={`rounded-xl p-6 text-center ${s.fullWidth ? 'col-span-2' : ''}`}
+>>>>>>> 0256137619f107a75e0f8b90f4864492342acce3
                   style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
                   <p className="font-heading text-3xl font-black gold-text mb-1">
                     <Counter value={s.value} />
