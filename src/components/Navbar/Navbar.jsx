@@ -110,8 +110,8 @@ export default function Navbar() {
             <a href="tel:+919643199064" className="flex items-center gap-1.5 text-[11px] font-semibold text-white hover:text-gold transition-colors" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
               <HiPhone className="text-gold text-sm" /> +91 96431 99064
             </a>
-            <a href="mailto:info@ansaprime.com" className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-400 hover:text-gold transition-colors" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
-              <HiMail className="text-sm" /> info@ansaprime.com
+            <a href="mailto:info@ansaprimemobility.in" className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-400 hover:text-gold transition-colors" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+              <HiMail className="text-sm" /> info@ansaprimemobility.in
             </a>
             <div className="flex items-center gap-3 ml-1 border-l border-white/10 pl-4">
               <a href="https://www.facebook.com/share/1GQDKScG4Z/" target="_blank" rel="noreferrer" aria-label="Facebook"
@@ -399,8 +399,8 @@ export default function Navbar() {
               <a href="tel:+919643199064" className="flex items-center gap-2 text-sm text-gray-500 hover:text-gold transition-colors">
                 <HiPhone className="text-gold" /> +91 96431 99064
               </a>
-              <a href="mailto:info@ansaprime.com" className="flex items-center gap-2 text-sm text-gray-500 hover:text-gold transition-colors">
-                <HiMail className="text-gold" /> info@ansaprime.com
+              <a href="mailto:info@ansaprimemobility.in" className="flex items-center gap-2 text-sm text-gray-500 hover:text-gold transition-colors">
+                <HiMail className="text-gold" /> info@ansaprimemobility.in
               </a>
             </div>
           </motion.div>

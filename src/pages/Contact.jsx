@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiLocationMarker, HiPhone, HiMail, HiClock } from 'react-icons/hi'
 import { FaWhatsapp } from 'react-icons/fa'
@@ -20,8 +21,8 @@ const contactInfo = [
   {
     icon: HiMail,
     title: 'Email Address',
-    lines: ['info@ansaprime.com'],
-    href: 'mailto:info@ansaprime.com',
+    lines: ['info@ansaprimemobility.in'],
+    href: 'mailto:info@ansaprimemobility.in',
   },
   {
     icon: HiClock,
@@ -147,7 +148,7 @@ export default function Contact() {
                     </motion.div>
                   ) : (
                     <form onSubmit={submit} className="space-y-4">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="text-[11px] text-gray-500 mb-1.5 block font-semibold tracking-wider" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>Full Name</label>
                           <input name="name" value={form.name} onChange={handle}
@@ -209,7 +210,7 @@ export default function Contact() {
       </section>
 
       {/* ═══════════════ CONTACT INFO STRIP ═══════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
+      <section className="py-10 sm:py-14 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
         <div className="absolute inset-0 opacity-[0.08]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 0, transparent 60px)' }} />
         <div className="max-w-5xl mx-auto px-4 relative">
@@ -217,23 +218,28 @@ export default function Contact() {
             {[
               { icon: HiLocationMarker, label: 'Our Location', value: '94, Block B, Zamrudpur, Greater Kailash, New Delhi – 110048' },
               { icon: HiPhone,          label: 'Call Us',       value: '+91 96431 99064' },
-              { icon: HiMail,           label: 'Email Us',      value: 'info@ansaprime.com' },
+              { icon: HiMail,           label: 'Email Us',      value: 'info@ansaprimemobility.in' },
             ].map((c, i) => (
-              <motion.div key={c.label}
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+              <div key={c.label}>
                <div className="flex flex-col items-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-3 sm:mb-4"
                   style={{ background: 'rgba(255,255,255,0.25)', border: '1px solid rgba(255,255,255,0.5)' }}>
-                  <c.icon className="text-white text-xl" />
+                  <c.icon className="text-white text-lg sm:text-xl" />
                 </div>
-                <p className="text-xs text-white/70 tracking-widest uppercase mb-1 font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.label}</p>
-                <p className="text-sm font-semibold text-white" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</p>
-              </div></motion.div>
+                <p className="text-[10px] sm:text-xs text-white/70 tracking-widest uppercase mb-1 font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.label}</p>
+                {c.label === 'Email Us' ? (
+                  <a href={`mailto:${c.value}`} className="text-xs sm:text-sm font-semibold text-white hover:text-white/80 break-all px-4" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</a>
+                ) : c.label === 'Call Us' ? (
+                  <a href={`tel:${c.value.replace(/\s+/g, '')}`} className="text-xs sm:text-sm font-semibold text-white hover:text-white/80" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</a>
+                ) : (
+                  <p className="text-xs sm:text-sm font-semibold text-white px-4" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</p>
+                )}
+               </div>
+              </div>
             ))}
           </div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
               target="_blank" rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-full hover:-translate-y-1 transition-all duration-300 hover:shadow-lg"
@@ -247,7 +253,7 @@ export default function Contact() {
             >
               Contact Us <HiArrowRight />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>

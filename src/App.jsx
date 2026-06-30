@@ -21,17 +21,19 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Navbar />
-      <Routes>
-        <Route path="/"        element={<Home />}     />
-        <Route path="/about"   element={<About />}    />
-        <Route path="/fleet"   element={<Fleet />}    />
-        <Route path="/pricing" element={<Pricing />}  />
-        <Route path="/services"element={<Services />} />
-        <Route path="/contact" element={<Contact />}  />
-        <Route path="/book"    element={<BookCar />}  />
-      </Routes>
-      <Footer />
+      <div className="w-full overflow-x-hidden">
+        <Navbar />
+        <Routes>
+          <Route path="/"        element={<Home />}     />
+          <Route path="/about"   element={<About />}    />
+          <Route path="/fleet"   element={<Fleet />}    />
+          <Route path="/pricing" element={<Pricing />}  />
+          <Route path="/services"element={<Services />} />
+          <Route path="/contact" element={<Contact />}  />
+          <Route path="/book"    element={<BookCar />}  />
+        </Routes>
+        <Footer />
+      </div>
       <FloatingButtons />
     </BrowserRouter>
   )

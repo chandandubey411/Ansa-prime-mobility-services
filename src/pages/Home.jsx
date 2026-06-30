@@ -2,6 +2,7 @@ import HeroSection from '../components/Hero/HeroSection'
 import Testimonials from '../components/Testimonials/Testimonials'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import Counter from '../components/Counter/Counter'
 import {
   FaCarSide, FaUserTie, FaMoneyBillWave, FaClock,
   FaPhoneAlt, FaWhatsapp, FaCheckCircle, FaMapMarkedAlt,
@@ -514,24 +515,24 @@ export default function Home() {
             </div>
 
             {/* Right stats grid */}
-            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.8 }}
-              className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {[
                 { value: '5,000+', label: 'Happy Clients', sub: 'Across Delhi NCR' },
                 { value: '100+', label: 'Expert Drivers', sub: 'Police Verified' },
                 { value: '15+', label: 'Premium Vehicles', sub: 'Well Maintained' },
                 { value: '8+', label: 'Years Experience', sub: 'Trusted Since 2016' },
               ].map((s, i) => (
-                <motion.div key={s.label}
-                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                <div key={s.label}
                   className="rounded-xl p-6 text-center"
                   style={{ background: '#ffffff', border: '1px solid rgba(212,167,60,0.15)', boxShadow: '0 2px 15px rgba(0,0,0,0.05)' }}>
-                  <p className="font-heading text-3xl font-black gold-text mb-1">{s.value}</p>
+                  <p className="font-heading text-3xl font-black gold-text mb-1">
+                    <Counter value={s.value} />
+                  </p>
                   <p className="font-body text-sm font-semibold text-gray-700">{s.label}</p>
                   <p className="font-body text-[11px] text-gray-400 tracking-wider mt-1">{s.sub}</p>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

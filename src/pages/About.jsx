@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import MiniHero from '../components/MiniHero/MiniHero'
+import Counter from '../components/Counter/Counter'
 import {
   FaCheckCircle, FaPhoneAlt, FaWhatsapp, FaAward,
   FaShieldAlt, FaHandshake, FaCarSide, FaArrowRight
@@ -58,7 +59,7 @@ export default function About() {
       />
 
       {/* ═══════════════ WHO WE ARE ═══════════════ */}
-      <section className="py-24" style={{ background: '#ffffff' }}>
+      <section className="pt-24 pb-12" style={{ background: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             {/* Left */}
@@ -95,30 +96,29 @@ export default function About() {
             </div>
 
             {/* Right — Stats */}
-            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.8 }}
-              className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {[
                 { value: '5,000+', label: 'Happy Clients',    sub: 'Across Delhi NCR' },
                 { value: '100+',   label: 'Expert Drivers',   sub: 'Police Verified' },
                 { value: '15+',    label: 'Luxury Vehicles',  sub: 'Premium Fleet' },
-                { value: '8+',     label: 'Years Experience', sub: 'Since 2016' },
               ].map((s, i) => (
-                <motion.div key={s.label}
-                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className="info-card group text-center"
+                <div key={s.label}
+                  className={`info-card group text-center ${i === 2 ? 'sm:col-span-2' : ''}`}
                 >
-                  <p className="font-heading text-3xl font-black gold-text mb-1">{s.value}</p>
+                  <p className="font-heading text-3xl font-black gold-text mb-1">
+                    <Counter value={s.value} />
+                  </p>
                   <p className="text-sm font-semibold text-gray-700" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{s.label}</p>
                   <p className="text-[11px] text-gray-400 tracking-wider mt-1" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{s.sub}</p>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════ WHY CHOOSE US ═══════════════ */}
-      <section className="py-24 relative" style={{ background: '#f8fafc' }}>
+      <section className="pt-12 pb-24 relative" style={{ background: '#f8fafc' }}>
         <div className="h-px w-full absolute top-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,167,60,0.25),transparent)' }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -196,7 +196,7 @@ export default function About() {
       </section>
 
       {/* ═══════════════ CONTACT INFO STRIP ═══════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
+      <section className="py-10 sm:py-14 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #D4A73C, #c49535, #B8891F)' }}>
         <div className="absolute inset-0 opacity-[0.08]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 0, transparent 60px)' }} />
         <div className="max-w-5xl mx-auto px-4 relative">
@@ -204,23 +204,28 @@ export default function About() {
             {[
               { icon: HiLocationMarker, label: 'Our Location', value: '94, Block B, Zamrudpur, Greater Kailash, New Delhi – 110048' },
               { icon: HiPhone,          label: 'Call Us',       value: '+91 96431 99064' },
-              { icon: HiMail,           label: 'Email Us',      value: 'info@ansaprime.com' },
+              { icon: HiMail,           label: 'Email Us',      value: 'info@ansaprimemobility.in' },
             ].map((c, i) => (
-              <motion.div key={c.label}
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+              <div key={c.label}>
                <div className="flex flex-col items-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-3 sm:mb-4"
                   style={{ background: 'rgba(255,255,255,0.25)', border: '1px solid rgba(255,255,255,0.5)' }}>
-                  <c.icon className="text-white text-xl" />
+                  <c.icon className="text-white text-lg sm:text-xl" />
                 </div>
-                <p className="text-xs text-white/70 tracking-widest uppercase mb-1 font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.label}</p>
-                <p className="text-sm font-semibold text-white" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</p>
-              </div></motion.div>
+                <p className="text-[10px] sm:text-xs text-white/70 tracking-widest uppercase mb-1 font-semibold" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.label}</p>
+                {c.label === 'Email Us' ? (
+                  <a href={`mailto:${c.value}`} className="text-xs sm:text-sm font-semibold text-white hover:text-white/80 break-all px-4" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</a>
+                ) : c.label === 'Call Us' ? (
+                  <a href={`tel:${c.value.replace(/\s+/g, '')}`} className="text-xs sm:text-sm font-semibold text-white hover:text-white/80" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</a>
+                ) : (
+                  <p className="text-xs sm:text-sm font-semibold text-white px-4" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>{c.value}</p>
+                )}
+               </div>
+              </div>
             ))}
           </div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a href="https://wa.me/919643199064?text=Hello%20I%20want%20to%20book%20a%20cab.%20Thanks"
               target="_blank" rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[11px] font-bold tracking-[2px] uppercase bg-white text-gray-900 rounded-full hover:-translate-y-1 transition-all duration-300 hover:shadow-lg"
@@ -234,7 +239,7 @@ export default function About() {
             >
               Contact Us <FaArrowRight />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>

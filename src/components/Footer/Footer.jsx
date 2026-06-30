@@ -70,8 +70,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <HiMail className="text-gold text-base shrink-0" />
-                <a href="mailto:info@ansaprime.com" className="text-xs text-slate-400 hover:text-gold transition-colors" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
-                  info@ansaprime.com
+                <a href="mailto:info@ansaprimemobility.in" className="text-xs text-slate-400 hover:text-gold transition-colors" style={{ fontFamily: 'Inter, Poppins, sans-serif' }}>
+                  info@ansaprimemobility.in
                 </a>
               </li>
             </ul>
