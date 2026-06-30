@@ -253,7 +253,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed inset-0 z-30 flex flex-col pt-20 pb-10 px-6 overflow-y-auto"
+            className="fixed inset-0 z-50 flex flex-col pt-6 pb-10 px-6 overflow-y-auto"
             style={{ background: '#ffffff' }}
           >
             {/* Header bar */}
